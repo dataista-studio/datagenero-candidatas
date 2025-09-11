@@ -1,0 +1,114 @@
+<head>
+    <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/d3-sankey@0"></script>
+
+    <style>
+    </style>
+</head>
+
+<section>
+  
+    <div id="viz1"></div>
+    <div id="viz2"></div>
+    <div id="viz3"></div>
+  
+</section>
+
+<script>
+
+  Promise.all([
+    d3.csv('./Datos - F2 + F3 - Provincial.csv'),
+    d3.csv("./Datos - F4 - Mixtos.csv"),
+    d3.csv("./Datos - F5 - Nacional old.csv")
+  ]).then((csv) => {
+    const f23 = csv[0];
+    const f4 = csv[1];
+    const f5 = csv[2];
+
+    f23.forEach((d, i) => {
+      d["listas"] = +d["listas"];
+      d["listas encabezadas por mujeres"] = +d["listas encabezadas por mujeres"];
+      d["listas competitivas encabezadas por mujeres"] = +d["listas competitivas encabezadas por mujeres"];
+      d['% mujeres'] = (d["listas"] / d["listas encabezadas por mujeres"]).toFixed(2);
+      d['% comp mujeres'] = (d["listas"] / d["listas competitivas encabezadas por mujeres"]).toFixed(2);
+    });
+
+    const data23 = f23.sort((a,b) => b['% comp mujeres'] - a['% comp mujeres']);
+    data23.forEach((d, i) => {
+      d.cumsum = d3.sum(data23.slice(0, i), d => d['listas']);
+    })
+
+    f4.forEach(d => {
+      d["distrito unico mujeres"] = + d["distrito unico mujeres"];
+      d["distrito unico total"] = + d["distrito unico total"];
+      d["distrito unico mujeres porcentaje"] = + d["distrito unico mujeres porcentaje"];
+      d["secciones mujeres"] = + d["secciones mujeres"];
+      d["secciones total"] = + d["secciones total"];
+      d["secciones mujeres porcentaje"] = + d["secciones mujeres porcentaje"];
+    })
+
+    f5.forEach(d => {
+      d["diputadxs"] = +d["diputadxs"];
+      d["cantidad diputadas"] = +d["cantidad diputadas"];
+      d["porcentaje diputadas"] = +d["porcentaje diputadas"];
+      d["senadorxs"] = +d["senadorxs"];
+      d["cantidad senadoras"] = +d["cantidad senadoras"];
+      d["porcentaje senadoras"] = +d["porcentaje senadoras"];
+    })
+
+
+    const margin1 = ({ top: 10, right: 180, bottom: 10, left: 60 });
+
+    const width1 = 800 + margin1.left + margin1.right;
+    const height1 = 600;
+
+    // Create a SVG container.
+    const svg1 = d3.select("#viz1")
+        .append("svg")
+          .attr("width", width1)
+          .attr("height", height1)
+          .attr("viewBox", [0, 0, width1, height1])
+          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+    const g1 = svg1.append("g");
+
+
+    // const rectBg = g.append("g")
+    //   .selectAll(".rect-bg")
+    //   .data(nodes.filter(d => d.name === 'Total'))
+    //   .join("rect")
+    //     .attr("class", "rect-bg")
+    //     .attr("x", d => d.x0 < width / 2 ? d.x0 - (d.y1 - d.y0) : d.x0)
+    //     .attr("y", d => d.y0)
+    //     .attr("height", d => d.y1 - d.y0)
+    //     .attr("width", d => d.y1 - d.y0)
+    //     .attr("fill", "#848484")
+    //     .style("opacity", 0.15);
+
+    // const rectMg = g.append("g")
+    //   .selectAll(".rect-mg")
+    //   .data(nodes)
+    //   .join("rect")
+    //     .attr("class", "rect-mg")
+    //     .attr("x", d => d.x0 < width / 2 ? d.x0 - (d.y1 - d.y0) * d.Progress / d.Gap : d.x0)
+    //     .attr("y", d => d.y0)
+    //     .attr("height", d => d.y1 - d.y0)
+    //     .attr("width", d => d.name === 'Total' ? 0 : (d.y1 - d.y0) * d.Progress / d.Gap)
+    //     .attr("fill", d => colorScale(d.name))
+    //     .style("opacity", 0.4);
+
+    // const rectFg = g.append("g")
+    //   .selectAll(".rect-fg")
+    //   .data(nodes)
+    //   .join("rect")
+    //     .attr("class", "rect-fg")
+    //     .attr("x", d => d.x0 < width / 2 ? d.x0 - (d.y1 - d.y0) * d.Progress / d.Gap : d.x0)
+    //     .attr("y", d => d.y0)
+    //     .attr("height", d => d.y1 - d.y0)
+    //     .attr("width", d => d.name === 'Total' ? 0 : (d.y1 - d.y0) * d.Progress / d.Gap)
+    //     .attr("fill", d => colorScale(d.name));
+
+
+  })
+
+</script>
