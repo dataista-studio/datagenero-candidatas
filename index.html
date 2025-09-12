@@ -14,16 +14,19 @@
   
 </section>
 
+<script src="beeswarm.js"></script>
 <script>
 
   Promise.all([
     d3.csv('./Datos - F2 + F3 - Provincial.csv'),
     d3.csv("./Datos - F4 - Mixtos.csv"),
-    d3.csv("./Datos - F5 - Nacional old.csv")
+    d3.csv("./Datos - F5 - Nacional old.csv"),
+    d3.csv("./Datos - F5 - Provincial.csv")
   ]).then((csv) => {
     const f23 = csv[0];
     const f4 = csv[1];
     const f5 = csv[2];
+    const f5p = csv[3];
 
     f23.forEach((d, i) => {
       d["listas"] = +d["listas"];
@@ -54,6 +57,17 @@
     f5.forEach(d => {
       d["diputadxs"] = +d["diputadxs"];
       d["cantidad diputadas"] = +d["cantidad diputadas"];
+      d["cantidad diputados"] = d["diputadxs"] - d["cantidad diputadas"];
+      d["porcentaje diputadas"] = +d["porcentaje diputadas"];
+      d["senadorxs"] = +d["senadorxs"];
+      d["cantidad senadoras"] = +d["cantidad senadoras"];
+      d["porcentaje senadoras"] = +d["porcentaje senadoras"];
+    });
+
+    f5p.forEach(d => {
+      d["diputadxs"] = +d["diputadxs"];
+      d["cantidad diputadas"] = +d["cantidad diputadas"];
+      d["cantidad diputados"] = d["diputadxs"] - d["cantidad diputadas"];
       d["porcentaje diputadas"] = +d["porcentaje diputadas"];
       d["senadorxs"] = +d["senadorxs"];
       d["cantidad senadoras"] = +d["cantidad senadoras"];
@@ -272,6 +286,92 @@
             clicks2 = 0;
           }
         });
+
+        const margin3 = ({ top: 20, right: 20, bottom: 40, left: 100 });
+
+        const width3 = 700;
+        const height3 = 300;
+
+        // Create a SVG container.
+        const svg3 = d3.select("#viz3")
+            .append("svg")
+              .attr("width", width3)
+              .attr("height", height3)
+              .attr("viewBox", [0, 0, width3, height3])
+              .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+        const g3 = svg3.append("g");
+
+        const x3 = 'porcentaje diputadas';
+        const r3 = "cantidad diputadas";
+        const rMax = Math.max(
+          d3.max(f5, d => d[r3]),
+          d3.max(f5p, d => d[r3])
+        )
+
+        const xScale3 = d3.scaleLinear()
+            .range([margin3.left, width3 - margin3.right])
+            .domain([0,100]);
+
+        const rScale3 = d3.scaleSqrt()
+          .range([2, 10])
+          .domain([0, rMax])
+
+        const beeswarm = beeswarmForce()
+          .x(d => xScale3(d[x3]))
+          .r(d => rScale3(d[r3]));
+
+        const data5 = beeswarm
+          .y(d => height3 / 3)
+          (f5);
+
+        const data5p = beeswarm
+          .y(d => height3 * 2 / 3)
+          (f5p);
+
+        // svg3.append("g")
+        //     .attr("transform", `translate(${margin3.left},0)`)
+        //     .call(d3.axisLeft(yScale3).ticks(5))
+            // .call((g) => g.select(".domain").remove())
+
+        svg3.append("g")
+            .attr("transform", `translate(0,${height3 - margin3.bottom})`)
+            .call(d3.axisBottom(xScale3).ticks(5))
+            .call((g) => g.select(".domain").remove())
+
+        svg3.selectAll(".nacional")
+          .data(data5)
+          .join("circle")
+            .attr("class", "nacional")
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.r)
+            .attr("fill", "steelblue");
+
+        svg3.selectAll(".nacional-label")
+          .data(["HCD Nacional"])
+          .join("text")
+            .attr("class", "nacional-label")
+            .attr("x", 0)
+            .attr("y", height3 / 3)
+            .text(d => d)
+
+        svg3.selectAll(".provincial")
+          .data(data5p)
+          .join("circle")
+            .attr("class", "provincial")
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.r)
+            .attr("fill", "steelblue");
+
+        svg3.selectAll(".provincial-label")
+          .data(["Provincial"])
+          .join("text")
+            .attr("class", "provincial-label")
+            .attr("x", 0)
+            .attr("y", height3 * 2 / 3)
+            .text(d => d)
 
   })
 
