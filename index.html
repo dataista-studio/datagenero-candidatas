@@ -392,10 +392,10 @@
     const field = "jurisdicción"
     const jurisdicciones = Array.from(new Set(fe.map(d => d[field])));
 
-    const margin4 = ({ top: 10, right: 20, bottom: 10, left: 120 });
+    const margin4 = ({ top: 20, right: 20, bottom: 10, left: 120 });
 
     const width4 = 500;
-    const height4 = jurisdicciones.length * 40;
+    const height4 = jurisdicciones.length * 26;
     const chartWidth4 = width4 - margin4.left - margin4.right;
 
     // Create a SVG container.
@@ -409,11 +409,11 @@
     const g4 = svg4.append("g");
 
     const yScale4 = d3.scaleBand()
-        .padding(0.1)
+        .padding(0.05)
         .range([margin4.top, height4 - margin4.bottom])
         .domain(jurisdicciones);
 
-    g4.selectAll(".lista")
+    const listaRect = g4.selectAll(".lista")
       .data(["mayoria", "minoria"])
       .join("rect")
         .attr("class", "lista")
@@ -426,7 +426,22 @@
         .style('stroke-width', 1)
         .style("stroke-dasharray", "8 4")
         .style("stroke-opacity", 1)
-        .style("fill-opacity", 0.1)
+        .style('display', "none")
+        .style("fill-opacity", 0.1) 
+
+    const listaText = g4.selectAll(".nombre-lista")
+      .data(["mayoria", "minoria"])
+      .join("text")
+        .attr("class", "nombre-lista")
+        .attr("x", d => d === 'mayoria' 
+          ? margin4.left + (chartWidth4 * 2/3 - 10) / 2
+          : margin4.left + chartWidth4 * 2/3 + (chartWidth4 / 3) / 2
+        )
+        .attr("y", margin4.top - 4)
+        .attr("text-anchor", "middle")
+        .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
+        .style("display", "none")
+        .text(d => d)
 
     const j = g4.selectAll(".juri")
       .data(jurisdicciones)
@@ -445,9 +460,7 @@
     const candWidth = (chartWidth4 * 2/3 - 10 - 3 * padding) / 2;
     const minPadding = (chartWidth4 / 3 - candWidth) / 2;
 
-    console.log(fe)
-
-    j.selectAll(".cand")
+    const candidatxs = j.selectAll(".cand")
       .data(d => fe.filter(f => f[field] === d))
       .join('rect')
       .attr("class", "cand")
@@ -466,6 +479,46 @@
         .style('stroke-width', 0.5)
         .style("stroke-opacity", 1)
         .style("fill-opacity", 1)
+        .style("display", "none");
+
+
+    let clicks4 = 0;
+    const dt4 = 500;
+
+    d3.select("#viz4").append("div")
+      .attr("class", "button")
+      .html("Next")
+      .on("click", () => {
+        if (clicks4 === 0) {
+          candidatxs.style('fill', 'white')
+            .style("display", "block")
+          clicks4++;
+        } else if (clicks4 === 1) {
+          listaRect.style('display', 'block');
+          listaText.style('display', 'block');
+          clicks4++;
+        } else if (clicks4 === 2) {
+          candidatxs.style('fill', (d, i) => i < 2
+            ? (d.genero === '' ? 'lightgray'
+              : (d.genero === "femenino" ? 'pink' : 'yellow')
+            )
+            : 'white'
+          );
+          clicks4++;
+        } else if (clicks4 === 3) {
+          candidatxs.style('fill', (d, i) => d.genero === '' 
+            ? 'lightgray'
+            : (d.genero === "femenino" ? 'pink' : 'yellow')
+
+          );
+          clicks4++;
+        } else {
+          candidatxs.style("display", "none");
+          listaRect.style('display', 'none');
+          listaText.style('display', 'none');
+          clicks4 = 0;
+        }
+      });
 
   })
 
