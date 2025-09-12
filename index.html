@@ -3,14 +3,26 @@
     <script src="https://unpkg.com/d3-sankey@0"></script>
 
     <style>
+      .button {
+        border: 1px solid black;
+        cursor: pointer;
+        width: 60px;
+        text-align: center;
+        padding: 6px 2px;
+      }
     </style>
 </head>
 
 <section>
   
+    <h2>F2+3: Listas -> Encabezadas por mujeres -> Competitivas encabezadas por mujeres</h2>
     <div id="viz1"></div>
+    <h2>F4: distrito unico (rojo) vs. secciones (azul)</h2>
     <div id="viz2"></div>
+    <h2>F5: resultados</h2>
     <div id="viz3"></div>
+    <h2>Encabezamiento Senado</h2>
+    <div id="viz4"></div>
   
 </section>
 
@@ -175,6 +187,7 @@
     let clicks = 0;
 
     d3.select("#viz1").append("div")
+      .attr("class", "button")
       .html("Next")
       .on("click", () => {
         if (clicks === 0) {
@@ -190,188 +203,189 @@
       });
 
 
-      const margin2 = ({ top: 20, right: 20, bottom: 40, left: 80 });
+    const margin2 = ({ top: 20, right: 20, bottom: 40, left: 80 });
 
-      const width2 = 600;
-      const height2 = 140;
+    const width2 = 600;
+    const height2 = 140;
 
-      const yValues = f4.map(d => d.jurisdiccion)
+    const yValues = f4.map(d => d.jurisdiccion)
 
-      // Create a SVG container.
-      const svg2 = d3.select("#viz2")
-          .append("svg")
-            .attr("width", width2)
-            .attr("height", height2)
-            .attr("viewBox", [0, 0, width2, height2])
-            .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+    // Create a SVG container.
+    const svg2 = d3.select("#viz2")
+        .append("svg")
+          .attr("width", width2)
+          .attr("height", height2)
+          .attr("viewBox", [0, 0, width2, height2])
+          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
 
-      const g2 = svg2.append("g");
+    const g2 = svg2.append("g");
 
-      const xScale2 = d3.scaleLinear()
-          .range([margin2.left, width2 - margin2.right])
-          .domain([0, 1]);
+    const xScale2 = d3.scaleLinear()
+        .range([margin2.left, width2 - margin2.right])
+        .domain([0, 1]);
 
-      const yScale2 = d3.scalePoint()
-          .range([height2 - margin2.bottom, margin2.top])
-          .domain(yValues);
+    const yScale2 = d3.scalePoint()
+        .range([height2 - margin2.bottom, margin2.top])
+        .domain(yValues);
 
-      svg2.append("g")
-          .attr("transform", `translate(${margin2.left},0)`)
-          .call(d3.axisLeft(yScale2).ticks(5))
-          .call((g) => {
-            g.select(".domain").remove();
-            g.selectAll(".tick line").remove();
-          })
-
-      svg2.append("g")
-        .attr("transform", `translate(0, ${height2 - margin2.bottom + 20})`)
-        .call(d3.axisBottom(xScale2).ticks(5))
+    svg2.append("g")
+        .attr("transform", `translate(${margin2.left},0)`)
+        .call(d3.axisLeft(yScale2).ticks(5))
         .call((g) => {
           g.select(".domain").remove();
-        });
+          g.selectAll(".tick line").remove();
+        })
 
-      const circleRadius = 5;
-      const colorUnico = 'red';
-      const colorSeccion = 'steelblue';
+    svg2.append("g")
+      .attr("transform", `translate(0, ${height2 - margin2.bottom + 20})`)
+      .call(d3.axisBottom(xScale2).ticks(5))
+      .call((g) => {
+        g.select(".domain").remove();
+      });
 
-      const lineas = svg2.selectAll(".linea")
-        .data(f4)
-        .join("line")
-          .attr("class", "linea")
-          .attr("x1", d => xScale2(d["distrito unico mujeres porcentaje"]))
-          .attr("y1", d => yScale2(d["jurisdiccion"]))
-          .attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]))
-          .attr("y2", d => yScale2(d["jurisdiccion"]))
-          .attr("stroke", "darkgrey")
-          .attr("stroke-width", 1.5)
+    const circleRadius = 5;
+    const colorUnico = 'red';
+    const colorSeccion = 'steelblue';
 
-      const unicos = svg2.selectAll(".unico")
-        .data(f4)
-        .join("circle")
-          .attr("class", "unico")
-          .attr("cx", d => xScale2(d["distrito unico mujeres porcentaje"]))
-          .attr("cy", d => yScale2(d["jurisdiccion"]))
-          .attr("r", 0)
-          .attr("fill", colorUnico);
+    const lineas = svg2.selectAll(".linea")
+      .data(f4)
+      .join("line")
+        .attr("class", "linea")
+        .attr("x1", d => xScale2(d["distrito unico mujeres porcentaje"]))
+        .attr("y1", d => yScale2(d["jurisdiccion"]))
+        .attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]))
+        .attr("y2", d => yScale2(d["jurisdiccion"]))
+        .attr("stroke", "darkgrey")
+        .attr("stroke-width", 1.5)
 
-      const secciones = svg2.selectAll(".seccion")
-        .data(f4)
-        .join("circle")
-          .attr("class", "seccion")
-          .attr("cx", d => xScale2(d["secciones mujeres porcentaje"]))
-          .attr("cy", d => yScale2(d["jurisdiccion"]))
-          .attr("r", 0)
-          .attr("fill", colorSeccion);
+    const unicos = svg2.selectAll(".unico")
+      .data(f4)
+      .join("circle")
+        .attr("class", "unico")
+        .attr("cx", d => xScale2(d["distrito unico mujeres porcentaje"]))
+        .attr("cy", d => yScale2(d["jurisdiccion"]))
+        .attr("r", 0)
+        .attr("fill", colorUnico);
 
-      let clicks2 = 0;
-      const dt = 500;
+    const secciones = svg2.selectAll(".seccion")
+      .data(f4)
+      .join("circle")
+        .attr("class", "seccion")
+        .attr("cx", d => xScale2(d["secciones mujeres porcentaje"]))
+        .attr("cy", d => yScale2(d["jurisdiccion"]))
+        .attr("r", 0)
+        .attr("fill", colorSeccion);
 
-      d3.select("#viz2").append("div")
-        .html("Next")
-        .on("click", () => {
-          if (clicks2 === 0) {
-            unicos.transition().duration(dt)
-              .attr("r", circleRadius);
-            clicks2++;
-          } else if (clicks2 === 1) {
-            lineas.transition().duration(dt)
-              .attr("x2", d => xScale2(d["secciones mujeres porcentaje"]));
-            secciones.transition().duration(dt * 2)
-              .attr("r", circleRadius);
-            clicks2++;
-          } else {
-            unicos.attr("r", 0);
-            lineas.attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]));
-            secciones.attr("r", 0);
-            clicks2 = 0;
-          }
-        });
+    let clicks2 = 0;
+    const dt = 500;
 
-        const margin3 = ({ top: 20, right: 20, bottom: 40, left: 100 });
+    d3.select("#viz2").append("div")
+      .attr("class", "button")
+      .html("Next")
+      .on("click", () => {
+        if (clicks2 === 0) {
+          unicos.transition().duration(dt)
+            .attr("r", circleRadius);
+          clicks2++;
+        } else if (clicks2 === 1) {
+          lineas.transition().duration(dt)
+            .attr("x2", d => xScale2(d["secciones mujeres porcentaje"]));
+          secciones.transition().duration(dt * 2)
+            .attr("r", circleRadius);
+          clicks2++;
+        } else {
+          unicos.attr("r", 0);
+          lineas.attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]));
+          secciones.attr("r", 0);
+          clicks2 = 0;
+        }
+      });
 
-        const width3 = 700;
-        const height3 = 300;
+    const margin3 = ({ top: 20, right: 20, bottom: 40, left: 100 });
 
-        // Create a SVG container.
-        const svg3 = d3.select("#viz3")
-            .append("svg")
-              .attr("width", width3)
-              .attr("height", height3)
-              .attr("viewBox", [0, 0, width3, height3])
-              .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+    const width3 = 700;
+    const height3 = 300;
 
-        const g3 = svg3.append("g");
+    // Create a SVG container.
+    const svg3 = d3.select("#viz3")
+        .append("svg")
+          .attr("width", width3)
+          .attr("height", height3)
+          .attr("viewBox", [0, 0, width3, height3])
+          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
 
-        const x3 = 'porcentaje diputadas';
-        const r3 = "cantidad diputadas";
-        const rMax = Math.max(
-          d3.max(f5, d => d[r3]),
-          d3.max(f5p, d => d[r3])
-        )
+    const g3 = svg3.append("g");
 
-        const xScale3 = d3.scaleLinear()
-            .range([margin3.left, width3 - margin3.right])
-            .domain([0,100]);
+    const x3 = 'porcentaje diputadas';
+    const r3 = "cantidad diputadas";
+    const rMax = Math.max(
+      d3.max(f5, d => d[r3]),
+      d3.max(f5p, d => d[r3])
+    )
 
-        const rScale3 = d3.scaleSqrt()
-          .range([2, 10])
-          .domain([0, rMax])
+    const xScale3 = d3.scaleLinear()
+        .range([margin3.left, width3 - margin3.right])
+        .domain([0,100]);
 
-        const beeswarm = beeswarmForce()
-          .x(d => xScale3(d[x3]))
-          .r(d => rScale3(d[r3]));
+    const rScale3 = d3.scaleSqrt()
+      .range([2, 10])
+      .domain([0, rMax])
 
-        const data5 = beeswarm
-          .y(d => height3 / 3)
-          (f5);
+    const beeswarm = beeswarmForce()
+      .x(d => xScale3(d[x3]))
+      .r(d => rScale3(d[r3]));
 
-        const data5p = beeswarm
-          .y(d => height3 * 2 / 3)
-          (f5p);
+    const data5 = beeswarm
+      .y(d => height3 / 3)
+      (f5);
 
-        // svg3.append("g")
-        //     .attr("transform", `translate(${margin3.left},0)`)
-        //     .call(d3.axisLeft(yScale3).ticks(5))
-            // .call((g) => g.select(".domain").remove())
+    const data5p = beeswarm
+      .y(d => height3 * 2 / 3)
+      (f5p);
 
-        svg3.append("g")
-            .attr("transform", `translate(0,${height3 - margin3.bottom})`)
-            .call(d3.axisBottom(xScale3).ticks(5))
-            .call((g) => g.select(".domain").remove())
+    // svg3.append("g")
+    //     .attr("transform", `translate(${margin3.left},0)`)
+    //     .call(d3.axisLeft(yScale3).ticks(5))
+        // .call((g) => g.select(".domain").remove())
 
-        svg3.selectAll(".nacional")
-          .data(data5)
-          .join("circle")
-            .attr("class", "nacional")
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y)
-            .attr("r", d => d.r)
-            .attr("fill", "steelblue");
+    svg3.append("g")
+        .attr("transform", `translate(0,${height3 - margin3.bottom})`)
+        .call(d3.axisBottom(xScale3).ticks(5))
+        .call((g) => g.select(".domain").remove())
 
-        svg3.selectAll(".nacional-label")
-          .data(["HCD Nacional"])
-          .join("text")
-            .attr("class", "nacional-label")
-            .attr("x", 0)
-            .attr("y", height3 / 3)
-            .text(d => d)
+    svg3.selectAll(".nacional")
+      .data(data5)
+      .join("circle")
+        .attr("class", "nacional")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", d => d.r)
+        .attr("fill", "steelblue");
 
-        svg3.selectAll(".provincial")
-          .data(data5p)
-          .join("circle")
-            .attr("class", "provincial")
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y)
-            .attr("r", d => d.r)
-            .attr("fill", "steelblue");
+    svg3.selectAll(".nacional-label")
+      .data(["HCD Nacional"])
+      .join("text")
+        .attr("class", "nacional-label")
+        .attr("x", 0)
+        .attr("y", height3 / 3)
+        .text(d => d)
 
-        svg3.selectAll(".provincial-label")
-          .data(["Provincial"])
-          .join("text")
-            .attr("class", "provincial-label")
-            .attr("x", 0)
-            .attr("y", height3 * 2 / 3)
-            .text(d => d)
+    svg3.selectAll(".provincial")
+      .data(data5p)
+      .join("circle")
+        .attr("class", "provincial")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", d => d.r)
+        .attr("fill", "steelblue");
+
+    svg3.selectAll(".provincial-label")
+      .data(["Provincial"])
+      .join("text")
+        .attr("class", "provincial-label")
+        .attr("x", 0)
+        .attr("y", height3 * 2 / 3)
+        .text(d => d)
 
   })
 
