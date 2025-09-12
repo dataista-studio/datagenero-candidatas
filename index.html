@@ -389,7 +389,8 @@
         .attr("y", height3 * 2 / 3)
         .text(d => d);
 
-    const jurisdicciones = Array.from(new Set(fe.map(d => d["jurisdicción"])));
+    const field = "jurisdicción"
+    const jurisdicciones = Array.from(new Set(fe.map(d => d[field])));
 
     const margin4 = ({ top: 10, right: 20, bottom: 10, left: 120 });
 
@@ -412,6 +413,21 @@
         .range([margin4.top, height4 - margin4.bottom])
         .domain(jurisdicciones);
 
+    g4.selectAll(".lista")
+      .data(["mayoria", "minoria"])
+      .join("rect")
+        .attr("class", "lista")
+        .attr("x", d => d === 'mayoria' ? margin4.left : margin4.left + chartWidth4 * 2/3)
+        .attr("y", margin4.top)
+        .attr("width", d => d === "mayoria" ? chartWidth4 * 2/3 - 10 : chartWidth4 / 3)
+        .attr("height", height4 - margin4.bottom - margin4.top)
+        .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
+        .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
+        .style('stroke-width', 1)
+        .style("stroke-dasharray", "8 4")
+        .style("stroke-opacity", 1)
+        .style("fill-opacity", 0.1)
+
     const j = g4.selectAll(".juri")
       .data(jurisdicciones)
       .join("g")
@@ -425,23 +441,31 @@
         .attr("y", yScale4.bandwidth() / 2 + 4)
         .text(d => d)
 
-    j.selectAll(".lista")
-      .data(d => ["mayoria", "minoria"])
-      .join("rect")
-        .attr("class", "lista")
-        .attr("x", d => d === 'mayoria' ? margin4.left : margin4.left + chartWidth4 * 2/3)
-        .attr("y", 0)
-        .attr("width", d => d === "mayoria" ? chartWidth4 * 2/3 - 10 : chartWidth4 / 3)
-        .attr("height", yScale4.bandwidth())
-        .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
-        .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
-        .style('stroke-width', 1)
-        .style("stroke-dasharray", "8 4")
-        .style("stroke-opacity", 0.7)
-        .style("fill-opacity", 0.1)
+    const padding = 5;
+    const candWidth = (chartWidth4 * 2/3 - 10 - 3 * padding) / 2;
+    const minPadding = (chartWidth4 / 3 - candWidth) / 2;
 
-    // j.selectAll(".cand")
-    //   .data(d => fe.filter())
+    console.log(fe)
+
+    j.selectAll(".cand")
+      .data(d => fe.filter(f => f[field] === d))
+      .join('rect')
+      .attr("class", "cand")
+        .attr("x", (d, i) => i === 0 ? margin4.left + padding : 
+          (i === 1 
+            ? margin4.left + 2 * padding + candWidth
+            : margin4.left + chartWidth4 * 2/3 + minPadding)
+        )
+        .attr("y", padding)
+        .attr("width", candWidth)
+        .attr("height", yScale4.bandwidth() - 2 * padding)
+        .style("fill", d => d.genero === '' ? 'lightgray'
+          : (d.genero === "femenino" ? 'pink' : 'yellow')
+        )
+        .style("stroke", 'black')
+        .style('stroke-width', 0.5)
+        .style("stroke-opacity", 1)
+        .style("fill-opacity", 1)
 
   })
 
