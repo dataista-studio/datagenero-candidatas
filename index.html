@@ -36,8 +36,7 @@
     const data23 = f23.sort((a,b) => b['% comp mujeres'] - a['% comp mujeres']);
     data23.forEach((d, i) => {
       d.cumsum = d3.sum(data23.slice(0, i), d => d['listas']);
-    })
-    console.log(data23)
+    });
 
     f4.forEach(d => {
       d["distrito unico mujeres"] = + d["distrito unico mujeres"];
@@ -47,6 +46,10 @@
       d["secciones total"] = + d["secciones total"];
       d["secciones mujeres porcentaje"] = + d["secciones mujeres porcentaje"];
     })
+
+    const sortBy = "secciones mujeres porcentaje";
+
+    const data4 = f4.sort((a, b) => b[sortBy] - a[sortBy])
 
     f5.forEach(d => {
       d["diputadxs"] = +d["diputadxs"];
@@ -82,22 +85,6 @@
     const yScale1 = d3.scaleLinear()
         .range([height1 - margin1.bottom, margin1.top])
         .domain([0,1]);
-
-    // svg1.append("g")
-    //     .attr("transform", `translate(${margin1.left},${height1 - margin1.bottom})`)
-    //     .call(
-    //         d3.axisBottom(xScale1)
-    //             .tickValues(xVars.filter((val, i) => i % 5 === 0))
-    //             // .tickFormat(d3.timeFormat("%b %d"))
-    //     )
-    //     .call(g => g.select(".domain").remove())
-    //     .call(g => g.selectAll(".tick").remove())
-        // .call((g) => g.append("text")
-        //     .attr("x", width - margin.left)
-        //     .attr("y", margin.bottom - 4)
-        //     .attr("fill", "currentColor")
-        //     .attr("text-anchor", "end")
-        //     .text(`${x} →`));
 
     svg1.append("g")
         .attr("transform", `translate(${margin1.left},0)`)
@@ -173,10 +160,9 @@
 
     let clicks = 0;
 
-    d3.select('body').append("div")
+    d3.select("#viz1").append("div")
       .html("Next")
       .on("click", () => {
-        console.log('here')
         if (clicks === 0) {
           update('first');
           clicks++;
@@ -187,7 +173,105 @@
           update('reset');
           clicks = 0;
         }
-      })
+      });
+
+
+      const margin2 = ({ top: 20, right: 20, bottom: 40, left: 80 });
+
+      const width2 = 600;
+      const height2 = 140;
+
+      const yValues = f4.map(d => d.jurisdiccion)
+
+      // Create a SVG container.
+      const svg2 = d3.select("#viz2")
+          .append("svg")
+            .attr("width", width2)
+            .attr("height", height2)
+            .attr("viewBox", [0, 0, width2, height2])
+            .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+      const g2 = svg2.append("g");
+
+      const xScale2 = d3.scaleLinear()
+          .range([margin2.left, width2 - margin2.right])
+          .domain([0, 1]);
+
+      const yScale2 = d3.scalePoint()
+          .range([height2 - margin2.bottom, margin2.top])
+          .domain(yValues);
+
+      svg2.append("g")
+          .attr("transform", `translate(${margin2.left},0)`)
+          .call(d3.axisLeft(yScale2).ticks(5))
+          .call((g) => {
+            g.select(".domain").remove();
+            g.selectAll(".tick line").remove();
+          })
+
+      svg2.append("g")
+        .attr("transform", `translate(0, ${height2 - margin2.bottom + 20})`)
+        .call(d3.axisBottom(xScale2).ticks(5))
+        .call((g) => {
+          g.select(".domain").remove();
+        });
+
+      const circleRadius = 5;
+      const colorUnico = 'red';
+      const colorSeccion = 'steelblue';
+
+      const lineas = svg2.selectAll(".linea")
+        .data(f4)
+        .join("line")
+          .attr("class", "linea")
+          .attr("x1", d => xScale2(d["distrito unico mujeres porcentaje"]))
+          .attr("y1", d => yScale2(d["jurisdiccion"]))
+          .attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]))
+          .attr("y2", d => yScale2(d["jurisdiccion"]))
+          .attr("stroke", "darkgrey")
+          .attr("stroke-width", 1.5)
+
+      const unicos = svg2.selectAll(".unico")
+        .data(f4)
+        .join("circle")
+          .attr("class", "unico")
+          .attr("cx", d => xScale2(d["distrito unico mujeres porcentaje"]))
+          .attr("cy", d => yScale2(d["jurisdiccion"]))
+          .attr("r", 0)
+          .attr("fill", colorUnico);
+
+      const secciones = svg2.selectAll(".seccion")
+        .data(f4)
+        .join("circle")
+          .attr("class", "seccion")
+          .attr("cx", d => xScale2(d["secciones mujeres porcentaje"]))
+          .attr("cy", d => yScale2(d["jurisdiccion"]))
+          .attr("r", 0)
+          .attr("fill", colorSeccion);
+
+      let clicks2 = 0;
+      const dt = 500;
+
+      d3.select("#viz2").append("div")
+        .html("Next")
+        .on("click", () => {
+          if (clicks2 === 0) {
+            unicos.transition().duration(dt)
+              .attr("r", circleRadius);
+            clicks2++;
+          } else if (clicks2 === 1) {
+            lineas.transition().duration(dt)
+              .attr("x2", d => xScale2(d["secciones mujeres porcentaje"]));
+            secciones.transition().duration(dt * 2)
+              .attr("r", circleRadius);
+            clicks2++;
+          } else {
+            unicos.attr("r", 0);
+            lineas.attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]));
+            secciones.attr("r", 0);
+            clicks2 = 0;
+          }
+        });
 
   })
 
