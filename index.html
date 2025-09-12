@@ -33,12 +33,14 @@
     d3.csv('./Datos - F2 + F3 - Provincial.csv'),
     d3.csv("./Datos - F4 - Mixtos.csv"),
     d3.csv("./Datos - F5 - Nacional old.csv"),
-    d3.csv("./Datos - F5 - Provincial.csv")
+    d3.csv("./Datos - F5 - Provincial.csv"),
+    d3.csv("./Datos - Encabezamiento Senado.csv")
   ]).then((csv) => {
     const f23 = csv[0];
     const f4 = csv[1];
     const f5 = csv[2];
     const f5p = csv[3];
+    const fe = csv[4];
 
     f23.forEach((d, i) => {
       d["listas"] = +d["listas"];
@@ -244,7 +246,7 @@
       });
 
     const circleRadius = 5;
-    const colorUnico = 'red';
+    const colorUnico = 'orange';
     const colorSeccion = 'steelblue';
 
     const lineas = svg2.selectAll(".linea")
@@ -385,7 +387,61 @@
         .attr("class", "provincial-label")
         .attr("x", 0)
         .attr("y", height3 * 2 / 3)
+        .text(d => d);
+
+    const jurisdicciones = Array.from(new Set(fe.map(d => d["jurisdicción"])));
+
+    const margin4 = ({ top: 10, right: 20, bottom: 10, left: 120 });
+
+    const width4 = 500;
+    const height4 = jurisdicciones.length * 40;
+    const chartWidth4 = width4 - margin4.left - margin4.right;
+
+    // Create a SVG container.
+    const svg4 = d3.select("#viz4")
+        .append("svg")
+          .attr("width", width4)
+          .attr("height", height4)
+          .attr("viewBox", [0, 0, width4, height4])
+          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+
+    const g4 = svg4.append("g");
+
+    const yScale4 = d3.scaleBand()
+        .padding(0.1)
+        .range([margin4.top, height4 - margin4.bottom])
+        .domain(jurisdicciones);
+
+    const j = g4.selectAll(".juri")
+      .data(jurisdicciones)
+      .join("g")
+        .attr("class", "juri")
+        .attr("transform", d => `translate(0, ${yScale4(d)})`);
+
+    j.selectAll(".label")
+      .data(d => [d])
+      .join("text")
+        .attr("x", 0)
+        .attr("y", yScale4.bandwidth() / 2 + 4)
         .text(d => d)
+
+    j.selectAll(".lista")
+      .data(d => ["mayoria", "minoria"])
+      .join("rect")
+        .attr("class", "lista")
+        .attr("x", d => d === 'mayoria' ? margin4.left : margin4.left + chartWidth4 * 2/3)
+        .attr("y", 0)
+        .attr("width", d => d === "mayoria" ? chartWidth4 * 2/3 - 10 : chartWidth4 / 3)
+        .attr("height", yScale4.bandwidth())
+        .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
+        .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
+        .style('stroke-width', 1)
+        .style("stroke-dasharray", "8 4")
+        .style("stroke-opacity", 0.7)
+        .style("fill-opacity", 0.1)
+
+    // j.selectAll(".cand")
+    //   .data(d => fe.filter())
 
   })
 
