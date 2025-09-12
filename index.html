@@ -10,6 +10,11 @@
         text-align: center;
         padding: 6px 2px;
       }
+
+      #viz4 svg,
+      #viz4 div {
+        display: inline-block;
+      }
     </style>
 </head>
 
@@ -17,7 +22,7 @@
   
     <h2>F2+3: Listas -> Encabezadas por mujeres -> Competitivas encabezadas por mujeres</h2>
     <div id="viz1"></div>
-    <h2>F4: distrito unico (rojo) vs. secciones (azul)</h2>
+    <h2>F4: distrito unico (naranjo) vs. secciones (azul)</h2>
     <div id="viz2"></div>
     <h2>F5: resultados</h2>
     <div id="viz3"></div>
@@ -482,6 +487,10 @@
         .style("display", "none");
 
 
+    const text4 = d3.select("#viz4")
+      .append("div")
+      .style("width", '200px')
+
     let clicks4 = 0;
     const dt4 = 500;
 
@@ -491,11 +500,13 @@
       .on("click", () => {
         if (clicks4 === 0) {
           candidatxs.style('fill', 'white')
-            .style("display", "block")
+            .style("display", "block");
+          text4.html('Cada jurisdiccion tiene 3 senadores');
           clicks4++;
         } else if (clicks4 === 1) {
           listaRect.style('display', 'block');
           listaText.style('display', 'block');
+          text4.html('En general, la lista mayoritaria obtiene dos puestos y la minoritaria uno');
           clicks4++;
         } else if (clicks4 === 2) {
           candidatxs.style('fill', (d, i) => i < 2
@@ -504,6 +515,7 @@
             )
             : 'white'
           );
+          text4.html('Por ley de paridad, los dos puestos de la lista mayoritaria siempre es uno masculino y una femenino. Es decir, la paridad esta asegurada en los candidatxs de la lista mayoritaria');
           clicks4++;
         } else if (clicks4 === 3) {
           candidatxs.style('fill', (d, i) => d.genero === '' 
@@ -511,11 +523,13 @@
             : (d.genero === "femenino" ? 'pink' : 'yellow')
 
           );
+          text4.html("Pero el puesto de la lista minoritaria esta definido por quien encabeza la lista. En las recientes elecciones, X listas minoritarias estaban encabezadas por hombres, mientras que solo Y lo estaban por mujeres.")
           clicks4++;
         } else {
           candidatxs.style("display", "none");
           listaRect.style('display', 'none');
           listaText.style('display', 'none');
+          text4.html('');
           clicks4 = 0;
         }
       });
