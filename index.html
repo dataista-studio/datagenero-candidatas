@@ -31,6 +31,7 @@
   
 </section>
 
+<script src="saveSvgAsPng.js"></script>
 <script src="beeswarm.js"></script>
 <script>
 
@@ -102,6 +103,7 @@
     // Create a SVG container.
     const svg1 = d3.select("#viz1")
         .append("svg")
+          .attr("id", "f2-listas")
           .attr("width", width1)
           .attr("height", height1)
           .attr("viewBox", [0, 0, width1, height1])
@@ -220,6 +222,7 @@
     // Create a SVG container.
     const svg2 = d3.select("#viz2")
         .append("svg")
+          .attr("id", "f4-distrito-secciones")
           .attr("width", width2)
           .attr("height", height2)
           .attr("viewBox", [0, 0, width2, height2])
@@ -316,6 +319,7 @@
     // Create a SVG container.
     const svg3 = d3.select("#viz3")
         .append("svg")
+          .attr("id", "f5-resultados")
           .attr("width", width3)
           .attr("height", height3)
           .attr("viewBox", [0, 0, width3, height3])
@@ -406,6 +410,7 @@
     // Create a SVG container.
     const svg4 = d3.select("#viz4")
         .append("svg")
+          .attr("id", "f2-encabezamientos")
           .attr("width", width4)
           .attr("height", height4)
           .attr("viewBox", [0, 0, width4, height4])
@@ -431,7 +436,7 @@
         .attr("height", height4 - margin4.bottom - margin4.top)
         .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
         .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
-        .style('stroke-width', 1)
+        .style('stroke-width', 1.5)
         .style("stroke-dasharray", "8 4")
         .style("stroke-opacity", 1)
         .style('display', "none")
@@ -537,6 +542,16 @@
           clicks4 = 0;
         }
       });
+
+    d3.select("body").append("div")
+      .attr("class", "button")
+      .html("Download SVGs")
+      .on("click", () => {
+        saveSvg(document.getElementById("f2-listas"), "f2-listas.svg");
+        saveSvg(document.getElementById("f4-distrito-secciones"), "f4-distrito-secciones.svg");
+        saveSvg(document.getElementById("f5-resultados"), "f5-resultados.svg");
+        saveSvg(document.getElementById("f2-encabezamientos"), "f2-encabezamientos.svg");
+      })
 
   })
 
