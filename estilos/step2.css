@@ -1,0 +1,87 @@
+.step2-elements {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.step2-elements.active { opacity: 1; }
+
+.step2-textos {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.step2-img {
+  flex: 0 0 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 300px;
+}
+
+.step2-circulo {
+  width: 270px;
+  height: 270px;
+  background: #ea98ff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.step2-img img {
+  position: absolute;
+  z-index: 2;
+  max-width: none;
+  width: 430px;
+  height: auto;
+}
+
+.step2-elements h1,
+.step2-elements p,
+.step2-elements h2 {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.step2-elements h1 { font-size: 2.5rem; }
+.step2-elements p { font-size: 1.2rem; }
+.step2-elements h2 { font-family: "Homemade Apple", cursive; font-size: 2rem; }
+
+
+.step2-img,
+.step2-circulo,
+.step2-img img { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+
+.step2-elements.active .step2-textos h1,
+.step2-elements.active .step2-textos p,
+.step2-elements.active .step2-textos h2,
+.step2-elements.active .step2-img,
+.step2-elements.active .step2-circulo,
+.step2-elements.active .step2-img img {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step2-elements.active .step2-textos h1 { transition-delay: 0.2s; }
+.step2-elements.active .step2-textos p  { transition-delay: 0.4s; }
+.step2-elements.active .step2-textos h2 { transition-delay: 0.6s; }
+.step2-elements.active .step2-img      { transition-delay: 0.8s; }
+.step2-elements.active .step2-img img  { transition-delay: 0.9s; }

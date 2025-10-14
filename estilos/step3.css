@@ -1,0 +1,101 @@
+.step3-elements {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px;
+  gap: 10px;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.8s ease;
+}
+
+.step3-elements.active { opacity: 1; }
+
+.step3-textos {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.step3-textos h1,
+.step3-textos p {
+  color: white;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.step3-textos h1 {
+  font-family: "Homemade Apple", cursive;
+  font-size: 2.7rem;
+  line-height: 3rem;
+}
+
+.step3-textos p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  width: 60%;
+}
+
+.step3-img,
+.step3-img-top2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.step3-img-top { 
+  position: relative;
+  z-index: 2;
+  width: 800px;
+  height: auto;
+  display: block;
+}
+
+.step3-img-top2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 800px;
+  height: auto;
+  display: block;
+  transition: opacity 1.8s ease;
+}
+
+.step3-img-bottom {
+  position: absolute;
+  top: 2%;
+  left: 40%;
+  z-index: 1;
+  width: 500px;
+  height: auto;
+  display: block;
+}
+
+.step3-elements.active .step3-textos h1,
+.step3-elements.active .step3-textos p,
+.step3-elements.active .step3-img,
+.step3-elements.active .step3-img-top2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step3-elements.active .step3-textos h1 { transition-delay: 0.2s; }
+.step3-elements.active .step3-textos p  { transition-delay: 0.4s; }
+.step3-elements.active .step3-img      { transition-delay: 0.6s; }
+.step3-elements.active .step3-img-top2 { transition-delay: 0.8s; }
