@@ -23,7 +23,7 @@
 
 .step4-circulo {
   left: 15%;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%);
   width: 350px;
   height: 350px;
@@ -34,7 +34,7 @@
 
 .step4-img-bottom {
   left: 25%;
-  top: 12%;
+  top: 24%;
   transform: translateY(-50%);
   width: 800px;
   height: auto;
@@ -44,7 +44,7 @@
 
 .step4-img-top {
   left: 10%;
-  top: -11.6%;
+  top: 15%;
   transform: translate(-50%, -50%);
   width: 540px;
   height: auto;
@@ -53,7 +53,7 @@
 
 .step4-textos {
   position: absolute;
-  left: 60%;
+  left: 57%;
   top: 45%;
   transform: translate(-50%, -50%);
   z-index: 4;
@@ -79,7 +79,7 @@
 .step4-textos p {
   font-family: "Homemade Apple", cursive;
   font-size: 1.8rem;
-  margin-top: 0;
+  margin-top: -10%;
   padding-top: 0;
 }
 
