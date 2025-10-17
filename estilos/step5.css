@@ -1,17 +1,11 @@
 .step5-elements {
-  position: absolute;
   top: 50%;
   left: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  z-index: 2;
   transform: translate(-50%, -50%) translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .step5-elements.active {
-  opacity: 1;
   transform: translate(-50%, -50%) translateY(0);
 }
 

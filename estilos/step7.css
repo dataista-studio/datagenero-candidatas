@@ -1,19 +1,7 @@
 .step7-elements {
-  position: absolute;
   top: 60%;
   left: 57%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 1400px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-.step7-elements.active {
-  opacity: 1;
 }
 
 .step7-media {

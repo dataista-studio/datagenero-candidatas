@@ -1,15 +1,9 @@
 .step8-elements {
-  position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 1400px;
-  height: 600px;
-  display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   transition: opacity 0.8s ease;
 }
 .step8-elements.active {
