@@ -15,7 +15,7 @@ const wrapper = document.querySelector(".wrapper");
 const bgColors = ["black", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729"];
 
 scroller
-    .setup({ step: ".step", offset: 0.3, debug: false })
+    .setup({ step: ".step", offset: 0.8, debug: false })
     .onStepEnter(({ element }) => {
         const stepIndex = Number(element.dataset.step) - 1;
 
