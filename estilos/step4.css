@@ -22,19 +22,19 @@
 }
 
 .step4-circulo {
-  left: 15%;
-  top: 55%;
+  left: calc(50% - 360px);
+  top: calc(50% + 50px);
   transform: translateY(-50%);
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
   background-color: #ea98ff;
   border-radius: 50%;
   z-index: 2;
 }
 
 .step4-img-bottom {
-  left: 25%;
-  top: 24%;
+  left: calc(50% - 200px);
+  top: calc(50% - 200px);
   transform: translateY(-50%);
   width: 800px;
   height: auto;
@@ -43,8 +43,8 @@
 }
 
 .step4-img-top {
-  left: 10%;
-  top: 15%;
+  left: calc(50% - 400px);
+  top: calc(50% - 300px);
   transform: translate(-50%, -50%);
   width: 540px;
   height: auto;
@@ -53,8 +53,8 @@
 
 .step4-textos {
   position: absolute;
-  left: 57%;
-  top: 45%;
+  left: calc(50% + 250px);
+  top: calc(50%);
   transform: translate(-50%, -50%);
   z-index: 4;
   text-align: center;
