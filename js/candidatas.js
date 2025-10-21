@@ -1,52 +1,27 @@
 const scroller = scrollama();
-const steps = [
-    document.querySelector(".step1-elements"),
-    document.querySelector(".step2-elements"),
-    document.querySelector(".step3-elements"),
-    document.querySelector(".step4-elements"),
-    document.querySelector(".step5-elements"),
-    document.querySelector(".step6-elements"),
-    document.querySelector(".step7-elements"),
-    document.querySelector(".step8-elements"),
-    document.querySelector(".step9-elements")
-];
 const wrapper = document.querySelector(".wrapper");
 
-const bgColors = ["black", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729"];
+const nSteps = 9;
+const intSteps = d3.range(0, nSteps);
+
+const steps = d3.selectAll(".step-display")
+    .data(intSteps);
+
+d3.select("#scrolly-steps")
+    .selectAll(".step")
+    .data(intSteps)
+        .join("div")
+        .attr("class", "step")
+        .attr("data-step", (_, i) => `${i}`)
 
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
     .onStepEnter(({ element }) => {
-        const stepIndex = Number(element.dataset.step) - 1;
+        const stepIndex = Number(element.dataset.step);
 
-        steps.forEach((el, i) => {
-            if (!el) return;
-            if (i === 0) {
+        steps.style("opacity", d => d === stepIndex ? 1 : 0)
+            .classed("active", d => d === stepIndex)
 
-                el.style.opacity = i === stepIndex ? "1" : "0";
-            } else {
-                el.classList.toggle("active", i === stepIndex);
-            }
-        });
-
-        wrapper.style.backgroundColor = bgColors[stepIndex] || "black";
     })
-    .onStepExit(({ element, direction }) => {
-        const stepIndex = Number(element.dataset.step) - 1;
-
-        if (direction === "up") {
-            steps.forEach((el, i) => {
-                if (!el) return;
-                if (i === 0) {
-                    el.style.opacity = i === stepIndex - 1 ? "1" : "0";
-                } else {
-                    el.classList.toggle("active", i === stepIndex - 1);
-                }
-            });
-
-            wrapper.style.backgroundColor =
-                bgColors[stepIndex - 1] || "black";
-        }
-    });
 
 window.addEventListener("resize", scroller.resize);
