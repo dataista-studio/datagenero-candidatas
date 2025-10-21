@@ -1,0 +1,54 @@
+@import url("intro.css");
+@import url("step2.css");
+@import url("step3.css");
+@import url("step4.css");
+@import url("step5.css");
+@import url("step6.css");
+@import url("step7.css");
+@import url("step8.css");
+@import url("step9.css");
+
+.wrapper {
+  background: black;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scrolly {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.scroll-sections {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-sections .step {
+  height: 100vh;
+}
+
+.step {
+  height: 100vh;
+}
+
+.step-element {
+  position: absolute;
+  display: flex;
+  width: 90%;
+  max-width: 1400px;
+  height: 100vh;
+  opacity: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.step-element.active {
+  opacity: 1;
+}

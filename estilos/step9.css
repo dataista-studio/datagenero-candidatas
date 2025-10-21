@@ -1,0 +1,46 @@
+.step9-elements {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.step9-elements.active {
+  opacity: 1;
+}
+
+.step9-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step9-textos {
+  position: absolute;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  z-index: 4;
+  text-align: center;
+  width: 100%;
+}
+
+.step9-textos h1 {
+  color: white;
+  font-family: "Homemade Apple", cursive;
+  margin: 10px 0;
+  font-size: 5rem;
+  margin-bottom: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.step9-elements.active .step9-textos h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
