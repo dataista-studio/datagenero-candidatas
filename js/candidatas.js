@@ -14,8 +14,6 @@ d3.select("#scrolly-steps")
         .attr("class", "step")
         .attr("data-step", (_, i) => `${i}`)
 
-const bgColors = ["black", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729", "#261729"];
-
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
     .onStepEnter(({ element }) => {
@@ -24,7 +22,6 @@ scroller
         steps.style("opacity", d => d === stepIndex ? 1 : 0)
             .classed("active", d => d === stepIndex)
 
-        wrapper.style.backgroundColor = bgColors[stepIndex] || "black";
     })
 
 window.addEventListener("resize", scroller.resize);
