@@ -1,19 +1,7 @@
 .step7-elements {
-  position: relative;
-  top: -30%;
+  top: 60%;
   left: 57%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 1400px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-.step7-elements.active {
-  opacity: 1;
 }
 
 .step7-media {
@@ -35,28 +23,28 @@
 }
 
 .step7-circulo {
-  left: 21%;
-  top: 10%;
+  left: calc(50% - 270px);
+  top: calc(50% - 150px);
   transform: translateY(-80%);
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   background-color: #ea98ff;
   border-radius: 50%;
   z-index: 2;
 }
 .step7-circulo-p {
-  left: -1%;
-  top: 28%;
+  left: calc(50% - 630px);
+  top: calc(50% - 80px);
   transform: translateY(-80%);
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   background-color: #ea98ff;
   border-radius: 50%;
   z-index: 1;
 }
 .step7-img-bottom {
-  left: 29%;
-  top: -22%;
+  left: calc(50% - 150px);
+  top: calc(50% - 300px);
   transform: translateY(-50%);
   width: 800px;
   height: auto;
@@ -64,8 +52,8 @@
   filter: drop-shadow(1px 0px 5px #ffd495);
 }
 .step7-img-top {
-  left: 0%;
-  top: -11.6%;
+  left: calc(50% - 600px);
+  top: calc(50% - 300px);
   transform: translate(-50%, -50%);
   width: 740px;
   height: auto;
@@ -74,8 +62,8 @@
 
 .step7-textos {
   position: absolute;
-  left: 65%;
-  top: 12%;
+  left: calc(50% + 280px);
+  top: calc(50% - 100px);
   transform: translate(-50%, -50%);
   z-index: 4;
   text-align: center;

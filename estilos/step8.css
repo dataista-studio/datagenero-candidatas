@@ -1,19 +1,7 @@
 .step8-elements {
-  position: relative;
-  top: -85%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 1400px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-.step8-elements.active {
-  opacity: 1;
 }
 
 .step8-media {
@@ -34,8 +22,8 @@
 }
 
 .step8-circulo {
-  left: 15%;
-  top: 30%;
+  left: calc(50% - 400px);
+  top: calc(50% - 120px);
   transform: translateY(-50%);
   width: 450px;
   height: 450px;
@@ -44,8 +32,8 @@
   z-index: 2;
 }
 .step8-img-bottom {
-  left: 35%;
-  top: 12%;
+  left: calc(50% - 150px);
+  top: calc(50% - 300px);
   transform: translateY(-50%);
   width: 800px;
   height: auto;
@@ -53,8 +41,8 @@
   filter: drop-shadow(1px 0px 5px #ffd495);
 }
 .step8-img-top {
-  left: 8%;
-  top: 10%;
+  left: calc(50% - 520px);
+  top: calc(50% - 280px);
   transform: translate(-50%, -50%);
   width: 640px;
   height: auto;
@@ -63,8 +51,8 @@
 
 .step8-textos {
   position: absolute;
-  left: 70%;
-  top: 45%;
+  left: calc(50% + 280px);
+  top: calc(50% - 100px);
   transform: translate(-50%, -50%);
   z-index: 4;
   text-align: center;

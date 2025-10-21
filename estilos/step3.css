@@ -1,21 +1,12 @@
 .step3-elements {
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
-  max-width: 1400px;
   gap: 10px;
-  opacity: 0;
-  z-index: 2;
-  transition: opacity 0.8s ease;
 }
-
-.step3-elements.active { opacity: 1; }
 
 .step3-textos {
   flex: 0 0 30%;
