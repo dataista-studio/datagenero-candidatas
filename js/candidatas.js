@@ -26,22 +26,5 @@ scroller
 
         wrapper.style.backgroundColor = bgColors[stepIndex] || "black";
     })
-    // .onStepExit(({ element, direction }) => {
-    //     const stepIndex = Number(element.dataset.step);
-
-    //     if (direction === "up") {
-    //         steps.forEach((el, i) => {
-    //             if (!el) return;
-    //             if (i === 0) {
-    //                 el.style.opacity = i === stepIndex - 1 ? "1" : "0";
-    //             } else {
-    //                 el.classed("active", i === stepIndex - 1);
-    //             }
-    //         });
-
-    //         wrapper.style.backgroundColor =
-    //             bgColors[stepIndex - 1] || "black";
-    //     }
-    // });
 
 window.addEventListener("resize", scroller.resize);
