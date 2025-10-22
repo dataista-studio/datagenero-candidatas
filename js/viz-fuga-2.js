@@ -2,10 +2,10 @@ function drawChart(data, index) {
     const field = "jurisdicción"
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
 
-    const margin4 = ({ top: 120, right: 20, bottom: 10, left: 20 });
+    const margin4 = ({ top: 120, right: 20, bottom: 10, left: 50 });
 
     const width4 = jurisdicciones.length * 26;
-    const height4 = 500;
+    const height4 = 400;
     const chartWidth4 = width4 - margin4.left - margin4.right;
     const chartHeight4 = height4 - margin4.top - margin4.bottom;
 
@@ -18,22 +18,23 @@ function drawChart(data, index) {
 
     const g4 = svg4.append("g");
 
-    const xScale4 = d3.scaleBand()
-        .padding(0.05)
-        .range([margin4.left, width4 - margin4.right])
-        .domain(jurisdicciones);
-
     const padding = 8;
+    const radius = 22.5;
     const candWidth = (chartHeight4 * 2/3 - 4 * padding) / 2;
+
+    const xScale4 = d3.scalePoint()
+        .range([margin4.left + padding, width4 - margin4.right - padding])
+        .domain(jurisdicciones)
+        .padding(1);
 
     const listaRect = g4.selectAll(".lista")
       .data(["mayoria", "minoria"])
       .join("rect")
         .attr("class", "lista")
-        .attr("x", d => d === 'mayoria' ? margin4.left - padding / 4 : margin4.left + chartWidth4 * 2/3 + padding / 2)
-        .attr("y", margin4.top)
-        .attr("width", d => d === "mayoria" ? chartWidth4 * 2/3 : chartWidth4 / 3 - padding)
-        .attr("height", height4 - margin4.bottom - margin4.top)
+        .attr("y", d => d === 'mayoria' ? margin4.top - padding / 4 : margin4.top + chartHeight4 * 2/3 + padding / 2)
+        .attr("x", margin4.left)
+        .attr("height", d => d === "mayoria" ? chartHeight4 * 2/3 : chartHeight4 / 3 - padding)
+        .attr("width", width4 - margin4.left - margin4.right)
         .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
         .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
         .style('stroke-width', 1.5)
@@ -73,21 +74,13 @@ function drawChart(data, index) {
       .data(d => data.filter(f => f[field] === d))
       .join('circle')
       .attr("class", "cand")
-        // .attr("x", (d, i) => i === 0 ? margin4.left + padding / 2 : 
-        //   (i === 1 
-        //     ? margin4.left + padding + candWidth + 2 * padding 
-        //     : margin4.left + chartWidth4 * 2/3 + padding)
-        // )
-        // .attr("y", 5)
-        // .attr("width", candWidth)
-        // .attr("height", yScale4.bandwidth() - 10)
-        .attr("cy", (d, i) => i === 0 ? margin4.top + padding / 2 : 
+        .attr("cy", (d, i) => i === 0 ? margin4.top + padding / 2 + candWidth / 2 : 
           (i === 1 
-            ? margin4.top + padding + candWidth + 2 * padding 
-            : margin4.top + chartHeight4 * 2/3 + padding)
+            ? margin4.top + padding + candWidth + 2 * padding + candWidth / 2
+            : margin4.top + chartHeight4 * 2/3 + padding + candWidth / 2)
         )
-        .attr("cx", xScale4.bandwidth() / 2)
-        .attr("r", 22.5)
+        .attr("cx", 0)
+        .attr("r", radius)
         .style("fill", d => d.genero === '' ? 'lightgray'
           : (d.genero === "femenino" ? 'pink' : 'yellow')
         )
