@@ -24,9 +24,9 @@ const getDivIndexInStep = (divId) => {
     return idx;
 }
 
-function transitionMarimekko(index, divId) {
-    const delay = 500;
+const delay = 500;
 
+function transitionMarimekko(index, divId) {
     if (index === getDivIndexInStep(divId)) {
 
         const rectFg = d3.select(`#${divId}`)
@@ -45,8 +45,6 @@ function transitionMarimekko(index, divId) {
 }
 
 function transitionMarimekkoCompetitivo(index, divId) {
-    const delay = 500;
-
     if (index === getDivIndexInStep(divId)) {
 
         const rectFg = d3.select(`#${divId}`)
@@ -61,6 +59,47 @@ function transitionMarimekkoCompetitivo(index, divId) {
                 .attr("height", d => d.h2);
         }, delay)
         
+    }
+}
+
+function transitionDumbbell(index, divId) {
+    const circleRadius = 5;
+    const dt = 1000;
+
+    if (index === getDivIndexInStep(divId)) {
+
+        const lineas = d3.select(`#${divId}`)
+            .selectAll(".linea");
+
+        const unicos = d3.select(`#${divId}`)
+            .selectAll(".unico");
+
+        const secciones = d3.select(`#${divId}`)
+            .selectAll(".seccion");
+
+        lineas.attr("x1", d => d.x1)
+            .attr("x2", d => d.x1);
+
+        unicos.attr("r", 0);
+        secciones.attr("r", 0)
+
+
+        setTimeout(()  => {
+            unicos.transition().duration(dt)
+                .attr("r", circleRadius);
+        }, delay);
+
+        setTimeout(()  => {
+            lineas.transition().duration(dt)
+                .attr("x2", d => d.x2);
+        }, 2*delay);
+
+        setTimeout(()  => {
+            secciones.transition().duration(dt)
+                .attr("r", circleRadius);
+        }, 3*delay);
+
+
     }
 }
 
@@ -79,6 +118,8 @@ scroller
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcdn");
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcs");
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
+
+        transitionDumbbell(stepIndex, "distrito-secciones")
 
     })
 
