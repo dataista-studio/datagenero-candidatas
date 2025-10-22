@@ -1,4 +1,4 @@
-function drawChart(data, index) {
+function drawDiagram(data, index) {
     const field = "jurisdicción"
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
     const nJuri = jurisdicciones.length;
@@ -155,7 +155,7 @@ Promise.all([
     const indices = d3.range(2, 6);
 
     indices.forEach(idx => {
-        drawChart(fe, idx);
+        drawDiagram(fe, idx);
     })
 
 })
