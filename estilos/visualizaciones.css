@@ -55,17 +55,43 @@ svg .tick line {
     font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
+    display: inline-block;
+    text-align: left;
 }
 
-.legend-encabezadas:before {
+.legend-item:not(:last-child) {
+    margin-right: 60px;
+}
+
+.double-item > .legend-item {
+    max-width: 230px;
+}
+
+.legend-encabezadas,
+.legend-competitivas {
+    display: inline-block;
     position: relative;
     right: 0;
+    top: 6px;
     content: '';
     width: 35px;
     height: 26px;
-    background-color: #a969c4;
     border-radius: 20px;
-    box-shadow: 4px 4px 4px 0px;
     margin-right: 12px;
-
 }
+
+.legend-encabezadas {
+    background-color: #a969c4;
+}
+
+.legend-competitivas {
+    background-color: #E492FF;
+}
+
+.double-item > .legend-competitivas,
+.double-item > .legend-encabezadas {
+        line-height: 48px;
+        vertical-align: top;
+}
+
+

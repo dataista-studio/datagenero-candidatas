@@ -32,8 +32,9 @@ function transitionMarimekko(index, divId) {
         const rectFg = d3.select(`#${divId}`)
                 .selectAll(".rect-fg")
         
-        rectFg.attr("y", d => d.y0)
-                .attr("height", d => d.h0);
+        rectFg.attr("fill", "#A969C4")
+            .attr("y", d => d.y0)
+            .attr("height", d => d.h0);
 
         setTimeout(()  => {
             rectFg.transition().duration(1000)
@@ -50,8 +51,9 @@ function transitionMarimekkoCompetitivo(index, divId) {
         const rectFg = d3.select(`#${divId}`)
                 .selectAll(".rect-fg")
         
-        rectFg.attr("y", d => d.y1)
-                .attr("height", d => d.h1);
+        rectFg.attr("fill", "#E492FF")
+            .attr("y", d => d.y1)
+            .attr("height", d => d.h1);
 
         setTimeout(()  => {
             rectFg.transition().duration(1000)
