@@ -41,13 +41,9 @@ function drawChart(data, index) {
           .attr("x", margin4.left)
           .attr("height", d => d === "mayoria" ? chartHeight4 * 2/3 : chartHeight4 / 3 - padding)
           .attr("width", width4 - margin4.left - margin4.right)
-          .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
-          .style("stroke", d => d === "mayoria" ? 'orange' : 'steelblue')
-          .style('stroke-width', 1.5)
-          .style("stroke-dasharray", "8 4")
-          .style("stroke-opacity", 1)
-          .style('display', "none")
-          .style("fill-opacity", 0.05) 
+          .style("fill", "white")
+          .style('display', "block")
+          .style("fill-opacity",d => d === "mayoria" ? 0.1 : 0.3) 
 
       const listaText = g4.selectAll(".nombre-lista")
         .data(["mayoria", "minoria"])
@@ -59,8 +55,8 @@ function drawChart(data, index) {
           )
           .attr("x", margin4.left / 2)
           .attr("text-anchor", "middle")
-          .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
-          .style("display", "none")
+          .style("fill", 'white')
+          .style("display", "block")
           .attr("transform", d => {
             const y = d === 'mayoria' 
               ? margin4.top + chartHeight4 * 2/3 * 1 / 2
@@ -80,6 +76,7 @@ function drawChart(data, index) {
         .data(d => [d])
         .join("text")
           .attr("text-anchor", "middle")
+          .style("fill", 'white')
           .attr("x", xScale4.bandwidth() / 2)
           .attr("y", margin4.top / 2)
           .text(d => d)
@@ -95,42 +92,54 @@ function drawChart(data, index) {
           )
           .attr("cx", 0)
           .attr("r", radius)
-          .style("fill", d => d.genero === '' ? 'lightgray'
-            : (d.genero === "femenino" ? 'pink' : 'yellow')
+          .style("fill", d => d.genero === '' ? 'none'
+            : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
           )
-          .style("stroke", 'black')
-          .style('stroke-width', 0.5)
+          .style("stroke", 'white')
+          .style('stroke-width', 1)
           .style("stroke-opacity", 1)
           .style("fill-opacity", 1)
           .style("display", "none");
 
 
       if (index === 2) {
-          candidatxs.style('fill', 'white')
+          candidatxs.style('fill', 'none')
+              .style("stroke", "white")
               .style("display", "block");
       } else if (index === 3) {
-          candidatxs.style('fill', 'white')
-              .style("display", "block");
-          listaRect.style('display', 'block');
-          listaText.style('display', 'block');
-      } else if (index === 4) {
           candidatxs.style('fill', (d, i) => i < 2
-              ? (d.genero === '' ? 'lightgray'
-                  : (d.genero === "femenino" ? 'pink' : 'yellow')
+              ? (d.genero === '' ? 'none'
+                  : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
               )
-              : 'white'
-              ).style("display", "block");
-          listaRect.style('display', 'block');
-          listaText.style('display', 'block');
-      } else if (index === 5) {
+              : 'none' )
+            .style("stroke", (d, i) => i < 2
+              ? (d.genero === '' ? 'white' : 'none')
+              : 'white')
+            .style("display", "block");
+      } else if (index === 4) {
           candidatxs.style('fill', (d, i) => d.genero === '' 
-              ? 'lightgray'
-              : (d.genero === "femenino" ? 'pink' : 'yellow')
-
-              ).style("display", "block");
-          listaRect.style('display', 'block');
-          listaText.style('display', 'block');
-      }
+              ? 'none'
+              : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
+            )
+            .style("stroke", (d, i) => d.genero === '' 
+              ? 'white'
+              : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
+            )
+            .style("display", "block");
+      } else if (index === 5) {
+        candidatxs.style('fill', (d, i) => d.genero === '' 
+              ? 'none'
+              : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
+            )
+            .style("stroke", (d, i) => d.genero === '' 
+              ? 'white'
+              : (d.genero === "femenino" ? '#ea98ff' : '#7dea87')
+            )
+            .style("display", "block");
+          listaRect.style("opacity", d => d === 'mayoria' ? 0.4 : 1);
+          listaText.style("opacity", d => d === 'mayoria' ? 0.4 : 1);
+          candidatxs.style('opacity', (d, i) => i < 2 ? 0.4 : 1 )
+        }
     }
 
     drawRow(jurisdicciones.slice(0, nJuri / 2), 0);
