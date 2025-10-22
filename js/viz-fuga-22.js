@@ -116,4 +116,8 @@ Promise.all([
     drawMarimekko(data2s, '02-08');
     drawMarimekko(data2p, '02-10');
 
+    drawMarimekko(data2d, '03-03');
+    drawMarimekko(data2s, '03-04');
+    drawMarimekko(data2p, '03-05');
+
 })
