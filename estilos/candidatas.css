@@ -52,7 +52,7 @@
 
 .step-display {
   position: absolute;
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   height: 100vh;
   opacity: 0;
@@ -61,6 +61,7 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.8s ease;
+  margin: 0 auto;
 }
 
 .step-element.active {

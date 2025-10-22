@@ -1,0 +1,29 @@
+.title-container {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.viz-title {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 60px;
+    padding: 4px 48px;
+}
+
+.viz-subtitle {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #261729;
+    background-color: #FFF;
+    padding: 4px 24px;
+}
