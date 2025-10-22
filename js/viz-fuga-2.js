@@ -1,4 +1,4 @@
-function drawChart(data, index) {
+function drawDiagram(data, index) {
     const field = "jurisdicción"
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
     const nJuri = jurisdicciones.length;
@@ -12,7 +12,7 @@ function drawChart(data, index) {
     const height4 = 600;
 
     // Create a SVG container.
-    const svg4 = d3.select(`#viz02-0${index}`)
+    const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`)
           .attr("width", width4)
           .attr("height", height4)
           .attr("viewBox", [0, 0, width4, height4])
@@ -155,7 +155,7 @@ Promise.all([
     const indices = d3.range(2, 6);
 
     indices.forEach(idx => {
-        drawChart(fe, idx);
+        drawDiagram(fe, idx);
     })
 
 })
