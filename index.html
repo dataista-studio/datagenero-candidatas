@@ -162,12 +162,84 @@
 
             <!-- Fuga 1 -->
             <div class="step-fuga-1 step-display">
-                <div class="banner"></div>
+                <div class="banner">Banner</div>
                 <div class="title">
-                    <div class="sticker"></div>
-                    <div class="notepad"></div>
+                    <div class="sticker">sticker</div>
+                    <div class="notepad">notepado</div>
                 </div>
-                <div class="subtitle"></div>
+                <div class="subtitle">subtitle</div>
+            </div>
+
+            <div class="step-display step-viz">
+                <div class="viz-title text-center">
+                    Que nos dicen los datos?
+                </div>
+                <div class="viz-subtitle text-center">
+                    Veamos los encabezamientos del Senado
+                </div>
+                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
+                    <div class="col-span-4 row-span-5">
+                        <svg id="viz02-02"></svg>
+                    </div>
+                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                        Cada jurisdicción tiene 3 senadores. En general, la  lista mayoritaria obtiene dos puestos y la minoritaria uno.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-display step-viz">
+                <div class="viz-title text-center">
+                    Que nos dicen los datos?
+                </div>
+                <div class="viz-subtitle text-center">
+                    Veamos los encabezamientos del Senado
+                </div>
+                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
+                    <div class="col-span-4 row-span-5">
+                        <svg id="viz02-03"></svg>
+                    </div>
+                    <div class="col-span-1 align-bottom row-start-4 row-end-4">Leyenda</div>
+                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                        Por ley de paridad, los dos puestos de la lista mayoritaria siempre son uno masculino y una femenina. Es decir, la paridad está asegurada en las candidaturas de la lista mayoritaria. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-display step-viz">
+                <div class="viz-title text-center">
+                    Que nos dicen los datos?
+                </div>
+                <div class="viz-subtitle text-center">
+                    Veamos los encabezamientos del Senado
+                </div>
+                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
+                    <div class="col-span-4 row-span-5">
+                        <svg id="viz02-04"></svg>
+                    </div>
+                    <div class="col-span-1 align-bottom row-start-4 row-end-4">Leyenda</div>
+                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                        <p>Pero el puesto de la lista minoritaria está definido por quien encabeza la lista.</p>
+                        <p>En las recientes elecciones, X listas minoritarias estaban encabezadas por hombres, mientras que solo Y lo estaban por mujeres.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-display step-viz">
+                <div class="viz-title text-center">
+                    Que nos dicen los datos?
+                </div>
+                <div class="viz-subtitle text-center">
+                    Veamos los encabezamientos del Senado
+                </div>
+                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
+                    <div class="col-span-4 row-span-5">
+                        <svg id="viz02-05"></svg>
+                    </div>
+                    <div class="col-span-1 align-bottom row-start-4 row-end-4">Leyenda</div>
+                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                        El resultado es un Senado con YY% de participación femenina.
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -180,6 +252,7 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script src="js/candidatas.js"></script>
+    <script src="js/viz-fuga-2.js"></script>
 </body>
 
 </html>

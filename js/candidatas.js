@@ -1,7 +1,7 @@
 const scroller = scrollama();
 const wrapper = document.querySelector(".wrapper");
 
-const nSteps = 9;
+const nSteps = 14;
 const intSteps = d3.range(0, nSteps);
 
 const steps = d3.selectAll(".step-display")
