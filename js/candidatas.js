@@ -1,11 +1,12 @@
 const scroller = scrollama();
 const wrapper = document.querySelector(".wrapper");
 
-const nSteps = 20;
+const allSteps = d3.selectAll(".step-display");
+
+const nSteps = allSteps._groups[0].length;
 const intSteps = d3.range(0, nSteps);
 
-const steps = d3.selectAll(".step-display")
-    .data(intSteps);
+const steps = allSteps.data(intSteps);
 
 d3.select("#scrolly-steps")
     .selectAll(".step")
