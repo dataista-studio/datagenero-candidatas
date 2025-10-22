@@ -1,5 +1,4 @@
 function drawDumbbell(data, svgId) {
-  console.log(data)
     
     const margin2 = ({ top: 10, right: 20, bottom: 20, left: 80 });
 
