@@ -1,11 +1,11 @@
-function drawMarimekko(data, index) {
+function drawMarimekko(data, svgId) {
     const margin1 = ({ top: 10, right: 20, bottom: 10, left: 40 });
 
     const width1 = 800 + margin1.left + margin1.right;
     const height1 = 400;
 
     // Create a SVG container.
-    const svg1 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`)
+    const svg1 = d3.select(`#viz${svgId}`)
         .attr("width", width1)
         .attr("height", height1)
         .attr("viewBox", [0, 0, width1, height1])
@@ -42,19 +42,19 @@ function drawMarimekko(data, index) {
             .attr("stroke", '#382541')
             .attr("stroke-width", 0.5);
 
-    // const rectMg = g1.selectAll(".rect-mg")
-    // .data(data)
-    // .join("rect")
-    //     .attr("class", "rect-mg")
-    //     .attr("x", d => margin1.left + xScale1(d.cumsum))
-    //     .attr("y", d => yScale1(d['% mujeres']))
-    //     .attr("height", d => height1 - margin1.bottom - yScale1(d['% mujeres']))
-    //     .attr("width", d => xScale1(d['listas']))
-    //     .attr("fill", "steelblue")
-    //     // .attr("fill", d => color(d['number_of_day']))
-    //     .attr('fill-opacity', 0.5)
-    //     .attr("stroke", '#260d25')
-    //     .attr("stroke-width", 0.5);
+    const rectMg = g1.selectAll(".rect-mg")
+        .data(data)
+        .join("rect")
+            .attr("class", "rect-mg")
+            .attr("x", d => margin1.left + xScale1(d.cumsum))
+            .attr("y", d => yScale1(d['% mujeres']))
+            .attr("height", d => height1 - margin1.bottom - yScale1(d['% mujeres']))
+            .attr("width", d => xScale1(d['listas']))
+            .attr("fill", "#A969C4")
+            // .attr("fill", d => color(d['number_of_day']))
+            .attr('fill-opacity', 1)
+            .attr("stroke", '#382541')
+            .attr("stroke-width", 0.5);
     
 
     const rectFg = g1.selectAll(".rect-fg")
@@ -72,16 +72,11 @@ function drawMarimekko(data, index) {
     })
 
     rectFg.attr("x", d => margin1.left + xScale1(d.cumsum))
-        .attr("y", d => d.y0)
-        .attr("height", d => d.h0)
         .attr("width", d => xScale1(d['listas']))
         .attr("fill", "#E492FF")
         .attr('fill-opacity', 1)
         .attr("stroke", '#382541')
-        .attr("stroke-width", 0.5)
-        .transition().duration(1000)
-        .attr("y", d => d.y1)
-        .attr("height", d => d.h1);
+        .attr("stroke-width", 0.5);
 
 }
 
@@ -117,8 +112,8 @@ Promise.all([
 
     console.log(data2d, data2s, data2p)
 
-    drawMarimekko(data2d, 7);
-    drawMarimekko(data2s, 8);
-    drawMarimekko(data2p, 10);
+    drawMarimekko(data2d, '02-07');
+    drawMarimekko(data2s, '02-08');
+    drawMarimekko(data2p, '02-10');
 
 })
