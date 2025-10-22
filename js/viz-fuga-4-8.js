@@ -41,17 +41,23 @@ function drawDumbbell(data, svgId) {
       });
 
     const circleRadius = 5;
-    const colorUnico = 'orange';
-    const colorSeccion = 'steelblue';
+    const colorUnico = '#EA98FF';
+    const colorSeccion = '#8A40FF';
+
+    data.forEach(d => {
+      d.x1 = xScale2(d["distrito unico mujeres porcentaje"]);
+      d.x2 = xScale2(d["secciones mujeres porcentaje"]);
+      d.y = yScale2(d["jurisdiccion"]);
+    })
 
     const lineas = svg2.selectAll(".linea")
       .data(data)
       .join("line")
         .attr("class", "linea")
-        .attr("x1", d => xScale2(d["distrito unico mujeres porcentaje"]))
-        .attr("y1", d => yScale2(d["jurisdiccion"]))
-        .attr("x2", d => xScale2(d["distrito unico mujeres porcentaje"]))
-        .attr("y2", d => yScale2(d["jurisdiccion"]))
+        .attr("x1", d => d.x1)
+        .attr("y1", d => d.y)
+        .attr("x2", d => d.x1)
+        .attr("y2", d => d.y)
         .attr("stroke", "darkgrey")
         .attr("stroke-width", 1.5)
 
@@ -59,8 +65,8 @@ function drawDumbbell(data, svgId) {
       .data(data)
       .join("circle")
         .attr("class", "unico")
-        .attr("cx", d => xScale2(d["distrito unico mujeres porcentaje"]))
-        .attr("cy", d => yScale2(d["jurisdiccion"]))
+        .attr("cx", d => d.x1)
+        .attr("cy", d => d.y)
         .attr("r", 0)
         .attr("fill", colorUnico);
 
@@ -68,8 +74,8 @@ function drawDumbbell(data, svgId) {
       .data(data)
       .join("circle")
         .attr("class", "seccion")
-        .attr("cx", d => xScale2(d["secciones mujeres porcentaje"]))
-        .attr("cy", d => yScale2(d["jurisdiccion"]))
+        .attr("cx", d => d.x2)
+        .attr("cy", d => d.y)
         .attr("r", 0)
         .attr("fill", colorSeccion);
     
