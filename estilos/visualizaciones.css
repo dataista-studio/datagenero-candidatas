@@ -16,6 +16,11 @@
     padding: 4px 48px;
 }
 
+.subtitle-container {
+    text-align: center;
+    margin-bottom: 62px;
+}
+
 .viz-subtitle {
     font-family: 'IBM Plex Mono';
     font-style: normal;
@@ -26,4 +31,41 @@
     color: #261729;
     background-color: #FFF;
     padding: 4px 24px;
+}
+
+svg .tick text {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+svg .tick line {
+    stroke: #FFF;
+    stroke-width: 1.5;
+}
+
+.viz-legend {
+    text-align: center;
+}
+
+.legend-item {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: #FFF;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.legend-encabezadas:before {
+    position: relative;
+    right: 0;
+    content: '';
+    width: 35px;
+    height: 26px;
+    background-color: #a969c4;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 0px;
+    margin-right: 12px;
+
 }
