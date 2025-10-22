@@ -1,7 +1,7 @@
 function drawDumbbell(data, svgId) {
   console.log(data)
     
-    const margin2 = ({ top: 20, right: 20, bottom: 40, left: 80 });
+    const margin2 = ({ top: 10, right: 20, bottom: 20, left: 80 });
 
     const width2 = 600;
     const height2 = 140;
@@ -23,7 +23,8 @@ function drawDumbbell(data, svgId) {
 
     const yScale2 = d3.scalePoint()
         .range([height2 - margin2.bottom, margin2.top])
-        .domain(yValues);
+        .domain(yValues)
+        .padding(1);
 
     svg2.append("g")
         .attr("transform", `translate(${margin2.left},0)`)
@@ -34,10 +35,13 @@ function drawDumbbell(data, svgId) {
         })
 
     svg2.append("g")
-      .attr("transform", `translate(0, ${height2 - margin2.bottom + 20})`)
+      .attr("transform", `translate(0, ${height2 - margin2.bottom})`)
       .call(d3.axisBottom(xScale2).ticks(5))
       .call((g) => {
         g.select(".domain").remove();
+        g.selectAll(".tick line")
+          .attr("y2", d => d === 0 ? -6 : -(height2 - margin2.top - margin2.bottom))
+          .attr("stroke", "#d2d2d2")
       });
 
     const circleRadius = 5;
