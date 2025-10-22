@@ -2,10 +2,10 @@ function drawChart(data, index) {
     const field = "jurisdicción"
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
 
-    const margin4 = ({ top: 120, right: 20, bottom: 10, left: 50 });
+    const margin4 = ({ top: 40, right: 20, bottom: 10, left: 50 });
 
     const width4 = jurisdicciones.length * 26;
-    const height4 = 400;
+    const height4 = 300;
     const chartWidth4 = width4 - margin4.left - margin4.right;
     const chartHeight4 = height4 - margin4.top - margin4.bottom;
 
@@ -47,14 +47,21 @@ function drawChart(data, index) {
       .data(["mayoria", "minoria"])
       .join("text")
         .attr("class", "nombre-lista")
-        .attr("x", d => d === 'mayoria' 
-          ? margin4.left + chartWidth4 * 2/3 * 1 / 2
-          : margin4.left + chartWidth4 * 2/3 + chartWidth4 * 1/3 * 1 / 2
+        .attr("y", d => d === 'mayoria' 
+          ? margin4.top + chartHeight4 * 2/3 * 1 / 2
+          : margin4.top + chartHeight4 * 2/3 + chartHeight4 * 1/3 * 1 / 2
         )
-        .attr("y", margin4.top - 4)
+        .attr("x", margin4.left / 2)
         .attr("text-anchor", "middle")
         .style("fill", d => d === "mayoria" ? 'orange' : 'steelblue')
         .style("display", "none")
+        .attr("transform", d => {
+          const y = d === 'mayoria' 
+            ? margin4.top + chartHeight4 * 2/3 * 1 / 2
+            : margin4.top + chartHeight4 * 2/3 + chartHeight4 * 1/3 * 1 / 2;
+          const x = margin4.left / 2;
+          return "rotate(-90 " + x + " " + y + ")"
+        })
         .text(d => d)
 
     const j = g4.selectAll(".juri")
