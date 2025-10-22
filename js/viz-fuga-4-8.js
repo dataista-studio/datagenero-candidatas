@@ -48,18 +48,18 @@ function drawDumbbell(data, svgId) {
       d.x1 = xScale2(d["distrito unico mujeres porcentaje"]);
       d.x2 = xScale2(d["secciones mujeres porcentaje"]);
       d.y = yScale2(d["jurisdiccion"]);
-    })
+    });
 
     const lineas = svg2.selectAll(".linea")
       .data(data)
       .join("line")
         .attr("class", "linea")
         .attr("x1", d => d.x1)
-        .attr("y1", d => d.y)
+        .attr("y1", d => d.y + 0.01)
         .attr("x2", d => d.x1)
-        .attr("y2", d => d.y)
-        .attr("stroke", "darkgrey")
-        .attr("stroke-width", 1.5)
+        .attr("y2", d => d.y - 0.01)
+        .style("stroke", "url(#gradient)")
+        .style("stroke-width", 1.5)
 
     const unicos = svg2.selectAll(".unico")
       .data(data)
