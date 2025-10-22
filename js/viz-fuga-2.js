@@ -12,7 +12,7 @@ function drawDiagram(data, index) {
     const height4 = 600;
 
     // Create a SVG container.
-    const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`)
+    const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`)
           .attr("width", width4)
           .attr("height", height4)
           .attr("viewBox", [0, 0, width4, height4])
