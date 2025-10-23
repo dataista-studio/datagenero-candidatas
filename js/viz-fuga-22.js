@@ -9,7 +9,7 @@ function drawMarimekko(data, svgId) {
         .attr("width", width1)
         .attr("height", height1)
         .attr("viewBox", [0, 0, width1, height1])
-        .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+        .attr("style", "max-width: 100%; font: 10px sans-serif;");
 
     const g1 = svg1.append("g");
 

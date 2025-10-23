@@ -12,7 +12,7 @@ function drawDumbbell(data, svgId) {
           .attr("width", width2)
           .attr("height", height2)
           .attr("viewBox", [0, 0, width2, height2])
-          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif; background-color: white");
+          .attr("style", "max-width: 100%; font: 10px sans-serif; background-color: white");
 
     const g2 = svg2.append("g");
 

@@ -16,7 +16,7 @@ function drawDiagram(data, index) {
           .attr("width", width4)
           .attr("height", height4)
           .attr("viewBox", [0, 0, width4, height4])
-          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+          .attr("style", "max-width: 100%; font: 10px sans-serif;");
 
     function drawRow(rowData, y0) {
       
