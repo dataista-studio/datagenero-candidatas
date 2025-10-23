@@ -53,8 +53,6 @@
   transition: opacity 0.8s ease;
 }
 
-<<<<<<< Updated upstream
-=======
 .step-display {
   position: absolute;
   height: 100vh;
@@ -66,7 +64,6 @@
   transition: opacity 0.8s ease;
 }
 
->>>>>>> Stashed changes
 .step-element.active {
   opacity: 1;
 }
