@@ -4,6 +4,7 @@
   transform: translate(-50%, -50%);
   justify-content: space-between;
   gap: 20px;
+  width: 90%;
 }
 
 .step2-textos {

@@ -1,0 +1,58 @@
+.step11-elements {
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.step11-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step11-img-bottom,
+.step11-img-top {
+  position: absolute;
+  opacity: 0;
+}
+
+.step11-img-bottom {
+  left: calc(50% - 680px);
+  top: calc(50% - 590px);
+  width: 1700px;
+  height: auto;
+  z-index: 1;
+}
+.step11-img-top {
+  left: calc(50% - 520px);
+  top: calc(50% - 380px);
+  width: 1000px;
+  height: auto;
+  z-index: 3;
+}
+
+.step11-textos {
+  position: absolute;
+  left: calc(50% - 10px);
+  top: calc(50% - 440px);
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+}
+
+.step11-textos h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.5rem;
+  text-wrap: nowrap;
+  opacity: 0;
+  z-index: 5;
+}
+
+
+.step11-elements.active .step11-img-bottom { opacity: 1; transform: translateY(-2%); }
+.step11-elements.active .step11-img-top { opacity: 1; transform: translateY(-2%); }
+.step11-elements.active .step11-textos h1 { opacity: 1; transform: translateY(0); }

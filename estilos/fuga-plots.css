@@ -1,0 +1,77 @@
+.viz-title {
+  border-radius: 50px;
+  border: 1px solid white;
+  width: auto;
+  margin: 0 35%;
+  margin-top: 20px;
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.viz-subtitle {
+  background-color: white;
+  width: auto;
+  margin: 0 33%;
+  font-size: 1.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+}
+
+#viz-text {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.grid-flow-col {
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.col-span-1 {
+  margin-right: 20px;
+}
+.row-start-4 {
+  background-color: #312334;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-style: italic;
+  color: white;
+  height: 65px;
+  padding: 0;
+}
+
+.leyendas-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  font-style: initial;
+  font-size: 0.8rem;
+}
+
+#ly-mujer {
+  background-color: #ea98ff;
+  padding: 0 5%;
+  border-radius: 10px;
+}
+
+#ly-varon {
+  background-color: #7dea87;
+  padding: 0 5%;
+  border-radius: 10px;
+}
+
+#ly-sin-info {
+  padding: 0 5%;
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+}
