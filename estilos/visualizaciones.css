@@ -95,6 +95,16 @@ svg .tick line {
 }
 
 .viz-text {
-    color: #FFF
+    color: #FFF;
+    align-content: flex-end;
+}
+
+.viz-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    height: 90vh;
+    padding: 5vh 5vw;
 }
 
