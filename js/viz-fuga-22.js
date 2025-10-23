@@ -1,5 +1,5 @@
 function drawMarimekko(data, svgId) {
-    const margin1 = ({ top: 10, right: 20, bottom: 10, left: 40 });
+    const margin1 = ({ top: 40, right: 20, bottom: 40, left: 40 });
 
     const width1 = 800 + margin1.left + margin1.right;
     const height1 = 400;
@@ -23,10 +23,28 @@ function drawMarimekko(data, svgId) {
         .range([height1 - margin1.bottom, margin1.top])
         .domain([0,1]);
 
-    svg1.append("g")
+    const yAxis = svg1.append("g")
         .attr("transform", `translate(${margin1.left},0)`)
-        .call(d3.axisLeft(yScale1).ticks(5))
-        .call((g) => g.select(".domain").remove())
+        .call(d3.axisLeft(yScale1).ticks(5).tickFormat(d => `${(d * 100).toFixed(0)}%`))
+        .call((g) => g.select(".domain").remove());
+
+    yAxis.append("text")
+        .attr("class", "annotation")
+        .attr("x", -margin1.left)
+        .attr("y", margin1.top / 2)
+        .attr("fill", "#FFF")
+        .attr("text-anchor", 'start')
+        .text("Porcentaje de listas")
+
+    svg1.append("g")
+        .attr("transform", `translate(${margin1.left}, ${height1 - margin1.bottom})`)
+        .append("text")
+        .attr("class", "annotation")
+        .attr("x", (width1 - margin1.left - margin1.right) / 2)
+        .attr("y", margin1.bottom / 2)
+        .attr("fill", "#FFF")
+        .attr("text-anchor", 'middle')
+        .text("Jurisdicciones")
 
     const rectBg = g1.selectAll(".rect-bg")
         .data(data)
