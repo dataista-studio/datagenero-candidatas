@@ -95,16 +95,22 @@ svg .tick line {
 }
 
 .viz-text {
+    font-family: "IBM Plex Mono", sans-serif;
     color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
     align-content: flex-end;
+    line-height: 1.2;
+    letter-spacing: 0px;
 }
 
 .viz-grid {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(10, minmax(0, 1fr));
     grid-template-rows: repeat(5, minmax(0, 1fr));
     height: 90vh;
     padding: 5vh 5vw;
+    gap: 20px;
 }
 
