@@ -21,6 +21,17 @@ scroller
 
         steps.style("opacity", d => d === stepIndex ? 1 : 0)
             .classed("active", d => d === stepIndex)
+<<<<<<< Updated upstream
+=======
+
+        transitionMarimekko(stepIndex, "encabezamiento-hcdn");
+        transitionMarimekko(stepIndex, "encabezamiento-hcs");
+        transitionMarimekko(stepIndex, "encabezamiento-provincial");
+
+        transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcdn");
+        transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcs");
+        transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
+>>>>>>> Stashed changes
 
     })
 

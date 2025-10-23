@@ -1,4 +1,4 @@
-.step9-elements {
+.step13-elements {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -6,13 +6,13 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.8s ease;
-  width: 90%;
+  width: 100%;
 }
-.step9-elements.active {
+.step13-elements.active {
   opacity: 1;
 }
 
-.step9-media {
+.step13-media {
   position: relative;
   width: 100%;
   height: 100%;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.step9-textos {
+.step13-textos {
   position: absolute;
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
@@ -30,17 +30,32 @@
   width: 100%;
 }
 
-.step9-textos h1 {
+.step13-textos h1 {
   color: white;
   font-family: "Homemade Apple", cursive;
   margin: 10px 0;
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: 0;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.step9-elements.active .step9-textos h1 {
+.step13-textos p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.9rem;
+  margin-top: 20px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.step13-elements.active .step13-textos h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.step13-elements.active .step13-textos p {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.8s;

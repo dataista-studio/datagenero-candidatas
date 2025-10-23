@@ -1,0 +1,47 @@
+.fuga-title-1-5 {
+  font-size: 2rem;
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  color: white;
+  right: calc(50% - 270px);
+  top: calc(50% - 200px);
+  padding: 2px 40px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fuga-h1-1-5 {
+  position: absolute;
+  font-family: "Homemade Apple", cursive;
+  top: 50%;
+  color: white;
+  transform: translateY(-50%);
+  right: calc(50% - 550px);
+  top: calc(50% - 80px);
+  z-index: 2;
+  font-size: 4rem;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fuga-p-1-5 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: white;
+  right: calc(50% - 490px);
+  top: calc(50% + 30px);
+  font-size: 1.6rem;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: center;
+}
+
+.step-fuga.active .fuga-title-1-5,
+.step-fuga.active .fuga-h1-1-5,
+.step-fuga.active .fuga-p-1-5 {
+  opacity: 1;
+  transform: translateY(-12%);
+}
