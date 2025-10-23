@@ -8,6 +8,9 @@
 @import url("step8.css");
 @import url("step9.css");
 
+@import url("fuga6-final.css");
+@import url("conclusion.css");
+
 .wrapper {
   background: #261729;
   position: relative;
