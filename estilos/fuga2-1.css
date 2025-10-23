@@ -1,0 +1,32 @@
+.fuga-h1-2-1 {
+  position: absolute;
+  font-family: "Homemade Apple", cursive;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(50% - 300px);
+  top: calc(50% - 80px);
+  z-index: 2;
+  font-size: 2.5rem;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fuga-p-2-1 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: white;
+  right: calc(50% - 460px);
+  top: calc(50% + 30px);
+  font-size: 1.6rem;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: center;
+}
+
+.step-fuga.active .fuga-h1-2-1,
+.step-fuga.active .fuga-p-2-1 {
+  opacity: 1;
+  transform: translateY(-12%);
+}

@@ -1,0 +1,78 @@
+.step-fuga-1-4 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fuga1-4-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fuga1-4-texto {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fuga1-4-grid {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+  gap: 16px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  justify-items: center;
+}
+
+.fila-sin-grises {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 14px;
+  justify-items: center;
+}
+
+.fuga-1-4-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.fuga-1-4-pink {
+  background-color: #ea98ff;
+}
+
+.fuga-1-4-gray {
+  background-color: #b0b0b0;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.step-fuga-1-4.active .fuga1-4-texto {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.step-fuga-1-4.active .fuga-1-4-gray {
+  transform: translateY(12px);
+  transition-delay: 0.5s;
+}

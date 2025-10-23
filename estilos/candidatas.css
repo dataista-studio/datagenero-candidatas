@@ -7,6 +7,15 @@
 @import url("step7.css");
 @import url("step8.css");
 @import url("step9.css");
+@import url("step10.css");
+@import url("step11.css");
+@import url("step12.css");
+@import url("step13.css");
+
+@import url("fugas.css");
+
+@import url("fuga6-final.css");
+@import url("conclusion.css");
 
 .wrapper {
   background: #261729;
@@ -39,8 +48,17 @@
 .step-element {
   position: absolute;
   display: flex;
-  width: 90%;
-  max-width: 1400px;
+  height: 100vh;
+  opacity: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.step-display {
+  position: absolute;
   height: 100vh;
   opacity: 0;
   z-index: 2;

@@ -123,6 +123,14 @@ scroller
 
         transitionDumbbell(stepIndex, "distrito-secciones")
 
+        // transitionMarimekko(stepIndex, "encabezamiento-hcdn");
+        // transitionMarimekko(stepIndex, "encabezamiento-hcs");
+        // transitionMarimekko(stepIndex, "encabezamiento-provincial");
+
+        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcdn");
+        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcs");
+        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
+
     })
 
 window.addEventListener("resize", scroller.resize);
