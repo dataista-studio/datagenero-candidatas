@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://use.typekit.net/zfr3xwx.css" />
     <link rel="stylesheet" href="./estilos/candidatas.css" />
+    <link rel="stylesheet" href="./estilos/visualizaciones.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -206,9 +207,10 @@
             </div>
 
             <!-- STEP 13 -->
-            <div class="step13-elements step-element step-display">
-                <div class="step13-media">
-                    <img class="img-fondo" src="/img/PSD-INTRO-LARESPUESTA.webp" />
+            <div class="step13-elements step-display">
+                <img class="img-fondo" src="/img/PSD-INTRO-LARESPUESTA.webp" />
+                <div class="step13-media step-element">
+                    
                     <div class="step13-textos">
                         <h1>La respuesta está en el camino</h1>
                         <p>la paridad se diluye y las mujeres y disidencias se "fugan"<br>en la tubería que debería
@@ -446,131 +448,125 @@
                     <span class="linea-1"></span>
                     <span class="linea-2"></span>
                 </div>
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Veamos los encabezamientos del Senado
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Veamos los encabezamientos del Senado</span>
+                        </div>
+                    </div>
+                    <div class="col-span-7 row-span-4 self-end">
                         <svg id="viz02-02"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         Cada jurisdicción tiene 3 senadores. En general, la lista mayoritaria obtiene dos puestos y la
                         minoritaria uno.
                     </div>
                 </div>
             </div>
 
+            <!-- Fuga 02-03 -->
             <div class="step-display step-viz">
-                <div class="banner">
-                    FUGAS
-                    <span class="linea-1"></span>
-                    <span class="linea-2"></span>
-                </div>
-                <div class="viz-title text-center">
-                    ¿Qué nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Veamos los encabezamientos del Senado.
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Veamos los encabezamientos del Senado</span>
+                        </div>
+                    </div>
+                    <div class="col-span-7 row-span-4 self-end">
                         <svg id="viz02-03"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-4 row-end-4">
-                        Leyenda
+                    <div class="col-span-3 row-span-4 viz-text">
                         <div class="leyendas-2">
                             <p id="ly-mujer">MUJER</p>
                             <p id="ly-varon">VARÓN</p>
                             <p id="ly-sin-info">SIN INFO.</p>
                         </div>
-                    </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
-                        Por ley de paridad, los dos puestos de la lista mayoritaria siempre son uno masculino y una
-                        femenina. Es decir, la paridad está asegurada en las candidaturas de la lista mayoritaria.
+                        <div>
+                            <p>Por ley de paridad, los dos puestos de la lista mayoritaria siempre son uno masculino y una femenina. Es decir, la paridad está asegurada en las candidaturas de la lista mayoritaria.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Fuga 02-04 -->
             <div class="step-display step-viz">
-                <div class="viz-title text-center">
-                    ¿Qué nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Veamos los encabezamientos del Senado
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Veamos los encabezamientos del Senado</span>
+                        </div>
+                    </div>
+                    <div class="col-span-7 row-span-4 self-end">
                         <svg id="viz02-04"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-4 row-end-4">
-                        Leyenda
+                    <div class="col-span-3 row-span-4 viz-text">
                         <div class="leyendas-2">
                             <p id="ly-mujer">MUJER</p>
                             <p id="ly-varon">VARÓN</p>
                             <p id="ly-sin-info">SIN INFO.</p>
                         </div>
-                    </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
-                        <p>Pero el puesto de la lista minoritaria está definido por quien encabeza la lista.</p>
-                        <p>En las recientes elecciones, X listas minoritarias estaban encabezadas por hombres, mientras
-                            que solo Y lo estaban por mujeres.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="step-display step-viz">
-                <div class="viz-title text-center">
-                    ¿Qué nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Veamos los encabezamientos del Senado
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <svg id="viz02-05"></svg>
-                    </div>
-                    <div class="col-span-1 align-bottom row-start-4 row-end-4">Leyenda</div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
-                        El resultado es un Senado con YY% de participación femenina.
+                        <div>
+                            <p>Pero el puesto de la lista minoritaria está definido por quien encabeza la lista.</p>
+                            <p>En las recientes elecciones, X listas minoritarias estaban encabezadas por hombres, mientras que solo Y lo estaban por mujeres.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+
+            <!-- Fuga 02-07 -->
             <div class="step-display step-viz" id="encabezamiento-hcdn">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Y si ahora vemos los datos del congreso nacional en porcentaje
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">Listas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Y si ahora vemos  los datos del congreso nacional en porcentaje</span>
+                        </div>
+                    </div>
+                
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend">
+                            <span class="legend-encabezadas"></span><span class="legend-item">Listas encabezadas por mujeres</span>
+                        </div>
                         <svg id="viz02-07"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Congreso</span>
                         <p>En la cámara de diputados, ninguna jurisdicción alcanza el 60% de candidaturas femeninas.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Fuga 02-08 -->
             <div class="step-display step-viz" id="encabezamiento-hcs">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Y si ahora vemos los datos del congreso nacional en porcentaje
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">Listas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Y si ahora vemos  los datos del congreso nacional en porcentaje</span>
+                        </div>
+                    </div>
+                
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend">
+                            <span class="legend-encabezadas"></span><span class="legend-item">Listas encabezadas por mujeres</span>
+                        </div>
                         <svg id="viz02-08"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Congreso</span>
                         <p>Mientras en el senado, ninguna sobrepasa el 50%. Incluso en (XXXX) no presentó candidaturas
                             femeninas.</p>
@@ -578,19 +574,25 @@
                 </div>
             </div>
 
+            <!-- Fuga 02-10 -->
             <div class="step-display step-viz" id="encabezamiento-provincial">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    En cuanto a las legislaturas provinciales
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">Listas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">En cuanto a las legislaturas provinciales </span>
+                        </div>
+                    </div>
+                
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend">
+                            <span class="legend-encabezadas"></span><span class="legend-item">Listas encabezadas por mujeres</span>
+                        </div>
                         <svg id="viz02-10"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Legislatura</span>
                         <p>Los datos nos presentan que frente a las listas totales, hay X% de mujeres encabezándolas
                         </p>
@@ -598,22 +600,26 @@
                 </div>
             </div>
 
+            <!-- Fuga 03-03 -->
             <div class="step-display step-viz" id="competitivas-hcdn">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Cuando nos referimos al congreso nacional
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">
-                            <div class="legend-item">Listas encabezadas por mujeres</div>
-                            <div class="legend-item">Listas competitivas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Cuando nos referimos al congreso nacional</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend double-item">
+                            <span class="legend-encabezadas"></span><span class="legend-item ">Listas encabezadas <br/> por mujeres</span>
+                            <span class="legend-competitivas"></span><span class="legend-item">Listas competitivas encabezadas por mujeres</span>
                         </div>
                         <svg id="viz03-03"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Congreso</span>
                         <p>En la cámara de diputados, el porcentaje de candidatas mujeres que encabezan cae
                             dramáticamente cuando filtramos solo por listas competitivas. Incluso hay X jurisdicciones
@@ -621,22 +627,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Fuga 03-04 -->
             <div class="step-display step-viz" id="competitivas-hcs">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Cuando nos referimos al congreso nacional
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">
-                            <div class="legend-item">Listas encabezadas por mujeres</div>
-                            <div class="legend-item">Listas competitivas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Cuando nos referimos al congreso nacional</span>
+                        </div>
+                    </div>
+                
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend double-item">
+                            <span class="legend-encabezadas"></span><span class="legend-item">Listas encabezadas <br/> por mujeres</span>
+                            <span class="legend-competitivas"></span><span class="legend-item">Listas competitivas encabezadas por mujeres</span>
                         </div>
                         <svg id="viz03-04"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Congreso</span>
                         <p>En el Senado, la situación se repite: hay 1 jurisdicción sin listas competitivas y en otras 4
                             jurisdicciones la participación femenina se reduce notablemente al mirar únicamente las
@@ -645,22 +656,26 @@
                 </div>
             </div>
 
+            <!-- Fuga 03-05 -->
             <div class="step-display step-viz" id="competitivas-provincial">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
-                </div>
-                <div class="viz-subtitle text-center">
-                    Cuando nos referimos a candidaturas provinciales
-                </div>
-                <div class="grid grid-flow-col grid-cols-5 grid-rows-5">
-                    <div class="col-span-4 row-span-5">
-                        <div class="viz-legend">
-                            <div class="legend-item">Listas encabezadas por mujeres</div>
-                            <div class="legend-item">Listas competitivas encabezadas por mujeres</div>
+                <div class="viz-grid">
+                    <div class="col-span-10 row-start-1">
+                        <div class="title-container">
+                            <span class="viz-title">¿Qué nos dicen los datos?</span>
+                        </div>
+                        <div class="subtitle-container">
+                            <span class="viz-subtitle">Cuando nos referimos a candidaturas provinciales</span>
+                        </div>
+                    </div>
+                
+                    <div class="col-span-7 row-span-4 self-end">
+                        <div class="viz-legend double-item">
+                            <span class="legend-encabezadas"></span><div class="legend-item">Listas encabezadas <br/> por mujeres</div>
+                            <span class="legend-competitivas"></span><div class="legend-item">Listas competitivas encabezadas por mujeres</div>
                         </div>
                         <svg id="viz03-05"></svg>
                     </div>
-                    <div class="col-span-1 align-bottom row-start-5" id="viz-text">
+                    <div class="col-span-3 row-span-4 viz-text">
                         <span class="viz-tag">Legislatura</span>
                         <p>La historia es muy similar: pocas listas son encabezadas por mujeres y, cuando filtramos por
                             aquellas con reales posibilidades de ganar, el número es todavía menor. De hecho, hay 5
@@ -670,9 +685,10 @@
                 </div>
             </div>
 
+            <!-- Fuga 04-08 -->
             <div class="step-display step-viz" id="distrito-secciones">
-                <div class="viz-title text-center">
-                    Que nos dicen los datos?
+                <div class="title-container">
+                    <span class="viz-title">¿Qué nos dicen los datos?</span>
                 </div>
                 <div class="viz-explain text-center">
                     Acá ejemplificamos con cuatro legislaturas que combinan distrito único y secciones electorales, se

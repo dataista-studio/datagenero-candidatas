@@ -20,7 +20,7 @@
 .wrapper {
   background: #261729;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
@@ -46,32 +46,13 @@
 }
 
 .step-element {
-  position: absolute;
   display: flex;
-  height: 100vh;
-  opacity: 0;
-  z-index: 2;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.step-display {
-  position: absolute;
-  height: 100vh;
-  opacity: 0;
-  z-index: 2;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.step-display {
-  position: absolute;
-  width: 90%;
   max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* .step-display {
+  position: absolute;
   height: 100vh;
   opacity: 0;
   z-index: 2;
@@ -79,6 +60,19 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.8s ease;
+} */
+
+.step-display {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  margin: 0 auto;
 }
 
 .step-element.active {

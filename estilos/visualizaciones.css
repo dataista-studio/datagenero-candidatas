@@ -1,0 +1,138 @@
+.title-container {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.viz-title {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 60px;
+    padding: 4px 48px;
+}
+
+.subtitle-container {
+    text-align: center;
+    margin-bottom: 62px;
+}
+
+.viz-subtitle {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #261729;
+    background-color: #FFF;
+    padding: 4px 24px;
+}
+
+svg .tick text,
+svg .annotation {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+svg .nombre-lista {
+    font-size: 18px;
+}
+
+svg .tick line {
+    stroke: #FFF;
+    stroke-width: 1.5;
+}
+
+.viz-legend {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.legend-item {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: #FFF;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: left;
+}
+
+.legend-item:not(:last-child) {
+    margin-right: 60px;
+}
+
+.double-item > .legend-item {
+    max-width: 230px;
+}
+
+.legend-encabezadas,
+.legend-competitivas {
+    display: inline-block;
+    position: relative;
+    right: 0;
+    top: 6px;
+    content: '';
+    width: 35px;
+    height: 26px;
+    border-radius: 20px;
+    margin-right: 12px;
+}
+
+.legend-encabezadas {
+    background-color: #a969c4;
+}
+
+.legend-competitivas {
+    background-color: #E492FF;
+}
+
+.double-item > .legend-competitivas,
+.double-item > .legend-encabezadas {
+        line-height: 48px;
+        vertical-align: top;
+}
+
+.viz-text {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    align-content: flex-end;
+    line-height: 1.2;
+    letter-spacing: 0px;
+}
+
+.viz-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    height: 90vh;
+    padding: 5vh 5vw;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto; 
+}
+
+.viz-tag {
+    font-family: 'Homemade Apple', serif;
+    font-style: normal;
+    font-weight: 400; 
+    font-size: 18px; 
+    line-height: 1.2;
+    letter-spacing: 0px;
+    background-color: #c271d6;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    padding: 8px 40px;
+    display: inline-block;
+}
+
