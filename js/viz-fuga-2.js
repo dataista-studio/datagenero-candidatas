@@ -1,15 +1,15 @@
 function drawDiagram(data, index) {
-    const field = "jurisdicción"
+    const field = "jurisdicción";
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
     const nJuri = jurisdicciones.length;
 
-    const padding = 8;
     const radius = 22.5;
 
-    const margin4 = ({ top: 40, right: 20, bottom: 10, left: 50 });
+    const margin4 = ({ top: 60, right: 20, bottom: 10, left: 30 });
 
-    const width4 = jurisdicciones.length / 2 * 65;
+    const width4 = jurisdicciones.length / 2 * 75;
     const height4 = 600;
+    const padding = (height4 / 2 - margin4.top - margin4.bottom - 6 * radius) / 6;
 
     // Create a SVG container.
     const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`)
@@ -37,30 +37,42 @@ function drawDiagram(data, index) {
         .data(["mayoria", "minoria"])
         .join("rect")
           .attr("class", "lista")
-          .attr("y", d => d === 'mayoria' ? margin4.top - padding / 4 : margin4.top + chartHeight4 * 2/3 + padding / 2)
+          .attr("y", d => d === 'mayoria' ? margin4.top : margin4.top + 4 * padding + 4 * radius)
           .attr("x", margin4.left)
-          .attr("height", d => d === "mayoria" ? chartHeight4 * 2/3 : chartHeight4 / 3 - padding)
+          .attr("height", d => d === "mayoria" ? 3 * padding + 4 * radius : 2 * padding + 2 * radius)
           .attr("width", width4 - margin4.left - margin4.right)
-          .style("fill", "white")
+          .style("fill", d => d === "mayoria" ? "#48394C" : "#625267")
+          .style('display', "block");
+
+      const listaLine = g4.selectAll(".lista-line")
+        .data(["mayoria", "minoria"])
+        .join("rect")
+          .attr("class", "lista-line")
+          .attr("y", d => d === 'mayoria' ? margin4.top : margin4.top + 4 * padding + 4 * radius)
+          .attr("x", margin4.left)
+          .attr("height", d => d === "mayoria" ? 3 * padding + 4 * radius : 2 * padding + 2 * radius)
+          .attr("width", 10)
+          .style("fill", d => d === "mayoria" ? "#A591AA" : "#F8E1FF")
           .style('display', "block")
-          .style("fill-opacity",d => d === "mayoria" ? 0.1 : 0.3) 
 
       const listaText = g4.selectAll(".nombre-lista")
-        .data(["mayoria", "minoria"])
+        .data(["mayoría", "minoría"])
         .join("text")
-          .attr("class", "nombre-lista")
-          .attr("y", d => d === 'mayoria' 
-            ? margin4.top + chartHeight4 * 2/3 * 1 / 2
-            : margin4.top + chartHeight4 * 2/3 + chartHeight4 * 1/3 * 1 / 2
+          .attr("class", "nombre-lista annotation")
+          .attr("y", d => d === 'mayoría' 
+            ? margin4.top + (3 * padding + 4 * radius) * 1 / 2
+            : margin4.top + 4 * padding + 4 * radius + (2 * padding + 2 * radius ) * 1 / 2
           )
           .attr("x", margin4.left / 2)
           .attr("text-anchor", "middle")
           .style("fill", 'white')
           .style("display", "block")
+          .style("border-left", "100px solid white")
+          .style("text-transform", "uppercase")
           .attr("transform", d => {
-            const y = d === 'mayoria' 
-              ? margin4.top + chartHeight4 * 2/3 * 1 / 2
-              : margin4.top + chartHeight4 * 2/3 + chartHeight4 * 1/3 * 1 / 2;
+            const y = d === 'mayoría' 
+              ? margin4.top + (3 * padding + 4 * radius) * 1 / 2
+              : margin4.top + 4 * padding + 4 * radius + (2 * padding + 2 * radius ) * 1 / 2
             const x = margin4.left / 2;
             return "rotate(-90 " + x + " " + y + ")"
           })
@@ -75,6 +87,7 @@ function drawDiagram(data, index) {
       j.selectAll(".label")
         .data(d => [d])
         .join("text")
+          .attr("class", "label annotation")
           .attr("text-anchor", "middle")
           .style("fill", 'white')
           .attr("x", xScale4.bandwidth() / 2)
@@ -85,10 +98,10 @@ function drawDiagram(data, index) {
         .data(d => data.filter(f => f[field] === d))
         .join('circle')
         .attr("class", "cand")
-          .attr("cy", (d, i) => i === 0 ? margin4.top + padding / 2 + candWidth / 2 : 
+          .attr("cy", (d, i) => i === 0 ? margin4.top + padding + radius : 
             (i === 1 
-              ? margin4.top + padding + candWidth + 2 * padding + candWidth / 2
-              : margin4.top + chartHeight4 * 2/3 + padding + candWidth / 2)
+              ? margin4.top + 2 * padding + 3 * radius
+              : margin4.top + 5 * padding + 5 * radius)
           )
           .attr("cx", 0)
           .attr("r", radius)

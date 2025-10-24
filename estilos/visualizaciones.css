@@ -41,6 +41,10 @@ svg .annotation {
     font-weight: 400;
 }
 
+svg .nombre-lista {
+    font-size: 18px;
+}
+
 svg .tick line {
     stroke: #FFF;
     stroke-width: 1.5;
