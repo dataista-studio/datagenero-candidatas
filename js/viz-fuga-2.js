@@ -1,11 +1,40 @@
 function drawDiagram(data, index) {
+
+    const toCamelCase = (word) => {
+      if (word === 'del') return word;
+
+      return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+    }
+
+    const splitText = (name) => {
+      if (name === 'catamarca') {
+        return ['Cata-', 'marca'];
+      } else if (name === 'cordoba') {
+        return ['Córdoba'];
+      } else if (name === 'corrientes') {
+        return ['Corrien-', 'tes'];
+      } else if (name === 'misiones') {
+        return ['Misio-', 'tns'];
+      } else if (name === 'santiago del estero') {
+        return ['Stgo.', 'del', 'Estero'];
+      } else if (name === 'tucuman') {
+        return ['Tucu-', 'mán'];
+      } else if (name === 'ciudad de buenos aires') {
+        return ['CABA']
+      } else if (name.split(" ").length === 1) {
+        return [toCamelCase(name)];
+      } else {
+        return name.split(" ").map(d => toCamelCase(d))
+      }
+    }
+
     const field = "jurisdicción";
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
     const nJuri = jurisdicciones.length;
 
     const radius = 22.5;
 
-    const margin4 = ({ top: 60, right: 20, bottom: 10, left: 30 });
+    const margin4 = ({ top: 80, right: 20, bottom: 10, left: 30 });
 
     const width4 = jurisdicciones.length / 2 * 75;
     const height4 = 600;
@@ -84,7 +113,7 @@ function drawDiagram(data, index) {
           .attr("class", "juri")
           .attr("transform", d => `translate(${xScale4(d)}, 0)`);
 
-      j.selectAll(".label")
+      const juriName = j.selectAll(".label")
         .data(d => [d])
         .join("text")
           .attr("class", "label annotation")
@@ -92,7 +121,16 @@ function drawDiagram(data, index) {
           .style("fill", 'white')
           .attr("x", xScale4.bandwidth() / 2)
           .attr("y", margin4.top / 2)
-          .text(d => d)
+        
+      juriName.selectAll("tspan")
+          .data(d => {
+            console.log(splitText(d))
+            return splitText(d)
+          })
+          .join("tspan")
+            .attr("x", xScale4.bandwidth() / 2)
+            .attr("dy", (d,i) => i === 0 ? "0" : "16px")
+            .text(d => d)
 
       const candidatxs = j.selectAll(".cand")
         .data(d => data.filter(f => f[field] === d))
