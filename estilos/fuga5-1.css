@@ -1,0 +1,35 @@
+.fuga-title5-1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  background-color: #ea98ff;
+  box-shadow: 1px 1px 10px black;
+  position: absolute;
+  font-family: 'IBM Plex Mono', monospace;
+  top: calc(50% - 500px);
+  padding: 2px 40px;
+  z-index: 1;
+}
+
+.fuga-inicio ul {
+    position: absolute;
+    top: calc(50% - 400px);
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.fuga-inicio li {
+    margin-top: 10px;
+}
+
+.fuga05-01-p p {
+    background-color: white;
+    color: black;
+    rotate: -3deg;
+    padding: 15px;
+}
+
+.fuga05-01-p {
+        top: 50%;
+        position: absolute;
+}

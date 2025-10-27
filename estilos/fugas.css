@@ -4,6 +4,9 @@
 @import url("fuga1-5.css");
 
 @import url("fuga2-1.css");
+@import url("fuga3-1.css");
+@import url("fuga4-1.css");
+@import url("fuga5-1.css");
 @import url("fuga-plots.css");
 
 /* .step-fuga {
@@ -67,7 +70,6 @@
   box-shadow: 1px 1px 10px black;
   position: absolute;
   font-family: 'IBM Plex Mono', monospace;
-  right: calc(50% - 70px);
   top: calc(50% - 200px);
   padding: 2px 40px;
   z-index: 1;
@@ -77,7 +79,6 @@
   font-size: 1.7rem;
   position: absolute;
   font-family: "IBM Plex Mono", monospace;
-  right: calc(50% - 280px);
   top: calc(50% - 135px);
   padding: 2px 40px;
   z-index: 1;
@@ -89,7 +90,6 @@
   height: auto;
   z-index: 0;
   position: absolute;
-  right: calc(50% - 670px);
   top: calc(50% - 220px);
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -100,10 +100,9 @@
   font-family: 'Homemade Apple', cursive;
   top: 50%;
   transform: translateY(-50%);
-  right: calc(50% - 400px);
-  top: calc(50% - 120px);
+  top: calc(50% - 110px);
   z-index: 2;
-  font-size: 4rem;
+  font-size: 3rem;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -113,7 +112,6 @@
   font-family: 'Homemade Apple', cursive;
   top: 50%;
   transform: translateY(-50%);
-  right: calc(50% - 400px);
   top: calc(50% - 80px);
   z-index: 2;
   font-size: 2.8rem;
@@ -125,7 +123,6 @@
   margin-top: 20px;
   font-size: 1.2rem;
   color: white;
-  right: calc(50% - 390px);
   top: calc(50% + 30px);
   font-size: 1.6rem;
   position: absolute;
@@ -140,4 +137,10 @@
 .step-fuga.active .fuga-p {
   opacity: 1;
   transform: translateY(-12%);
+}
+
+.fuga-inicio {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
 }

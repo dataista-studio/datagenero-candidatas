@@ -1,17 +1,17 @@
-.fuga-h1-2-1 {
+.fuga-h1-4-1 {
   font-family: "Homemade Apple", cursive;
   position: absolute;
   transform: translateY(-50%);
   text-align: center;
   align-items: center;
-  top: calc(50% - 90px);
+  top: calc(50% - 115px);
   z-index: 2;
   font-size: 2.5rem;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.fuga-p-2-1 {
+.fuga-p-4-1 {
   margin-top: 20px;
   font-size: 1.2rem;
   color: white;
@@ -24,8 +24,8 @@
   text-align: center;
 }
 
-.step-fuga.active .fuga-h1-2-1,
-.step-fuga.active .fuga-p-2-1 {
+.step-fuga.active .fuga-h1-4-1,
+.step-fuga.active .fuga-p-4-1 {
   opacity: 1;
   transform: translateY(-12%);
 }

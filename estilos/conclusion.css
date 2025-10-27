@@ -1,5 +1,5 @@
 
-.step-conclusion {
+.step-conclusion-1 {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -9,25 +9,29 @@
   overflow: hidden;
 }
 
-
+.conclusion-inicio {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
 
 .conclusion-h1 {
   position: absolute;
   font-family: 'Homemade Apple', cursive;
   transform: translateY(-50%);
-  right: calc(50% - 150px);
   top: calc(50% - 100px);
   z-index: 2;
   font-size: 2.3rem;
   color: white;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  align-items: center;
 }
 
 .conclusion-p1, .conclusion-p2, .conclusion-p3 {
   font-size: 1.2rem;
   color: white;
-  right: calc(50% - 400px);
   top: calc(50% - 20px);
   position: absolute;
   opacity: 0;
@@ -36,12 +40,10 @@
 }
 
 .conclusion-p2 {
-      right: calc(50% - 350px);
   top: calc(50% - 20px);
 }
 
 .conclusion-p3 {
-      right: calc(50% - 300px);
   top: calc(50% - 20px);
   color: black;
   font-weight: bold;
@@ -51,7 +53,6 @@
     color: white;
     position: absolute;
     top: calc(50% + 120px);
-    right: calc(50% - 300px);
     font-family: 'IBM Plex Mono', monospace;
     font-style: italic;
     border-radius: 20px;
@@ -61,12 +62,10 @@
 
 #preg1 {
     top: calc(50% + 120px);
-    right: calc(50% - 320px);
 }
 
 #preg2 {
     top: calc(50% + 170px);
-    right: calc(50% - 360px);
 }
 
 .fuga-img-fin {
@@ -74,7 +73,6 @@
   height: auto;
   z-index: 0;
   position: absolute;
-  right: calc(50% - 530px);
   top: calc(50% - 95px);
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -84,7 +82,6 @@
     color: white;
     position: absolute;
     top: calc(50% + 280px);
-    right: calc(50% - 350px);
     font-family: 'IBM Plex Mono', monospace;
     text-align: center;
       opacity: 0;
