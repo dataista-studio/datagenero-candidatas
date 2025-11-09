@@ -1,28 +1,43 @@
 .leyendas-2 {
-  display: flex;
-  flex-direction: row;
+  text-align: center;
   align-items: center;
   gap: 10px;
   color: black;
   font-style: initial;
   font-size: 0.8rem;
+  background: #312334FF;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0px #00000033;
+  padding: 12px 12px;
 }
 
-#ly-mujer {
+.legend-title {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0px;
+  width: 100%;
+  color: #FFF;
+  display: block;
+}
+
+.legend-col {
+  padding: 2px 8px;
+  border-radius: 10px;
+  width: 30%;
+  display: inline-block;
+}
+
+.ly-mujer {
   background-color: #ea98ff;
-  padding: 0 5%;
-  border-radius: 10px;
+  
 }
 
-#ly-varon {
+.ly-varon {
   background-color: #7dea87;
-  padding: 0 5%;
-  border-radius: 10px;
 }
 
-#ly-sin-info {
-  padding: 0 5%;
+.ly-sin-info {
   border: 1px solid white;
   color: white;
-  border-radius: 10px;
 }
