@@ -26,6 +26,37 @@ const getDivIndexInStep = (divId) => {
 
 const delay = 500;
 
+function transitionDropDots(index, divId) {
+    if (index === getDivIndexInStep(divId)) {
+
+        const dots = d3.select(`#${divId}`)
+                .selectAll(".dot-provincia");
+
+        const nDots = dots._groups[0].length;
+        const radius = 19;
+        const padding = 15;
+
+        dots.filter(d => d >= nDots / 2)
+            .attr("cx", d => (d - nDots / 2 + 1) * padding + (2 * (d - nDots / 2) + 1) * radius)
+            .attr("cy", 2 * padding + 3 * radius)
+            .style("opacity", 1)
+
+        setTimeout(()  => {
+            dots.filter(d => d >= nDots / 2)
+                .transition().duration(1000)
+                .attr("cx", d => [nDots - 1, nDots - 2].includes(d) 
+                    ? (d - nDots / 2 + 1) * padding + (2 * (d - nDots / 2) + 1) * radius
+                    : (d - nDots / 2 + 2) * padding + (2 * (d - nDots / 2 + 1) + 1) * radius)
+                .attr("cy", d => [nDots - 1, nDots - 2].includes(d)
+                    ? 2 * padding + 3 * radius + 100
+                    : 2 * padding + 3 * radius
+                )
+                .style("opacity", d => [nDots - 1, nDots - 2].includes(d) ? 0 : 1)
+        }, delay)
+        
+    }
+}
+
 function transitionMarimekko(index, divId) {
     if (index === getDivIndexInStep(divId)) {
 
@@ -113,6 +144,8 @@ scroller
         steps.style("opacity", d => d === stepIndex ? 1 : 0)
             .classed("active", d => d === stepIndex);
 
+        transitionDropDots(stepIndex, "ley-paridad");
+
         transitionMarimekko(stepIndex, "encabezamiento-hcdn");
         transitionMarimekko(stepIndex, "encabezamiento-hcs");
         transitionMarimekko(stepIndex, "encabezamiento-provincial");
@@ -121,15 +154,7 @@ scroller
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcs");
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
 
-        transitionDumbbell(stepIndex, "distrito-secciones")
-
-        // transitionMarimekko(stepIndex, "encabezamiento-hcdn");
-        // transitionMarimekko(stepIndex, "encabezamiento-hcs");
-        // transitionMarimekko(stepIndex, "encabezamiento-provincial");
-
-        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcdn");
-        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-hcs");
-        // transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
+        transitionDumbbell(stepIndex, "distrito-secciones");
 
     })
 
