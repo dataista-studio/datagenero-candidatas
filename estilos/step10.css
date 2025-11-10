@@ -1,8 +1,8 @@
 .step10-elements {
-  top: 55%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  transform: translate(-50%, -50%); */
+  /* width: 90%; */
 }
 
 .step10-media {
@@ -23,7 +23,7 @@
 
 .step10-img-bottom {
   left: calc(50% - 680px);
-  top: calc(50% - 590px);
+  top: calc(50% - 440px);
   transform: translateY(-50%);
   width: 1700px;
   height: auto;
@@ -31,7 +31,7 @@
 }
 .step10-img-top {
   left: calc(50% - 520px);
-  top: calc(50% - 380px);
+  top: calc(50% - 230px);
   transform: translate(-50%, -50%);
   width: 1000px;
   height: auto;
@@ -41,7 +41,7 @@
 .step10-textos {
   position: absolute;
   left: calc(50% - 10px);
-  top: calc(50% - 440px);
+  top: calc(50% - 280px);
   transform: translate(-50%, -50%);
   z-index: 4;
   text-align: center;
