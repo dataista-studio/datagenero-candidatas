@@ -1,6 +1,6 @@
 jurisdiccion,diputadxs,cantidad diputadas,porcentaje diputadas,senadorxs,cantidad senadoras,porcentaje senadoras
 buenos aires,92,45,49,46,20,43
-catamarca,41,,0,16,,0
+catamarca,41,20,49,16,7,44
 chaco,32,15,47,,,
 chubut,27,13,48,,,
 ciudad autonoma de buenos aires,60,29,48,,,
@@ -10,8 +10,8 @@ entre rios,34,17,50,17,5,29
 formosa,30,16,53,,,
 jujuy,48,21,44,,,
 la pampa,30,14,47,,,
-la rioja,36,,0,,,
-mendoza,48,,0,38,,0
+la rioja,36,8,22,,,
+mendoza,48,23,48,38,15,39
 misiones,40,18,45,,,
 neuquen,35,17,49,,,
 rio negro,46,20,43,,,
@@ -20,6 +20,6 @@ san juan,36,13,36,,,
 san luis,43,19,44,9,0,0
 santa cruz,24,8,33,,,
 santa fe,50,25,50,19,1,5
-santiago del estero,40,,0,,,
+santiago del estero,40,18,45,,,
 tierra del fuego aias,15,5,33,,,
 tucuman,49,11,22,,,
