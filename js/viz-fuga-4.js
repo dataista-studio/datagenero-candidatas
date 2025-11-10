@@ -3,8 +3,8 @@ function drawCirclePack(data, svgId) {
     const colorMujer = "#ea98ff";
     const colorHombre = "#7dea87";
 
-    const width2 = 600;
-    const height2 = 600;
+    const width2 = 400;
+    const height2 = 400;
 
     // Create a SVG container.
     const svg2 = d3.select(`#viz${svgId}`)
@@ -66,11 +66,11 @@ const circles1 = [
     {
         'mujeres': 15,
         'hombres': 15,
-        'radius': 300,
-        'x': 300, 
-        'y': 300,
-        'r': 25,
-        'padding': 10,
+        'radius': 200,
+        'x': 200, 
+        'y': 200,
+        'r': 15,
+        'padding': 8,
     }
 ]
 
@@ -80,37 +80,37 @@ const circles2 = [
     {
         'mujeres': 5,
         'hombres': 6,
-        'radius': 100,
-        'x': 150, 
-        'y': 150,
-        'r': 12,
+        'radius': 80,
+        'x': 100, 
+        'y': 100,
+        'r': 10,
         'padding': 5,
     },
     {
         'mujeres': 1,
         'hombres': 3,
         'radius': 60,
-        'x': 400, 
-        'y': 180,
-        'r': 12,
+        'x': 300, 
+        'y': 120,
+        'r': 10,
         'padding': 5,
     },
     {
         'mujeres': 5,
         'hombres': 6,
-        'radius': 100,
-        'x': 400, 
-        'y': 450,
-        'r': 12,
+        'radius': 80,
+        'x': 250, 
+        'y': 300,
+        'r': 10,
         'padding': 5,
     },
     {
         'mujeres': 1,
         'hombres': 3,
         'radius': 60,
-        'x': 150, 
-        'y': 400,
-        'r': 12,
+        'x': 90, 
+        'y': 260,
+        'r': 10,
         'padding': 5,
     }
 ]
@@ -122,8 +122,8 @@ const circles3 = [
         'mujeres': 1,
         'hombres': 3,
         'radius': 60,
-        'x': 300, 
-        'y': 300,
+        'x': 200, 
+        'y': 200,
         'r': 12,
         'padding': 5,
     }

@@ -213,7 +213,7 @@ svg .tick line {
   letter-spacing: 0px;
   border-radius: 20px;
   border: 1px solid white;
-  margin-bottom: 18px;
+  margin: 0 auto 18px auto;
   padding: 8px 40px;
   display: inline-block;
 }
@@ -228,4 +228,9 @@ svg .tick line {
   background-color: #7dea87;
   border: none;
   color: black;
+}
+
+.camara-diputados,
+.senadores {
+  display: table;
 }
