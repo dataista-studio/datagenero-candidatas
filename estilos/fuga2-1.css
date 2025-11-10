@@ -29,3 +29,10 @@
   opacity: 1;
   transform: translateY(-12%);
 }
+
+.step-fuga-2-2 .fuga-h1-2-1,
+.step-fuga-2-2 .fuga-p-2-1,
+.step-fuga-2-2 .fuga-img {
+  transition:  none;
+  transform: none;
+}
