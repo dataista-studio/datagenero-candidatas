@@ -16,6 +16,12 @@
   padding: 4px 48px;
 }
 
+.fuga06 .viz-title {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
 .title-container4 {
   text-align: center;
   margin-top: 24px;

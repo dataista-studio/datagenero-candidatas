@@ -166,6 +166,36 @@ function transitionSections(index, divId) {
     }
 }
 
+function transitionReplacement(index, divId) {
+    if (index === getDivIndexInStep(divId)) {
+        const radius = 12;
+
+        const va = d3.select(`#${divId}`)
+                .selectAll(".va");
+
+        const viene = d3.select(`#${divId}`)
+                .selectAll(".viene");
+
+        va.attr("cx", d => d.width / 2)
+            .style("opacity", 1);
+
+        viene.attr("cx", d => d.width / 2 + 200)
+            .style("opacity", 0);
+
+   
+        setTimeout(()  => {
+            va.transition().duration(1000)
+                .attr("cx", d => d.width / 2 - 200)
+                .style("opacity", 0);
+
+            viene.transition().duration(1000)
+                .attr("cx", d => d.width / 2)
+                .style("opacity", 1);
+        }, delay)
+        
+    }
+}
+
 
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
@@ -186,8 +216,8 @@ scroller
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
 
         transitionDumbbell(stepIndex, "distrito-secciones");
-
-        transitionSections(stepIndex, "fuga-secciones")
+        transitionSections(stepIndex, "fuga-secciones");
+        transitionReplacement(stepIndex, "reemplazos");
 
     })
 
