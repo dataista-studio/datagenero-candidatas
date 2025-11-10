@@ -23,8 +23,14 @@ function drawCirclePack(data, svgId) {
             .attr("r", bigCircle.radius)
             .attr("fill", "#544059");
 
-        const mujeres = d3.range(bigCircle.mujeres).map(() => ({ color: colorMujer}));
-        const hombres = d3.range(bigCircle.hombres).map(() => ({ color: colorHombre}));
+        const mujeres = d3.range(bigCircle.mujeres).map(() => ({
+            color: colorMujer,
+            sexo: 'mujer'
+        }));
+        const hombres = d3.range(bigCircle.hombres).map(() => ({
+            color: colorHombre,
+            sexo: 'hombre'
+        }));
         const cand = d3.shuffle([...mujeres, ...hombres]);
 
         const circles = cand.map((d, i) => {
@@ -34,9 +40,11 @@ function drawCirclePack(data, svgId) {
             const x = r * Math.cos(a);
             const y = r * Math.sin(a);
             return {
+                ...d,
+                xc: bigCircle.x,
+                yc: bigCircle.y,
                 x: x,
                 y: y,
-                color: d.color
             }
         })
 
@@ -45,11 +53,12 @@ function drawCirclePack(data, svgId) {
         g2.selectAll(`.small-circle-${idx}`)
             .data(circles)
             .join("circle")
-                .attr("class", `.small-circle-${idx}`)
-                .attr("cx", d => bigCircle.x+ d.x)
-                .attr("cy", d => bigCircle.y + d.y)
+                .attr("class", `.small-circle-${idx} small-circle`)
+                .attr("cx", d => d.xc + d.x)
+                .attr("cy", d => d.yc + d.y)
                 .attr("r", radii)
                 .attr("fill", d => d.color);
+
         })
 }
 

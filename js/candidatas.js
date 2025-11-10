@@ -136,6 +136,37 @@ function transitionDumbbell(index, divId) {
     }
 }
 
+function transitionSections(index, divId) {
+    if (index === getDivIndexInStep(divId)) {
+        const radius = 12;
+
+        const smallCircles = d3.select(`#${divId}`)
+                .selectAll(".small-circle")
+        
+        smallCircles.attr("cx", d => d.xc + d.x)
+                .attr("cy", d => d.yc + d.y)
+                .attr("r", radius)
+                .style('opacity', 1);
+
+        setTimeout(()  => {
+            smallCircles.filter(d => d.sexo === 'mujer')
+                .transition().duration(1000)
+                .attr("cx", d => d.xc + d.x)
+                .attr("cy", d => d.yc + d.y)
+                .style("opacity", 0);
+
+            smallCircles.filter(d => d.sexo === 'hombre')
+                .transition().duration(1000)
+                .attr("cx", (d, i) => i === 0 ? d.xc : d.xc + d.x)
+                .attr("cy", (d, i) => i === 0 ? d.yc : d.yc + d.y)
+                .attr("r", (d, i) => i === 0 ? 2 * radius : radius)
+                .style("opacity", (_, i) => i === 0 ? 1 : 0);
+        }, delay)
+        
+    }
+}
+
+
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
     .onStepEnter(({ element }) => {
@@ -155,6 +186,8 @@ scroller
         transitionMarimekkoCompetitivo(stepIndex, "competitivas-provincial");
 
         transitionDumbbell(stepIndex, "distrito-secciones");
+
+        transitionSections(stepIndex, "fuga-secciones")
 
     })
 
