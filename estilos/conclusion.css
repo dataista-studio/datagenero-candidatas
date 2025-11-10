@@ -84,12 +84,34 @@
     top: calc(50% + 280px);
     font-family: 'IBM Plex Mono', monospace;
     text-align: center;
-      opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    padding-top: 50px;
+
+    width: 100vw; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    background-color: #000;
+    border-radius: 100%;
 }
 
 .creditos span {
     font-weight: 600;
+}
+
+.final-credit {
+  margin-top: 20px;
+  line-height: 57px;
+  vertical-align: middle;
+}
+
+.final-credit  a {
+  display: inline-block;
+  line-height: 57px;
+  vertical-align: middle;
+  margin-left: 12px;
+  cursor: pointer;
+  z-index: 1000;
+  position: relative;
 }
 
 .step-conclusion.active .conclusion-h1,
