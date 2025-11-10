@@ -1,25 +1,31 @@
 .fuga-title5-1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 26px;
   background-color: #ea98ff;
   box-shadow: 1px 1px 10px black;
-  position: absolute;
   font-family: 'IBM Plex Mono', monospace;
-  top: calc(50% - 500px);
-  padding: 2px 40px;
+  padding: 6px 40px;
   z-index: 1;
+  color: #000;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  display: inline-block;
 }
 
-.fuga-inicio ul {
-    position: absolute;
-    top: calc(50% - 400px);
+.fuga05 ul {
     align-items: center;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
 }
 
-.fuga-inicio li {
+.fuga05 li {
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.fuga05-01-p {
+    margin-top: 20px;
+    display: inline-block;
 }
 
 .fuga05-01-p p {
@@ -29,7 +35,6 @@
     padding: 15px;
 }
 
-.fuga05-01-p {
-        top: 50%;
-        position: absolute;
+.fuga05 .viz-text {
+    align-content: center;
 }
