@@ -1,9 +1,10 @@
 function drawDumbbell(data, svgId) {
     
-    const margin2 = ({ top: 10, right: 20, bottom: 20, left: 80 });
+    const margin2 = ({ top: 10, right: 40, bottom: 60, left: 120 });
 
-    const width2 = 600;
-    const height2 = 140;
+
+    const width2 = d3.select(`#viz${svgId}`).node().parentNode.getBoundingClientRect().width;
+    const height2 = width2 / 3;
 
     const yValues = data.map(d => d.jurisdiccion)
 
@@ -35,7 +36,7 @@ function drawDumbbell(data, svgId) {
 
     svg2.append("g")
       .attr("transform", `translate(0, ${height2 - margin2.bottom})`)
-      .call(d3.axisBottom(xScale2).ticks(5))
+      .call(d3.axisBottom(xScale2).ticks(5).tickFormat(d => `${(d * 100).toFixed(0)}%`))
       .call((g) => {
         g.select(".domain").remove();
         g.selectAll(".tick line")
