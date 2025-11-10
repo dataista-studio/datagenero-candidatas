@@ -1,7 +1,7 @@
 function drawCirclePack(data, svgId) {
 
-    const colorMujer = "#7dea87";
-    const colorHombre = "#ea98ff";
+    const colorMujer = "#ea98ff";
+    const colorHombre = "#7dea87";
 
     const width2 = 600;
     const height2 = 600;
@@ -14,8 +14,8 @@ function drawCirclePack(data, svgId) {
           .attr("style", "max-width: 100%;");
 
     data.forEach((bigCircle, idx) => {
-        const radii = bigCircle.radius / 12;
-        const padding = 10;
+        const radii = bigCircle.r;
+        const padding = bigCircle.padding;
 
         svg2.append("circle")
             .attr("cx", bigCircle.x)
@@ -46,21 +46,78 @@ function drawCirclePack(data, svgId) {
             .data(circles)
             .join("circle")
                 .attr("class", `.small-circle-${idx}`)
-                .attr("cx", d => width2 / 2 + d.x)
-                .attr("cy", d => height2 / 2 + d.y)
+                .attr("cx", d => bigCircle.x+ d.x)
+                .attr("cy", d => bigCircle.y + d.y)
                 .attr("r", radii)
                 .attr("fill", d => d.color);
         })
 }
 
-const circles = [
+const circles1 = [
     {
         'mujeres': 15,
         'hombres': 15,
         'radius': 300,
         'x': 300, 
         'y': 300,
+        'r': 25,
+        'padding': 10,
     }
 ]
 
-drawCirclePack(circles, "04-01");
+drawCirclePack(circles1, "04-01");
+
+const circles2 = [
+    {
+        'mujeres': 5,
+        'hombres': 6,
+        'radius': 100,
+        'x': 150, 
+        'y': 150,
+        'r': 12,
+        'padding': 5,
+    },
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 400, 
+        'y': 180,
+        'r': 12,
+        'padding': 5,
+    },
+    {
+        'mujeres': 5,
+        'hombres': 6,
+        'radius': 100,
+        'x': 400, 
+        'y': 450,
+        'r': 12,
+        'padding': 5,
+    },
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 150, 
+        'y': 400,
+        'r': 12,
+        'padding': 5,
+    }
+]
+
+drawCirclePack(circles2, "04-02");
+
+const circles3 = [
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 300, 
+        'y': 300,
+        'r': 12,
+        'padding': 5,
+    }
+]
+
+drawCirclePack(circles3, "04-03");
