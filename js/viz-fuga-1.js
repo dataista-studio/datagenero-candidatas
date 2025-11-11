@@ -28,6 +28,3 @@ function drawDots(svgId) {
 
     
 }
-
-drawDots("01-02")
-drawDots("01-03")

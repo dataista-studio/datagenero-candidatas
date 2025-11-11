@@ -50,6 +50,3 @@ function drawReplacement(svgId, sexo) {
 
     
 }
-
-drawReplacement("06-01", 'hombre')
-drawReplacement("06-02", 'mujer')

@@ -132,32 +132,3 @@ function drawBeeswarm(data, svgId, color) {
         .text(d => d);
 
 }
-
-Promise.all([
-    d3.csv('./datos/f5-nacional.csv'),
-    d3.csv('./datos/f5-provincial.csv'),
-]).then((csv) => {
-
-    function processData(rawData) {
-        rawData.forEach(d => {
-            d["diputadxs"] = +d["diputadxs"];
-            d["cantidad diputadas"] = +d["cantidad diputadas"];
-            d["cantidad diputados"] = d["diputadxs"] - d["cantidad diputadas"];
-            d["porcentaje diputadas"] = +d["porcentaje diputadas"];
-            d["senadorxs"] = +d["senadorxs"];
-            d["cantidad senadoras"] = +d["cantidad senadoras"];
-            d["porcentaje senadoras"] = +d["porcentaje senadoras"];
-        });
-
-        return rawData;
-    }
-    const f5 = csv[0];
-    const f5p = csv[1];
-
-    const data5 = processData(f5);
-    const data5p = processData(f5p);
-    console.log(data5)
-
-    drawBeeswarm(data5, "05-01", "#BC88FF");
-    drawBeeswarm(data5p, "05-02", "#76FF89");
-})

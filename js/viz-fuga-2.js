@@ -196,14 +196,4 @@ function drawDiagram(data, index) {
     
 }
 
-Promise.all([
-    d3.csv('./datos/f2-encabezamiento.csv'),
-]).then((csv) => {
-    const fe = csv[0];
-    const indices = d3.range(2, 6);
 
-    indices.forEach(idx => {
-        drawDiagram(fe, idx);
-    })
-
-})

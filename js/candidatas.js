@@ -1,3 +1,5 @@
+const pymChild = new pym.Child();
+
 const scroller = scrollama();
 const wrapper = document.querySelector(".wrapper");
 
@@ -196,6 +198,171 @@ function transitionReplacement(index, divId) {
     }
 }
 
+drawDots("01-02");
+drawDots("01-03");
+
+const circles1 = [
+    {
+        'mujeres': 15,
+        'hombres': 15,
+        'radius': 200,
+        'x': 200, 
+        'y': 200,
+        'r': 15,
+        'padding': 8,
+    }
+]
+
+drawCirclePack(circles1, "04-01");
+
+const circles2 = [
+    {
+        'mujeres': 5,
+        'hombres': 6,
+        'radius': 80,
+        'x': 100, 
+        'y': 100,
+        'r': 10,
+        'padding': 5,
+    },
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 300, 
+        'y': 120,
+        'r': 10,
+        'padding': 5,
+    },
+    {
+        'mujeres': 5,
+        'hombres': 6,
+        'radius': 80,
+        'x': 250, 
+        'y': 300,
+        'r': 10,
+        'padding': 5,
+    },
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 90, 
+        'y': 260,
+        'r': 10,
+        'padding': 5,
+    }
+]
+
+drawCirclePack(circles2, "04-02");
+
+const circles3 = [
+    {
+        'mujeres': 1,
+        'hombres': 3,
+        'radius': 60,
+        'x': 200, 
+        'y': 200,
+        'r': 12,
+        'padding': 5,
+    }
+]
+
+drawCirclePack(circles3, "04-03");
+
+drawReplacement("06-01", 'hombre')
+drawReplacement("06-02", 'mujer')
+
+Promise.all([
+    d3.csv('./datos/f2-encabezamiento.csv'),
+    d3.csv('./datos/f4-provincias-mixtas.csv'),
+    d3.csv('./datos/f5-nacional.csv'),
+    d3.csv('./datos/f5-provincial.csv'),
+    d3.csv('./datos/f2f3-nacional-hcdn.csv'),
+    d3.csv('./datos/f2f3-nacional-hcs.csv'),
+    d3.csv('./datos/f2f3-provincial.csv'),
+]).then((csv) => {
+    const fe = csv[0];
+    const indices = d3.range(2, 6);
+
+    indices.forEach(idx => {
+        drawDiagram(fe, idx);
+    });
+
+    const f4 = csv[1];
+
+    f4.forEach(d => {
+      d["distrito unico mujeres"] = + d["distrito unico mujeres"];
+      d["distrito unico total"] = + d["distrito unico total"];
+      d["distrito unico mujeres porcentaje"] = + d["distrito unico mujeres porcentaje"];
+      d["secciones mujeres"] = + d["secciones mujeres"];
+      d["secciones total"] = + d["secciones total"];
+      d["secciones mujeres porcentaje"] = + d["secciones mujeres porcentaje"];
+    })
+
+    const sortBy = "secciones mujeres porcentaje";
+
+    const data4 = f4.sort((a, b) => b[sortBy] - a[sortBy])
+
+    drawDumbbell(data4, "04-08");
+
+    function processData5(rawData) {
+        rawData.forEach(d => {
+            d["diputadxs"] = +d["diputadxs"];
+            d["cantidad diputadas"] = +d["cantidad diputadas"];
+            d["cantidad diputados"] = d["diputadxs"] - d["cantidad diputadas"];
+            d["porcentaje diputadas"] = +d["porcentaje diputadas"];
+            d["senadorxs"] = +d["senadorxs"];
+            d["cantidad senadoras"] = +d["cantidad senadoras"];
+            d["porcentaje senadoras"] = +d["porcentaje senadoras"];
+        });
+
+        return rawData;
+    }
+    const f5 = csv[2];
+    const f5p = csv[3];
+
+    const data5 = processData5(f5);
+    const data5p = processData5(f5p);
+    console.log(data5)
+
+    drawBeeswarm(data5, "05-01", "#BC88FF");
+    drawBeeswarm(data5p, "05-02", "#76FF89");
+
+    function processData2(rawData) {
+        rawData.forEach((d, i) => {
+            d["listas"] = +d["listas"];
+            d["listas encabezadas por mujeres"] = +d["listas encabezadas por mujeres"];
+            d["listas competitivas encabezadas por mujeres"] = +d["listas competitivas encabezadas por mujeres"];
+            d['% mujeres'] = +(d["listas encabezadas por mujeres"] / d["listas"]).toFixed(2);
+            d['% comp mujeres'] = +(d["listas competitivas encabezadas por mujeres"] / d["listas"]).toFixed(2);
+        });
+
+        const processedData = rawData.sort((a,b) => b['% comp mujeres'] - a['% comp mujeres']);
+        processedData.forEach((d, i) => {
+            d.cumsum = d3.sum(rawData.slice(0, i), d => d['listas']);
+        });
+
+        return processedData;
+    }
+    const f2d = csv[4];
+    const f2s = csv[5];
+    const f2p = csv[6];
+
+    const data2d = processData2(f2d);
+    const data2s = processData2(f2s);
+    const data2p = processData2(f2p);
+
+    drawMarimekko(data2d, '02-07');
+    drawMarimekko(data2s, '02-08');
+    drawMarimekko(data2p, '02-10');
+
+    drawMarimekko(data2d, '03-03');
+    drawMarimekko(data2s, '03-04');
+    drawMarimekko(data2p, '03-05');
+
+    updateHeight();
+})
 
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
@@ -222,3 +389,14 @@ scroller
     })
 
 window.addEventListener("resize", scroller.resize);
+
+updateHeight();
+
+function updateHeight() {
+    // const h = d3.select("#scrolly-steps").node().getBoundingClientRect().height;
+    // const vh = d3.select(".wrapper").node().getBoundingClientRect().height;
+  
+    // d3.select("body").style("height", `${900}px`);
+  
+    // pymChild.sendHeight();
+}

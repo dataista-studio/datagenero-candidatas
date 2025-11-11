@@ -111,24 +111,3 @@ function drawDumbbell(data, svgId) {
         .attr("fill", colorSeccion);
     
 }
-
-Promise.all([
-    d3.csv('./datos/f4-provincias-mixtas.csv'),
-]).then((csv) => {
-    const f4 = csv[0];
-
-    f4.forEach(d => {
-      d["distrito unico mujeres"] = + d["distrito unico mujeres"];
-      d["distrito unico total"] = + d["distrito unico total"];
-      d["distrito unico mujeres porcentaje"] = + d["distrito unico mujeres porcentaje"];
-      d["secciones mujeres"] = + d["secciones mujeres"];
-      d["secciones total"] = + d["secciones total"];
-      d["secciones mujeres porcentaje"] = + d["secciones mujeres porcentaje"];
-    })
-
-    const sortBy = "secciones mujeres porcentaje";
-
-    const data4 = f4.sort((a, b) => b[sortBy] - a[sortBy])
-
-    drawDumbbell(data4, "04-08");
-})
