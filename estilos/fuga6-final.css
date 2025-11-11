@@ -30,13 +30,20 @@
   margin-top: 20px;
   font-size: 1.2rem;
   color: white;
-  top: calc(50% - 230px);
   font-size: 1.6rem;
   position: absolute;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
   font-family: "IBM Plex Mono", monospace;
   text-align: center;
+}
+
+.fuga-p-6-f {
+  top: calc(50% + 30px);
+}
+
+.fuga-p-6-ff {
+  top: calc(50% - 230px);
 }
 
 .step-fuga-6-f .fuga-img {
