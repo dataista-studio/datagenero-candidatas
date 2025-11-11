@@ -2,7 +2,7 @@ function drawBeeswarm(data, svgId, color) {
 
     const labelWidth = 110;
 
-    const margin3 = ({ top: 20, right: 20, bottom: 40, left: labelWidth + 20 });
+    const margin3 = ({ top: 20, right: 20, bottom: 50, left: labelWidth + 20 });
 
     const width3 = d3.select(`#viz${svgId}`).node().parentNode.getBoundingClientRect().width;
     const height3 = 300;
@@ -57,12 +57,19 @@ function drawBeeswarm(data, svgId, color) {
 
     svg3.append("g")
         .attr("transform", `translate(0,${height3 - margin3.bottom})`)
-        .call(d3.axisBottom(xScale3).ticks(5))
+        .call(d3.axisBottom(xScale3).ticks(5).tickFormat(d => `${d}%`))
         .call((g) => {
             g.select(".domain").remove();
             g.selectAll(".tick line")
-                .attr("y2", d => d === 0 ? -6 : -(height3 - margin3.top - margin3.bottom))
+                .attr("y2", -(height3 - margin3.top - margin3.bottom))
         });
+
+    svg3.append("text")
+        .attr("class", "annotation")
+        .attr("x", margin3.left + (width3 - margin3.left - margin3.right) / 2)
+        .attr("y", height3 - 6)
+        .attr("text-anchor", "middle")
+        .text("Porcentaje de mujeres")
 
     svg3.selectAll(".diputados")
       .data(dataD)

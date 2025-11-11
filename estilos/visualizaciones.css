@@ -89,6 +89,7 @@ svg .tick line {
 .fuga05 svg .tick text,
 .fuga05 svg .annotation {
   color: #E3D2FF;
+  fill: #E3D2FF;
 }
 
 .fuga05 .nacional-label,
