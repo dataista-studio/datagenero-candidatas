@@ -38,3 +38,113 @@
 .fuga05 .viz-text {
     align-content: center;
 }
+
+.beeswarm-title-hcd {
+    color: #ffffff;
+    font-family: "IBM Plex Mono";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    background-color: #8a40ff;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.beeswarm-title-hs {
+    color: #261729;
+    font-family: "IBM Plex Mono";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    background-color: #7dea87;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.p-legend {
+    color: #ffffff;
+    font-family: "IBM Plex Mono";
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    padding: 0 10px;
+}
+
+.fuga05 .legend {
+    background-color: #312334;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.fuga05 .legend > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.fuga05-legend-title {
+    color: #ffffff;
+    font-family: "IBM Plex Mono";
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    font-style: italic;
+}
+
+.fuga05-legend-circulo,
+.fuga05-legend-tamano {
+    color: #ffffff;
+    font-family: "IBM Plex Mono";
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0px;
+}
+
+.fuga05-legend-circulo {
+    width: 155px;
+}
+
+.fuga05-legend-tamano {
+    width: 180px;
+}
+
+.divider {
+    border-left: 1px solid #F5e9e9;
+    height: 69px;
+    width: 10px;
+}
+
+.circulo-con-texto {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ea98ff;
+    transform: translateY(-10px);
+}
+
+.circulo-con-texto::after {
+    content: "Tucumán";
+    position: relative;
+    top: 100%;
+    margin-left: -14px;
+    margin-top: -2px;
+    font-family: 'IBM Plex Mono';
+    font-style: italic;
+    font-weight: 400;
+    color: #ea98ff;
+}
+
+.circulo-grande {
+    width: 51px;
+    height: 51px;
+    border-radius: 25.5px;
+    background-color: #ea98ff;
+}
+
+.circulo-pequeno {
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: #ea98ff;
+}
