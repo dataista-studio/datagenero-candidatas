@@ -72,13 +72,30 @@ svg .tick line {
 }
 
 #distrito-secciones svg .tick line {
-  stroke: #d2d2d2;
-  stroke-width: 0.5;
+  stroke: #2C1D30;
+  stroke-width: 0.2;
 }
 
 #distrito-secciones svg .tick text,
 #distrito-secciones svg .annotation {
-  color: #000;
+  color: #2C1D30;
+}
+
+.fuga05 svg .tick line {
+  stroke: #E3D2FF;
+  stroke-width: 0.2;
+}
+
+.fuga05 svg .tick text,
+.fuga05 svg .annotation {
+  color: #E3D2FF;
+}
+
+.fuga05 .nacional-label,
+.fuga05 .provincial-label {
+  font-family: "IBM Plex Mono", sans-serif;
+  color: #04081A;
+  font-size: 14px;
 }
 
 .viz-legend {
