@@ -1,3 +1,23 @@
+const toCamelCase = (word) => {
+  if (word === 'del') return word;
+
+  return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+}
+
+const fixName = (name) => {
+      if (name === 'cordoba') {
+    return 'Córdoba';
+  } else if (name === 'santa cruz') {
+    return 'Santa Cruz';
+  } else if (name === 'san juan') {
+    return "San Juan";
+  } else if (name === 'rio negro') {
+    return "Río Negro";
+  } else {
+    return name.split(" ").map(d => toCamelCase(d))
+  }
+}
+
 function drawDumbbell(data, svgId) {
     
     const margin2 = ({ top: 10, right: 40, bottom: 60, left: 120 });
@@ -28,7 +48,7 @@ function drawDumbbell(data, svgId) {
 
     svg2.append("g")
         .attr("transform", `translate(${margin2.left},0)`)
-        .call(d3.axisLeft(yScale2).ticks(5))
+        .call(d3.axisLeft(yScale2).ticks(5).tickFormat(fixName))
         .call((g) => {
           g.select(".domain").remove();
           g.selectAll(".tick line").remove();
@@ -44,10 +64,10 @@ function drawDumbbell(data, svgId) {
           .attr("stroke", "#d2d2d2")
       });
 
-    svg3.append("text")
+    svg2.append("text")
         .attr("class", "annotation")
         .attr("x", margin2.left + (width2 - margin2.left - margin2.right) / 2)
-        .attr("y", height2 - 6)
+        .attr("y", height2 - 12)
         .attr("text-anchor", "middle")
         .text("Porcentaje de mujeres")
 
