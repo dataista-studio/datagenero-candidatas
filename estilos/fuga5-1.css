@@ -6,16 +6,17 @@
   padding: 6px 40px;
   z-index: 1;
   color: #000;
-  margin-left: 40px;
   margin-bottom: 40px;
   text-transform: uppercase;
   display: inline-block;
+  text-align: left;
 }
 
 .fuga05 ul {
     align-items: center;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
+    text-align: left;
 }
 
 .fuga05 li {
@@ -26,7 +27,7 @@
 .fuga05-01-p {
     margin-top: 20px;
     display: inline-block;
-    margin-left: 40px;
+    text-align: left;
 }
 
 .fuga05-01-p p {

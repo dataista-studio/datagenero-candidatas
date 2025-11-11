@@ -44,6 +44,13 @@ function drawDumbbell(data, svgId) {
           .attr("stroke", "#d2d2d2")
       });
 
+    svg3.append("text")
+        .attr("class", "annotation")
+        .attr("x", margin2.left + (width2 - margin2.left - margin2.right) / 2)
+        .attr("y", height2 - 6)
+        .attr("text-anchor", "middle")
+        .text("Porcentaje de mujeres")
+
     const circleRadius = 5;
     const colorUnico = '#EA98FF';
     const colorSeccion = '#8A40FF';
