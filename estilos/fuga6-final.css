@@ -19,7 +19,7 @@
   font-family: 'Homemade Apple', cursive;
   top: 50%;
   transform: translateY(-50%);
-  top: calc(50% - 80px);
+  top: calc(50% + 20px);
   z-index: 2;
   font-size: 2.1rem;
   opacity: 0;
@@ -30,7 +30,7 @@
   margin-top: 20px;
   font-size: 1.2rem;
   color: white;
-  top: calc(50% + 30px);
+  top: calc(50% - 230px);
   font-size: 1.6rem;
   position: absolute;
   opacity: 0;
@@ -39,8 +39,16 @@
   text-align: center;
 }
 
-.fuga-p-6-ff {
-  top: calc(50% - 350px);
+.step-fuga-6-f .fuga-img {
+  top: calc(50% - 120px);
+}
+
+.step-fuga-6-f .fuga-title {
+  top: calc(50% - 100px);
+}
+
+.step-fuga-6-f .fuga-title-1 {
+  top: calc(50% - 35px);
 }
 
 .step-fuga.active .fuga-img,

@@ -23,6 +23,11 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.fuga04 .fuga-h1-1-5 {
+  max-width: 70%;
+  text-align: center;
+}
+
 .fuga-p-1-5 {
   margin-top: 20px;
   font-size: 1.2rem;
@@ -34,6 +39,11 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
   font-family: "IBM Plex Mono", monospace;
   text-align: center;
+}
+
+.fuga04 .fuga-p-1-5 {
+  top: calc(50% + 60px);
+  max-width: 70%;
 }
 
 .step-fuga.active .fuga-title-1-5,

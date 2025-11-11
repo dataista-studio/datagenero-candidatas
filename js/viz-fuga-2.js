@@ -123,10 +123,7 @@ function drawDiagram(data, index) {
           .attr("y", margin4.top / 2)
         
       juriName.selectAll("tspan")
-          .data(d => {
-            console.log(splitText(d))
-            return splitText(d)
-          })
+          .data(d => splitText(d))
           .join("tspan")
             .attr("x", xScale4.bandwidth() / 2)
             .attr("dy", (d,i) => i === 0 ? "0" : "16px")
