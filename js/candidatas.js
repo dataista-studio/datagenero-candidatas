@@ -283,7 +283,7 @@ Promise.all([
     d3.csv('./datos/f2f3-provincial.csv'),
 ]).then((csv) => {
     const fe = csv[0];
-    const indices = d3.range(2, 6);
+    const indices = d3.range(2, 5);
 
     indices.forEach(idx => {
         drawDiagram(fe, idx);
