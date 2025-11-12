@@ -283,3 +283,49 @@ svg .tick line {
 #distrito-secciones .viz-grid {
   grid-auto-flow: row;
 }
+
+@media (max-width: 1200px) {
+  svg .tick text,
+  svg .annotation,
+  svg .nombre-lista {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  svg .tick text,
+  svg .annotation,
+  svg .nombre-lista {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  svg .tick text,
+  svg .annotation,
+  svg .nombre-lista {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 790px) {
+  .viz-title {
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+
+  .viz-subtitle {
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+   
+  .viz-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .viz-text {
+    font-size: 12px;
+  }
+}

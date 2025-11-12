@@ -1,12 +1,14 @@
 function drawMarimekko(data, svgId) {
     const margin1 = ({ top: 40, right: 20, bottom: 40, left: 40 });
 
-    const width1 = 800 + margin1.left + margin1.right;
-    const height1 = 400;
+    const svg1 = d3.select(`#viz${svgId}`)
+
+    const mobile =  window.innerWidth < 768;
+    const width1 = svg1.node().parentNode.getBoundingClientRect().width;
+    const height1 = mobile ? window.innerHeight * 0.6 * 0.5 : window.innerHeight * 0.8 * 0.5;
 
     // Create a SVG container.
-    const svg1 = d3.select(`#viz${svgId}`)
-        .attr("width", width1)
+    svg1.attr("width", width1)
         .attr("height", height1)
         .attr("viewBox", [0, 0, width1, height1])
         .attr("style", "max-width: 100%; font: 10px sans-serif;");

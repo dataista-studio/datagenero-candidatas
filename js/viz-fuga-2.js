@@ -7,6 +7,16 @@ function drawDiagram(data, index) {
     }
 
     const splitText = (name) => {
+      if (mobile) {
+        console.log(name.split(" ").map(d => d.slice(0,1).toUpperCase() + '.').join(" "))
+        if (name === 'ciudad de buenos aires') {
+          return ['CABA']
+        }
+        return name.split(" ").map(d => {
+          if (['del', 'la'].includes(d)) return d.slice(0,1).toUpperCase() + d.slice(1)
+          return d.slice(0,1).toUpperCase() + d.slice(1,3) + '.'
+        });
+      }
       if (name === 'catamarca') {
         return ['Cata-', 'marca'];
       } else if (name === 'cordoba') {
@@ -38,10 +48,12 @@ function drawDiagram(data, index) {
 
     const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`);
 
-    const width4 = svg4.node().parentNode.getBoundingClientRect().width;
-    const height4 = window.innerHeight * 0.8 * 0.8;
+    const mobile =  window.innerWidth < 768;
 
-    const radius =  width4 / (jurisdicciones.length / 2) * 0.3;
+    const width4 = svg4.node().parentNode.getBoundingClientRect().width;
+    const height4 = mobile ? window.innerHeight * 0.6 * 0.8 : window.innerHeight * 0.8 * 0.8;
+
+    const radius =  mobile ? 5 : width4 / (jurisdicciones.length / 2) * 0.3;
     const padding = (height4 / 2 - margin4.top - margin4.bottom - 6 * radius) / 6;
 
     // Create a SVG container.
@@ -108,7 +120,7 @@ function drawDiagram(data, index) {
             const x = margin4.left / 2;
             return "rotate(-90 " + x + " " + y + ")"
           })
-          .text(d => d)
+          .text(d => mobile ? d.slice(0, 3) + "." : d)
 
       const j = g4.selectAll(".juri")
         .data(rowData)
