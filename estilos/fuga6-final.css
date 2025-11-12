@@ -76,7 +76,7 @@
 }
 
 .step-fuga-6-f .fuga-inicio .hoja-rasgada {
-  transform: translateY(calc(50%));
+  transform: translateY(calc(50% + 100px));
 }
 
 .step-fuga-6-f .fuga-inicio .fuga-p {
@@ -102,5 +102,9 @@
 
   .step-fuga-6-f .fuga-inicio .fuga-h1 {
     font-size: 14px;
+  }
+
+  .step-fuga-6-f .fuga-inicio .hoja-rasgada {
+    transform: translateY(calc(50%));
   }
 }

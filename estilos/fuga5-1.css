@@ -228,7 +228,24 @@
     .beeswarm-title-hs {
         line-height: 16px;
         font-size: 14px;
-        padding: 3px 10px;
+        padding: 3px 0;
+        background-color: none;
+    }
+
+    .beeswarm-title-hcd-wrapper,
+    .beeswarm-title-hs-wrapper {
+        border-radius: 10px;
+        padding: 0 10px;
+    }
+
+    .beeswarm-title-hcd-wrapper {
+        color: #ffffff;
+        background-color: #8a40ff;
+    }
+
+    .beeswarm-title-hs-wrapper {
+        color: #261729;
+        background-color: #7dea87;
     }
 
     .p-legend {

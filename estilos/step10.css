@@ -93,6 +93,10 @@
 .step10-elements.active .step10-textos span { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
 .step10-elements.active .step10-textos p { opacity: 1; transform: translateY(0); transition-delay: 1s; }
 
+.step10-elements .hoja-rasgada {
+  transform: translateY(calc(50% - 400px));
+}
+
 @media (max-width: 790px) {
   .step10-textos span {
     font-size: 1rem;

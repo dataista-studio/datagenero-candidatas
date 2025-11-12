@@ -127,6 +127,10 @@
   transform: translateY(-12%);
 }
 
+.step-conclusion-3 .hoja-rasgada {
+    top: 300px;
+  }
+
 @media (max-width: 768px) {
   .conclusion-p1, .conclusion-p2, .conclusion-p3 {
     font-size: 14px;
