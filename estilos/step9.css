@@ -28,6 +28,7 @@
   z-index: 4;
   text-align: center;
   width: 100%;
+  padding: 0 20px;
 }
 
 .step9-textos h1 {
@@ -44,4 +45,10 @@
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.8s;
+}
+
+@media (max-width: 740px) {
+  .step9-textos h1 {
+    font-size: 2rem;
+  }
 }
