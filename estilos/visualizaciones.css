@@ -284,6 +284,13 @@ svg .tick line {
   grid-auto-flow: row;
 }
 
+#viz04-01,
+#viz04-02,
+#viz04-03 {
+  margin: 0 auto;
+}
+
+
 @media (max-width: 1200px) {
   svg .tick text,
   svg .annotation,
@@ -321,6 +328,34 @@ svg .tick line {
    
   .viz-text {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .viz-grid {
+    grid-auto-flow: row;
+    gap: 8px;
+  }
+
+  .col-none {
+    grid-column: none;
+  }
+
+  .viz-tag4,
+  .camara-diputados,
+  .senadores {
+    font-size: 13px;
+    line-height: 1.2;
+    padding: 4px 40px;
+    margin-bottom: 6px;
+  }
+
+  .viz-text ul {
+    font-size: 12px;
+  }
+
+  .viz-text ul span {
+    font-size: 12px;
   }
 }
 

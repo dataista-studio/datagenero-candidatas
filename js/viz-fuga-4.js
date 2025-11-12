@@ -3,24 +3,35 @@ function drawCirclePack(data, svgId) {
     const colorMujer = "#ea98ff";
     const colorHombre = "#7dea87";
 
-    const width2 = 400;
-    const height2 = 400;
+    const svg2 = d3.select(`#viz${svgId}`);
+
+    const mobile =  window.innerWidth < 768;
+
+    const width = svg2.node().parentNode.getBoundingClientRect().width;
+    const height = svg2.node().parentNode.getBoundingClientRect().height;
+    const length = Math.min(width, height);
+
+    const width2 = mobile ? length : 2 * length;
+    const height2 = mobile ? length : 2 * length;
+
+    const transform = (pos) => {
+        return pos / 400 * width2;
+    }
 
     // Create a SVG container.
-    const svg2 = d3.select(`#viz${svgId}`)
-          .attr("width", width2)
+    svg2.attr("width", width2)
           .attr("height", height2)
           .attr("viewBox", [0, 0, width2, height2])
           .attr("style", "max-width: 100%;");
 
     data.forEach((bigCircle, idx) => {
-        const radii = bigCircle.r;
-        const padding = bigCircle.padding;
+        const radii = transform(bigCircle.r);
+        const padding = transform(bigCircle.padding);
 
         svg2.append("circle")
-            .attr("cx", bigCircle.x)
-            .attr("cy", bigCircle.y)
-            .attr("r", bigCircle.radius)
+            .attr("cx", transform(bigCircle.x))
+            .attr("cy", transform(bigCircle.y))
+            .attr("r", transform(bigCircle.radius))
             .attr("fill", "#544059");
 
         const mujeres = d3.range(bigCircle.mujeres).map(() => ({
@@ -41,8 +52,8 @@ function drawCirclePack(data, svgId) {
             const y = r * Math.sin(a);
             return {
                 ...d,
-                xc: bigCircle.x,
-                yc: bigCircle.y,
+                xc: transform(bigCircle.x),
+                yc: transform(bigCircle.y),
                 x: x,
                 y: y,
             }

@@ -139,8 +139,10 @@ function transitionDumbbell(index, divId) {
 }
 
 function transitionSections(index, divId) {
+    const mobile =  window.innerWidth < 768;
+
     if (index === getDivIndexInStep(divId)) {
-        const radius = 12;
+        const radius = mobile ? 4 : 12;
 
         const smallCircles = d3.select(`#${divId}`)
                 .selectAll(".small-circle")
