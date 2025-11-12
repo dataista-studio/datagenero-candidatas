@@ -105,6 +105,6 @@
   }
 
   .step-fuga-6-f .fuga-inicio .hoja-rasgada {
-    transform: translateY(calc(50%));
+    transform: translateY(calc(50% + 40px));
   }
 }
