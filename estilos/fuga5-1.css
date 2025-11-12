@@ -41,26 +41,24 @@
     align-content: center;
 }
 
-.beeswarm-title-hcd {
-    color: #ffffff;
+.beeswarm-title-hcd,
+.beeswarm-title-hs {
     font-family: "IBM Plex Mono";
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0px;
-    background-color: #8a40ff;
     border-radius: 10px;
     padding: 0 10px;
 }
 
+.beeswarm-title-hcd {
+    color: #ffffff;
+    background-color: #8a40ff;
+}
+
 .beeswarm-title-hs {
     color: #261729;
-    font-family: "IBM Plex Mono";
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0px;
     background-color: #7dea87;
-    border-radius: 10px;
-    padding: 0 10px;
 }
 
 .p-legend {
@@ -155,10 +153,176 @@
   content: "FUGA 05";
 }
 
-@media (max-width: 768px) {
-  .fuga-title5-1 {
-    font-size: 14px;
-    padding: 6px 20px;
-    margin-bottom: 40px;
+@media (max-width: 1040px) {
+    .fuga05 .legend {
+        border-radius: 20px;
+        padding: 10px 20px;
+        display: inline-block;
     }
+
+    .fuga05 .legend > * {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+    }
+
+    .fuga05-legend-title {
+        font-size: 14px;
+    }
+
+    .fuga05-legend-circulo,
+    .fuga05-legend-tamano {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    .fuga05-legend-circulo {
+        width: 100px;
+    }
+
+    .fuga05-legend-tamano {
+        width: 120px;
+    }
+
+    .divider {
+        height: 60px;
+        width: 10px;
+    }
+
+    .circulo-con-texto {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        transform: translateY(-10px);
+    }
+
+    .circulo-con-texto::after {
+        margin-left: -11px;
+        margin-top: -2px;
+        font-size:  10px;
+    }
+
+    .circulo-grande {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+    }
+
+    .circulo-pequeno {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .fuga-title5-1 {
+        font-size: 14px;
+        padding: 6px 20px;
+        margin-bottom: 40px;
+    }
+
+    .beeswarm-title-hcd,
+    .beeswarm-title-hs {
+        line-height: 16px;
+        font-size: 14px;
+        padding: 3px 10px;
+    }
+
+    .p-legend {
+        font-size: 12px;
+        padding: 0;
+        line-height: 16px;
+    }
+
+    .fuga05 .legend {
+        border-radius: 20px;
+        padding: 4px 6px;
+        display: inline-block;
+    }
+
+    .fuga05 .legend > * {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 4px;
+    }
+
+    .fuga05-legend-title {
+        font-size: 14px;
+    }
+
+    .fuga05-legend-circulo,
+    .fuga05-legend-tamano {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    .fuga05-legend-circulo {
+        width: 100px;
+    }
+
+    .fuga05-legend-tamano {
+        width: 120px;
+    }
+
+    .divider {
+        height: 60px;
+        width: 10px;
+    }
+
+    .circulo-con-texto {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        transform: translateY(-10px);
+    }
+
+    .circulo-con-texto::after {
+        margin-left: -11px;
+        margin-top: -2px;
+        font-size:  10px;
+    }
+
+    .circulo-grande {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+    }
+
+    .circulo-pequeno {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+    }
+
+    .fuga05 .legend .divider {
+        height: 50px;
+        width: 1px;
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 628px) {
+
+    .fuga05-legend-circulo,
+    .fuga05-legend-tamano {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .fuga05-legend-circulo {
+        width: 80px;
+    }
+
+    .fuga05-legend-tamano {
+        width: 100px;
+    }
+
+    .fuga05 .legend .fuga05-legend-title {
+        display: block;
+    }
+
 }

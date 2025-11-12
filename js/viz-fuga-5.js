@@ -1,11 +1,14 @@
 function drawBeeswarm(data, svgId, color) {
 
-    const labelWidth = 110;
+    const mobile =  window.innerWidth < 768;
+    const labelWidth = mobile ? 80 : 110;
+    const maxRadius = mobile ? 14 : 20;
+    const bgHeight = mobile ? 16 : 28;
 
     const margin3 = ({ top: 20, right: 20, bottom: 50, left: labelWidth + 20 });
 
     const width3 = d3.select(`#viz${svgId}`).node().parentNode.getBoundingClientRect().width;
-    const height3 = 300;
+    const height3 = mobile ? d3.select(`#viz${svgId}`).node().parentNode.getBoundingClientRect().height * 1.2 : 300;
 
     // Create a SVG container.
     const svg3 = d3.select(`#viz${svgId}`)
@@ -31,7 +34,7 @@ function drawBeeswarm(data, svgId, color) {
         .domain([0,100]);
 
     const rScale3 = d3.scaleSqrt()
-      .range([2, 20])
+      .range([0, maxRadius])
       .domain([0, rMax])
 
     const beeswarmD = beeswarmForce()
@@ -85,11 +88,11 @@ function drawBeeswarm(data, svgId, color) {
       .join("rect")
         .attr("class", "nacional-label-bg")
         .attr("x", 0)
-        .attr("y", height3 / 3 - 14)
+        .attr("y", height3 / 3 - bgHeight / 2)
         .attr('width', labelWidth)
-        .attr("height", 28)
-        .attr("rx", 10)
-        .attr("ry", 10)
+        .attr("height", bgHeight)
+        .attr("rx", bgHeight * 3/8)
+        .attr("ry", bgHeight * 3/8)
         .attr("fill", color)
 
     svg3.selectAll(".nacional-label")
@@ -115,11 +118,11 @@ function drawBeeswarm(data, svgId, color) {
       .join("rect")
         .attr("class", "provincial-label-bg")
         .attr("x", 0)
-        .attr("y", height3 * 2 / 3 - 14)
+        .attr("y", height3 * 2 / 3 - bgHeight / 2)
         .attr('width', labelWidth)
-        .attr("height", 28)
-        .attr("rx", 10)
-        .attr("ry", 10)
+        .attr("height", bgHeight)
+        .attr("rx", bgHeight * 3/8)
+        .attr("ry", bgHeight * 3/8)
         .attr("fill", color)
 
     svg3.selectAll(".provincial-label")

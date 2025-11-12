@@ -363,6 +363,11 @@ svg .tick line {
   .viz-text ul span {
     font-size: 12px;
   }
+
+  .fuga05 .nacional-label,
+  .fuga05 .provincial-label {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 625px) {
