@@ -139,8 +139,9 @@
 
   .creditos {
     font-size: 10px;
-    top: calc(100% - 100px);
-    border-radius: 40%;
+    top: calc(100% - 80px);
+    border-radius: 0%;
+    padding-top: 10px;
   }
 
   .final-credit {
