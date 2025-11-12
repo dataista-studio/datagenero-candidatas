@@ -2,7 +2,7 @@ function drawBeeswarm(data, svgId, color) {
 
     const mobile =  window.innerWidth < 768;
     const labelWidth = mobile ? 80 : 110;
-    const maxRadius = mobile ? 14 : 20;
+    const maxRadius = mobile ? 12 : 20;
     const bgHeight = mobile ? 16 : 28;
 
     const margin3 = ({ top: 20, right: 20, bottom: 50, left: labelWidth + 20 });

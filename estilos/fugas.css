@@ -126,6 +126,7 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
   font-family: 'IBM Plex Mono', monospace;
   text-align: center;
+  max-width: 1000px;
 }
 
 .step-fuga.active .fuga-img,

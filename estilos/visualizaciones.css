@@ -368,6 +368,19 @@ svg .tick line {
   .fuga05 .provincial-label {
     font-size: 12px;
   }
+
+  .fuga06 .title-container {
+    line-height: 1.1;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 60px;
+    padding: 4px 48px;
+  }
+
+  .fuga06 .viz-title {
+    border: none;
+    padding: 0;
+  }
 }
 
 @media (max-width: 625px) {

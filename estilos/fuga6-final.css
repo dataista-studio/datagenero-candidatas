@@ -64,3 +64,43 @@
   opacity: 1;
   transform: translateY(-12%);
 }
+
+.step-fuga-6-1 .hoja-rasgada::before {
+  content: "FUGA 06";
+}
+
+.step-fuga-6-f .fuga-inicio .hoja-rasgada::before {
+  content: "¿Por qué?";
+  text-transform: none;
+  transform: rotate(0);
+}
+
+.step-fuga-6-f .fuga-inicio .hoja-rasgada {
+  transform: translateY(calc(50%));
+}
+
+.step-fuga-6-f .fuga-inicio .fuga-p {
+  top: calc(50% - 200px)
+}
+
+.step-fuga-6-f .fuga-inicio .fuga-title {
+  font-size: 24px;
+}
+
+.step-fuga-6-f .fuga-inicio .fuga-h1 {
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .step-fuga-6-f .fuga-inicio .hoja-rasgada::before {
+    font-size: 14px
+  }
+
+  .step-fuga-6-f .fuga-inicio .fuga-title {
+    font-size: 16px;
+  }
+
+  .step-fuga-6-f .fuga-inicio .fuga-h1 {
+    font-size: 14px;
+  }
+}

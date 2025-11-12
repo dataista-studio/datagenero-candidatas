@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.conclusion-p1, .conclusion-p2, .conclusion-p3 {
+.conclusion-p1, .conclusion-p2 {
   font-size: 1.2rem;
   color: white;
   top: calc(50% - 20px);
@@ -37,16 +37,19 @@
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
   font-family: 'IBM Plex Mono', monospace;
-}
-
-.conclusion-p2 {
-  top: calc(50% - 20px);
+  padding: 0 20px;
+  max-width: 1000px;
 }
 
 .conclusion-p3 {
-  top: calc(50% - 20px);
+  font-size: 1.2rem;
   color: black;
   font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 0 20px;
+  max-width: 1000px;
 }
 
 .preguntas-final {
@@ -81,7 +84,7 @@
 .creditos {
     color: white;
     position: absolute;
-    top: calc(50% + 280px);
+    top: calc(100% - 180px);
     font-family: 'IBM Plex Mono', monospace;
     text-align: center;
     opacity: 0;
@@ -122,4 +125,36 @@
 .step-conclusion.active .creditos {
   opacity: 1;
   transform: translateY(-12%);
+}
+
+@media (max-width: 768px) {
+  .conclusion-p1, .conclusion-p2, .conclusion-p3 {
+    font-size: 14px;
+  }
+
+  .preguntas-final {
+    font-size: 12px;
+    max-width: 95vw;
+  }
+
+  .creditos {
+    font-size: 10px;
+    top: calc(100% - 100px);
+    border-radius: 40%;
+  }
+
+  .final-credit {
+    margin-top: 10px;
+    line-height: 25px;
+    vertical-align: middle;
+  }
+
+  .final-credit img {
+    width: auto;
+    height: 25px;
+  }
+
+  .step-conclusion-3 .hoja-rasgada {
+    top: 160px;
+  }
 }
