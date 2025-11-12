@@ -328,4 +328,24 @@ svg .tick line {
   .viz-text {
     font-size: 12px;
   }
+
+  .legend-encabezadas,
+  .legend-competitivas {
+    top: 6px;
+    content: "";
+    width: 21px;
+    height: 18px;
+    border-radius: 20px;
+    margin-right: 12px;
+  }
+
+  .legend-item {
+    font-size: 12px;
+  }
+
+  .viz-tag {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding: 6px 20px;
+  }
 }
