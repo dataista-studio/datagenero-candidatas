@@ -14,7 +14,7 @@ function drawDiagram(data, index) {
       } else if (name === 'corrientes') {
         return ['Corrien-', 'tes'];
       } else if (name === 'misiones') {
-        return ['Misio-', 'tns'];
+        return ['Misio-', 'nes'];
       } else if (name === 'santiago del estero') {
         return ['Stgo.', 'del', 'Estero'];
       } else if (name === 'tucuman') {
@@ -32,17 +32,20 @@ function drawDiagram(data, index) {
     const jurisdicciones = Array.from(new Set(data.map(d => d[field])));
     const nJuri = jurisdicciones.length;
 
-    const radius = 22.5;
+    // const radius = 22.5;
 
     const margin4 = ({ top: 80, right: 20, bottom: 10, left: 30 });
 
-    const width4 = jurisdicciones.length / 2 * 75;
-    const height4 = 600;
+    const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`);
+
+    const width4 = svg4.node().parentNode.getBoundingClientRect().width;
+    const height4 = window.innerHeight * 0.8 * 0.8;
+
+    const radius =  width4 / (jurisdicciones.length / 2) * 0.3;
     const padding = (height4 / 2 - margin4.top - margin4.bottom - 6 * radius) / 6;
 
     // Create a SVG container.
-    const svg4 = d3.select(`#viz02-${index < 10 ? `0${index}` : `${index}`}`)
-          .attr("width", width4)
+    svg4.attr("width", width4)
           .attr("height", height4)
           .attr("viewBox", [0, 0, width4, height4])
           .attr("style", "max-width: 100%; font: 10px sans-serif;");
