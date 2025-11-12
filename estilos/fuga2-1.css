@@ -36,3 +36,43 @@
   transition:  none;
   transform: none;
 }
+
+.step-fuga-2-2 .hoja-rasgada::before,
+.step-fuga-2-1 .hoja-rasgada::before {
+  content: "FUGA 02";
+}
+
+
+@media (max-width: 1000px) {
+  .step-fuga-2-1 .fuga-title,
+  .step-fuga-2-2 .fuga-title {
+    font-size: 1.4rem;
+  }
+
+  .step-fuga-2-1 .fuga-h1
+  .step-fuga-2-2 .fuga-h1 {
+    font-size: 2rem;
+  }
+
+  .step-fuga-2-1 .fuga-p,
+  .step-fuga-2-2 .fuga-p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 667px) {
+  .step-fuga-2-1 .fuga-title,
+  .step-fuga-2-2 .fuga-title {
+    font-size: 0.9rem;
+  }
+
+  .step-fuga-2-1 .fuga-h1,
+  .step-fuga-2-2 .fuga-h1 {
+    font-size: 1.1rem;
+  }
+
+  .step-fuga-2-1 .fuga-p,
+  .step-fuga-2-2 .fuga-p {
+    font-size: 1rem;
+  }
+}

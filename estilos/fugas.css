@@ -64,15 +64,10 @@
 
 .fuga-title {
   font-size: 2rem;
-  transform: rotate(5deg);
   margin-bottom: 20px;
-  background-color: #ea98ff;
-  box-shadow: 1px 1px 10px black;
-  position: absolute;
   font-family: 'IBM Plex Mono', monospace;
-  top: calc(50% - 200px);
-  padding: 2px 40px;
   z-index: 1;
+  display: block;
 }
 
 .fuga-title-1 {
@@ -105,6 +100,7 @@
   font-size: 3rem;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  display: block;
 }
 
 /* .fuga-h1-1-5 {
@@ -146,6 +142,9 @@
 }
 
 @media (max-width: 740px) {
+  .fuga-title {
+    font-size: 1.2rem;
+  }
   .fuga-h1 {
     font-size: 1.8rem;
   }

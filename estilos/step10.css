@@ -52,7 +52,7 @@
   text-transform: uppercase;
   background-color: pink;
   position: relative;
-  top: calc(50% - 110px);
+  top: calc(50% - 120px);
   left: calc(50% - 64px);
   font-size: 1.4rem;
   padding: 4px 12px;
@@ -71,7 +71,8 @@
 }
 
 .step-fuga .hoja-rasgada-texto {
-  top: 120px;
+  top: 140px;
+  transform: translateY(-50%);
 }
 
 .step10-textos span {
