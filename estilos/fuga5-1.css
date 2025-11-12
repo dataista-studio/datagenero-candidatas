@@ -150,3 +150,15 @@
     border-radius: 11px;
     background-color: #ea98ff;
 }
+
+.step-fuga-5-0 .hoja-rasgada::before {
+  content: "FUGA 05";
+}
+
+@media (max-width: 768px) {
+  .fuga-title5-1 {
+    font-size: 14px;
+    padding: 6px 20px;
+    margin-bottom: 40px;
+    }
+}
