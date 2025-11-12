@@ -96,11 +96,11 @@
 }
 
 .fuga-h1 {
-  position: absolute;
+  /* position: absolute; */
   font-family: 'Homemade Apple', cursive;
-  top: 50%;
-  transform: translateY(-50%);
-  top: calc(50% - 110px);
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  /* top: calc(50% - 110px); */
   z-index: 2;
   font-size: 3rem;
   opacity: 0;
@@ -143,4 +143,14 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+}
+
+@media (max-width: 740px) {
+  .fuga-h1 {
+    font-size: 1.8rem;
+  }
+
+  .fuga-p {
+    font-size: 1rem;
+  }
 }

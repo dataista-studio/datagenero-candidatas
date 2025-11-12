@@ -43,10 +43,35 @@
   transform: translateY(0);
 }
 
+.step-fuga .hoja-rasgada {
+  transform: translateY(calc(50% - 100px));
+}
+
+.step-fuga .hoja-rasgada::before {
+  content: "FUGA";
+  text-transform: uppercase;
+  background-color: pink;
+  position: relative;
+  top: calc(50% - 110px);
+  left: calc(50% - 64px);
+  font-size: 1.4rem;
+  padding: 4px 12px;
+  transform: rotate(5deg);
+  display: inline-block;
+  background-color: #ea98ff;
+  box-shadow: 1px 1px 10px black;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 .hoja-rasgada-texto {
   padding: 0 10%;
   position: relative;
   top: 130px;
+  text-align: center;
+}
+
+.step-fuga .hoja-rasgada-texto {
+  top: 120px;
 }
 
 .step10-textos span {
