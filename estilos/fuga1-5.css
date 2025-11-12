@@ -8,6 +8,7 @@
   z-index: 1;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: center;
 }
 
 .fuga-h1-1-5 {
@@ -21,6 +22,8 @@
   font-size: 4rem;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .fuga04 .fuga-h1-1-5 {
@@ -51,4 +54,24 @@
 .step-fuga.active .fuga-p-1-5 {
   opacity: 1;
   transform: translateY(-12%);
+}
+
+@media (max-width: 1177px) {
+  .fuga-h1-1-5 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 790px) {
+  .fuga-title-1-5 {
+    font-size: 1.4rem;
+  }
+
+  .fuga-h1-1-5 {
+    font-size: 1.6rem;
+  }
+
+  .fuga-p-1-5 {
+    font-size: 1rem;
+  }
 }

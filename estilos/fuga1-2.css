@@ -89,3 +89,9 @@
 .step-fuga-1-2.active .fuga-1-2-circle:nth-child(10) { animation-delay: 0.55s; }
 .step-fuga-1-2.active .fuga-1-2-circle:nth-child(11) { animation-delay: 0.6s; }
 .step-fuga-1-2.active .fuga-1-2-circle:nth-child(12) { animation-delay: 0.65s; } */
+
+@media (max-width: 790px) {
+  .fuga1-2-texto {
+    font-size: 1rem;
+  }
+}
