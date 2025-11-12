@@ -160,6 +160,6 @@
   }
 
   .step-conclusion-3 .hoja-rasgada {
-    top: 160px;
+    top: calc(50vh - 150px);
   }
 }
