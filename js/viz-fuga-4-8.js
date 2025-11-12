@@ -19,12 +19,13 @@ const fixName = (name) => {
 }
 
 function drawDumbbell(data, svgId) {
-    
-    const margin2 = ({ top: 10, right: 40, bottom: 60, left: 120 });
 
+    const mobile =  window.innerWidth < 768;
+    
+    const margin2 = ({ top: 10, right: 40, bottom: 60, left: mobile ? 80 : 120 });
 
     const width2 = d3.select(`#viz${svgId}`).node().parentNode.getBoundingClientRect().width;
-    const height2 = width2 / 3;
+    const height2 = mobile ?  width2 / 2 : width2 / 3;
 
     const yValues = data.map(d => d.jurisdiccion)
 

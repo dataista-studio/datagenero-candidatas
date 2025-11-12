@@ -337,6 +337,12 @@ svg .tick line {
     gap: 8px;
   }
 
+  .viz-explain {
+    margin-top: 0;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+
   .col-none {
     grid-column: none;
   }
