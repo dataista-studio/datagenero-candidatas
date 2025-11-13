@@ -20,7 +20,7 @@ function drawDiagram(data, index) {
       if (name === 'catamarca') {
         return ['Cata-', 'marca'];
       } else if (name === 'cordoba') {
-        return ['Córdoba'];
+        return ['Cór-', 'doba'];
       } else if (name === 'corrientes') {
         return ['Corrien-', 'tes'];
       } else if (name === 'misiones') {
