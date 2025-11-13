@@ -366,6 +366,9 @@ Promise.all([
     updateHeight();
 })
 
+const banner = d3.select(".banner");
+const fugaMenu = d3.selectAll(".fuga-menu");
+
 scroller
     .setup({ step: ".step", offset: 0.8, debug: false })
     .onStepEnter(({ element }) => {
@@ -388,6 +391,32 @@ scroller
         transitionSections(stepIndex, "fuga-secciones");
         transitionReplacement(stepIndex, "reemplazos");
 
+
+        
+        if (11 <= stepIndex && stepIndex <= 14) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 0 === i);
+        } else if (15 <= stepIndex && stepIndex <= 22) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 1 === i);
+        } else if (23 <= stepIndex && stepIndex <= 27) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 2 === i);
+        } else if (28 <= stepIndex && stepIndex <= 34) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 3 === i);
+        } else if (35 <= stepIndex && stepIndex <= 38) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 4 === i);
+        } else if (39 <= stepIndex && stepIndex <= 44) {
+            banner.style("opacity", 1)
+            fugaMenu.classed("active", (_,i) => 5 === i);
+        } else {
+            banner.style("opacity", 0);
+            fugaMenu.classed("active", false); 
+        }
+        
+
     })
 
 window.addEventListener("resize", scroller.resize);
@@ -399,10 +428,25 @@ const bannerTitle = d3.select(".banner-title");
 
 bannerTitle
     .on("click", () => {
-        console.log('click')
         bannerMenu.style("opacity", menuVisible ? 0 : 1);
         menuVisible = !menuVisible;
-        bannerTitle.classed("open", menuVisible)
+        bannerTitle.classed("open", menuVisible);
+        bannerMenu.classed("open", menuVisible)
+    })
+
+d3.selectAll(".tap").on("click", (evt,i) => {
+        const id = evt.target.parentNode.id;
+        const number = id[id.length - 1];
+
+        const sectionIdx = number === '1' ? 11
+            : (number === '2' ? 15 : (
+                number === '3' ? 23 : (
+                    number === '4' ? 28 : (
+                        number === '5' ? 35 : (
+                            number === '6' ? 39 : 0
+            )))))
+
+        d3.selectAll(".step").filter((d,i) => i === sectionIdx).node().scrollIntoView();
     })
 
 updateHeight();
