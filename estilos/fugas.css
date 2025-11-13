@@ -9,30 +9,65 @@
 @import url("fuga5-1.css");
 @import url("fuga-plots.css");
 
-/* .step-fuga {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-} */
-
 .banner {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
-  font-family: "IBM Plex Mono", monospace;
-  color: #fff;
   position: absolute;
   top: 20px;
-  left: 40px;
+  left: -4px;
+  z-index: 1000;
+  opacity: 0;
+}
+
+.banner-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.3rem;
+  color: #302235;
   background-color: #f6d4ff; /*inventado*/
   padding: 2px 25px;
+  width: 140px;
+  float: right;
   border-radius: 50px;
-  color: black;
+  line-height: 1.6rem;
+  margin-top: -6px;
+  font-weight: 700;
+  z-index: 50;
+  position: absolute;
+  cursor: pointer;
+  margin-left: 44px;
+  transition: transform 0.8s ease;
+}
+
+.banner-title:after {
+  content: "";
+  background-image: url("../img/chevron.svg");
+  width: 20px;
+  position: absolute;
+  right: 14px;
+  top: 4px;
+  height: 20px;
+  transform: rotate(180deg);
+}
+
+.open.banner-title:after {
+  transform: rotate(0deg);
+}
+
+.banner-menu {
+  border: 1px solid #f6d4ff;
+  background-color: #302235;
+  border-radius: 0px 20px 20px 0px;
+  opacity: 0;
+  z-index: 40;
+  position: relative;
+}
+
+.banner-menu svg {
+  height: 85vh;
+  max-width: 50vw;
+}
+
+.open .fuga-menu {
+  cursor: pointer;
 }
 
 .linea-1 {
@@ -50,8 +85,6 @@
   margin-left: -2px;
   transform: rotate(-45deg);
 }
-
-
 
 .fuga-content {
   position: relative;
@@ -91,11 +124,7 @@
 }
 
 .fuga-h1 {
-  /* position: absolute; */
   font-family: 'Homemade Apple', cursive;
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
-  /* top: calc(50% - 110px); */
   z-index: 2;
   font-size: 3rem;
   opacity: 0;
@@ -103,17 +132,6 @@
   display: block;
 }
 
-/* .fuga-h1-1-5 {
-  position: absolute;
-  font-family: 'Homemade Apple', cursive;
-  top: 50%;
-  transform: translateY(-50%);
-  top: calc(50% - 80px);
-  z-index: 2;
-  font-size: 2.8rem;
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-} */
 
 .fuga-p {
   margin-top: 20px;
@@ -140,6 +158,31 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    top: 10px;
+    left: -4px;
+  }
+
+  .banner-title {
+    font-size: 1.1rem;
+    padding: 2px 25px;
+    width: 120px;
+    float: right;
+    border-radius: 50px;
+    line-height: 1.2rem;
+    margin-top: -6px;
+    margin-left: 16px;
+  }
+
+  .banner-title:after {
+    right: 14px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+  }
 }
 
 @media (max-width: 740px) {
