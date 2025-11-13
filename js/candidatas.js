@@ -61,13 +61,24 @@ function transitionDropDots(index, divId) {
 
 function transitionMarimekko(index, divId) {
     if (index === getDivIndexInStep(divId)) {
+        console.log(divId)
+
+        const svg = d3.select(`#${divId}`).select("svg");
+        const toolDiv = d3.select(`#${divId}`).select(".viz-tooltip");
+
+        const onClick = (evt, d) => {
+            console.log(d)
+        }
 
         const rectFg = d3.select(`#${divId}`)
                 .selectAll(".rect-fg")
         
         rectFg.attr("fill", "#A969C4")
             .attr("y", d => d.y0)
-            .attr("height", d => d.h0);
+            .attr("height", d => d.h0)
+            .on("click", (evt, d) => {
+                console.log(evt, d)
+            });
 
         setTimeout(()  => {
             rectFg.transition().duration(1000)
@@ -375,7 +386,8 @@ scroller
         const stepIndex = Number(element.dataset.step);
 
         steps.style("opacity", d => d === stepIndex ? 1 : 0)
-            .classed("active", d => d === stepIndex);
+            .classed("active", d => d === stepIndex)
+            .classed("inactive", d => d !== stepIndex);
 
         transitionDropDots(stepIndex, "ley-paridad");
 

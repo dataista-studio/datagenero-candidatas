@@ -1,7 +1,7 @@
 function drawMarimekko(data, svgId) {
     const margin1 = ({ top: 40, right: 20, bottom: 40, left: 40 });
 
-    const svg1 = d3.select(`#viz${svgId}`)
+    const svg1 = d3.select(`#viz${svgId}`);
 
     const mobile =  window.innerWidth < 768;
     const width1 = svg1.node().parentNode.getBoundingClientRect().width;

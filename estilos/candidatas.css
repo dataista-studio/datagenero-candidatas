@@ -80,6 +80,10 @@
   opacity: 1;
 }
 
+.inactive {
+  pointer-events: none;
+}
+
 .desktop {
   display: flex;
 }
