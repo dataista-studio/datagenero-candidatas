@@ -76,11 +76,11 @@
 }
 
 .step-fuga-6-f .fuga-inicio .hoja-rasgada {
-  transform: translateY(calc(50% + 100px));
+  top: calc(50% - 140px);
 }
 
 .step-fuga-6-f .fuga-inicio .fuga-p {
-  top: calc(50% - 200px)
+  top: calc(50% - 200px);
 }
 
 .step-fuga-6-f .fuga-inicio .fuga-title {

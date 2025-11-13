@@ -39,13 +39,14 @@
   width: 100%;
   height: 400px;
   min-height: 200px;
-  position: relative;
-  transform: translateY(0);
+  position: absolute;
+  /* transform: translateY(0); */
+  top: calc(50% - 240px)
 }
 
-.step-fuga .hoja-rasgada {
+/* .step-fuga .hoja-rasgada {
   transform: translateY(calc(50% - 100px));
-}
+} */
 
 .step-fuga .hoja-rasgada::before {
   content: "FUGA";
@@ -68,10 +69,12 @@
   position: relative;
   top: 130px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .step-fuga .hoja-rasgada-texto {
-  top: 140px;
+  top: 150px;
   transform: translateY(-50%);
 }
 
