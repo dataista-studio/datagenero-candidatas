@@ -88,6 +88,31 @@
   display: none;
 }
 
+.tap {
+  fill: #70657a;
+}
+
+.drops {
+  opacity: 0;
+  fill: #a355df;
+}
+
+.nombre-fuga {
+  fill: #302235;
+}
+
+.active .tap {
+  fill: #ea98ff;
+}
+
+.active .nombre-fuga {
+  fill: #fff;
+}
+
+.active .drops {
+  opacity: 1;
+}
+
 @media (max-width: 740px) {
   .desktop {
     display: none;

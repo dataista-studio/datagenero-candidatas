@@ -392,6 +392,19 @@ scroller
 
 window.addEventListener("resize", scroller.resize);
 
+let menuVisible = false;
+
+const bannerMenu = d3.select(".banner-menu");
+const bannerTitle = d3.select(".banner-title");
+
+bannerTitle
+    .on("click", () => {
+        console.log('click')
+        bannerMenu.style("opacity", menuVisible ? 0 : 1);
+        menuVisible = !menuVisible;
+        bannerTitle.classed("open", menuVisible)
+    })
+
 updateHeight();
 
 function updateHeight() {
