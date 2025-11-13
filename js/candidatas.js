@@ -67,7 +67,16 @@ function transitionMarimekko(index, divId) {
         const toolDiv = d3.select(`#${divId}`).select(".viz-tooltip");
 
         const onClick = (evt, d) => {
-            console.log(d)
+            const [x,y] = d3.pointer(evt);
+            toolDiv.html(d.distrito);
+            console.log(toolDiv.node().getBoundingClientRect())
+
+            const toolWidth = toolDiv.node().getBoundingClientRect().width;
+            const toolHeight = toolDiv.node().getBoundingClientRect().height;
+            console.log(toolWidth, toolHeight)
+            
+            toolDiv.style("top", `${y - toolHeight}px`)
+                .style("left", `${x - toolWidth/2}px`)
         }
 
         const rectFg = d3.select(`#${divId}`)
@@ -76,9 +85,7 @@ function transitionMarimekko(index, divId) {
         rectFg.attr("fill", "#A969C4")
             .attr("y", d => d.y0)
             .attr("height", d => d.h0)
-            .on("click", (evt, d) => {
-                console.log(evt, d)
-            });
+            .on("click", onClick);
 
         setTimeout(()  => {
             rectFg.transition().duration(1000)

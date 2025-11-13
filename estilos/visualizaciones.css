@@ -290,6 +290,13 @@ svg .tick line {
   margin: 0 auto;
 }
 
+.viz-tooltip {
+  position: relative;
+  width: 200px;
+  height: auto;
+  text-align: center;
+}
+
 
 @media (max-width: 1200px) {
   svg .tick text,
