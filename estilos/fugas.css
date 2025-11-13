@@ -119,11 +119,7 @@
 }
 
 .fuga-h1 {
-  /* position: absolute; */
   font-family: 'Homemade Apple', cursive;
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
-  /* top: calc(50% - 110px); */
   z-index: 2;
   font-size: 3rem;
   opacity: 0;
@@ -131,17 +127,6 @@
   display: block;
 }
 
-/* .fuga-h1-1-5 {
-  position: absolute;
-  font-family: 'Homemade Apple', cursive;
-  top: 50%;
-  transform: translateY(-50%);
-  top: calc(50% - 80px);
-  z-index: 2;
-  font-size: 2.8rem;
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-} */
 
 .fuga-p {
   margin-top: 20px;
@@ -168,6 +153,31 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    top: 10px;
+    left: -4px;
+  }
+
+  .banner-title {
+    font-size: 1.1rem;
+    padding: 2px 25px;
+    width: 120px;
+    float: right;
+    border-radius: 50px;
+    line-height: 1.2rem;
+    margin-top: -6px;
+    margin-left: 16px;
+  }
+
+  .banner-title:after {
+    right: 14px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+  }
 }
 
 @media (max-width: 740px) {
