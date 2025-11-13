@@ -161,7 +161,11 @@
     height: 25px;
   }
 
-  .step-conclusion-3 .hoja-rasgada {
-    top: calc(50vh - 150px);
+  #preg1 {
+      top: calc(50% + 140px);
+  }
+
+  #preg2 {
+      top: calc(50% + 190px);
   }
 }
