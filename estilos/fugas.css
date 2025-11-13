@@ -152,5 +152,6 @@
 
   .fuga-p {
     font-size: 1rem;
+    max-width: 90vw;;
   }
 }

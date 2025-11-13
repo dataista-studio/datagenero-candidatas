@@ -94,5 +94,6 @@
 @media (max-width: 790px) {
   .fuga1-2-texto {
     font-size: 1rem;
+    max-width: 90vw;
   }
 }
