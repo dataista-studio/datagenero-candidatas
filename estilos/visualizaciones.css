@@ -347,6 +347,11 @@ svg .tick line {
   cursor: pointer;
 }
 
+svg .diputados,
+svg .senadores {
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
   svg .tick text,
   svg .annotation,
