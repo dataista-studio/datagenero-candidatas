@@ -249,7 +249,10 @@ function transitionSections(index, divId) {
     }
 }
 
+let interval;
+
 function transitionReplacement(index, divId) {
+
     if (index === getDivIndexInStep(divId)) {
         const radius = 12;
 
@@ -259,23 +262,30 @@ function transitionReplacement(index, divId) {
         const viene = d3.select(`#${divId}`)
                 .selectAll(".viene");
 
-        va.attr("cx", d => d.width / 2)
-            .style("opacity", 1);
-
-        viene.attr("cx", d => d.width / 2 + 200)
-            .style("opacity", 0);
+        const maxIdx = 200;
+        const delta = 50;
+        let idx = 0;
 
    
-        setTimeout(()  => {
-            va.transition().duration(1000)
-                .attr("cx", d => d.width / 2 - 200)
-                .style("opacity", 0);
+        interval = setInterval(()  => {
+            let frac = idx / maxIdx;
 
-            viene.transition().duration(1000)
-                .attr("cx", d => d.width / 2)
-                .style("opacity", 1);
-        }, delay)
+            if (maxIdx <= idx && idx <= maxIdx + delta) {
+                frac = 1;
+            }
+
+            va.attr("cx", d => d.width / 2 - 200 * frac)
+                .style("opacity", 1 - frac);
+
+            viene.attr("cx", d => d.width / 2 + 200 - 200 * frac)
+                .style("opacity", 0 + frac);
+
+            idx++;
+            if (idx === maxIdx + delta) idx = 0;
+        }, 10)
         
+    } else {
+        clearInterval(interval);
     }
 }
 
