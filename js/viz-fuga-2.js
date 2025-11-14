@@ -8,7 +8,6 @@ function drawDiagram(data, index) {
 
     const splitText = (name) => {
       if (mobile) {
-        console.log(name.split(" ").map(d => d.slice(0,1).toUpperCase() + '.').join(" "))
         if (name === 'ciudad de buenos aires') {
           return ['CABA']
         }

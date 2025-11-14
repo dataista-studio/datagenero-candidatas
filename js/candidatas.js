@@ -459,7 +459,6 @@ Promise.all([
 
     const data5 = processData5(f5);
     const data5p = processData5(f5p);
-    console.log(data5)
 
     drawBeeswarm(data5, "05-01", "#BC88FF");
     drawBeeswarm(data5p, "05-02", "#76FF89");
