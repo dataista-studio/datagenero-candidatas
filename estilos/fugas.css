@@ -48,7 +48,7 @@
   transform: rotate(180deg);
 }
 
-.open.banner-title:after {
+.open .banner-title:after {
   transform: rotate(0deg);
 }
 
@@ -59,11 +59,18 @@
   opacity: 0;
   z-index: 40;
   position: relative;
+  pointer-events: none;
+  height: 0;
 }
 
 .banner-menu svg {
   height: 85vh;
   max-width: 50vw;
+}
+
+.open.banner-menu {
+  pointer-events: all;
+  height: auto;
 }
 
 .open .fuga-menu {

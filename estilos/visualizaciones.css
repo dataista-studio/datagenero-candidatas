@@ -292,11 +292,56 @@ svg .tick line {
 
 .viz-tooltip {
   position: relative;
-  width: 200px;
+  width: 300px;
   height: auto;
   text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  background-color: #FFF;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #302235;
+  display: none;
 }
 
+.viz-tooltip:after {
+  content: '';
+  position: absolute;
+  left: 42%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #FFF;
+  clear: both;
+}
+
+.tooltip-title {
+  text-align: left;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.viz-tooltip p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+
+.viz-tooltip .tooltip-number {
+  font-style: normal;
+  font-weight: 700;
+}
+
+#close {
+  cursor: pointer;
+  float: right;
+}
+
+.rect-bg, .rect-mg, .rect-fg {
+  cursor: pointer;
+}
 
 @media (max-width: 1200px) {
   svg .tick text,

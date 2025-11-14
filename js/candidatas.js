@@ -68,16 +68,33 @@ function transitionMarimekko(index, divId) {
 
         const onClick = (evt, d) => {
             const [x,y] = d3.pointer(evt);
-            toolDiv.html(d.distrito);
-            console.log(toolDiv.node().getBoundingClientRect())
+            toolDiv.style("display", "block")
+                .html(`
+                    <div id="close">
+                        <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289Z" fill="#302235"/>
+                        </svg>
+                    </div>
+                    <span class="tooltip-title">${d.distrito}</span>
+                    <p>Listas encabezadas por mujeres: <span class="tooltip-number">${(d['% mujeres']*100).toFixed(0)}%</span></p>
+                `);
 
             const toolWidth = toolDiv.node().getBoundingClientRect().width;
             const toolHeight = toolDiv.node().getBoundingClientRect().height;
-            console.log(toolWidth, toolHeight)
             
-            toolDiv.style("top", `${y - toolHeight}px`)
-                .style("left", `${x - toolWidth/2}px`)
+            toolDiv.style("top", `${y - toolHeight/2}px`)
+                .style("left", `${x - toolWidth/2}px`);
+
+            toolDiv.select("#close")
+                .on("click", () => {
+                    console.log('here')
+                    toolDiv.style("display", "none");
+                })
         }
+
+        d3.select(`#${divId}`)
+            .selectAll(".rect-bg")
+            .on("click", onClick);
 
         const rectFg = d3.select(`#${divId}`)
                 .selectAll(".rect-fg")
@@ -409,7 +426,6 @@ scroller
         transitionDumbbell(stepIndex, "distrito-secciones");
         transitionSections(stepIndex, "fuga-secciones");
         transitionReplacement(stepIndex, "reemplazos");
-
 
         
         if (11 <= stepIndex && stepIndex <= 14) {
