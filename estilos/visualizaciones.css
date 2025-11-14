@@ -396,6 +396,21 @@ svg .tick line {
     font-size: 12px;
   }
 
+  .viz-tooltip {
+    width: 190px;
+    padding: 4px 6px;
+  }
+
+  .tooltip-title {
+    font-size: 0.9rem;
+  }
+
+
+  .viz-tooltip p {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+
   .col-none {
     grid-column: none;
   }
