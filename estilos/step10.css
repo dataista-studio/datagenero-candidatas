@@ -65,18 +65,18 @@
 }
 
 .hoja-rasgada-texto {
-  padding: 0 10%;
   position: relative;
-  top: 130px;
+  top: 150px;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.step-fuga .hoja-rasgada-texto {
-  top: 150px;
   transform: translateY(-50%);
 }
+
+/* .step-fuga .hoja-rasgada-texto {
+  top: 150px;
+  transform: translateY(-50%);
+} */
 
 .step10-textos span {
   font-family: "IBM Plex Mono", monospace;
