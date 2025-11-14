@@ -98,4 +98,13 @@ function drawMarimekko(data, svgId) {
         .attr("stroke", '#382541')
         .attr("stroke-width", 0.5);
 
+    g1.append("text")
+        .attr("class", "annotation")
+        .attr("x", margin1.left + (width1 - margin1.left - margin1.right) / 2)
+        .attr("y", margin1.top + 20)
+        .attr("fill", "#FFF")
+        .attr("text-anchor", 'middle')
+        .style("text-transform", "uppercase")
+        .text("Listas totales")
+
 }
