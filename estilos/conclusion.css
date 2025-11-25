@@ -42,6 +42,7 @@
 }
 
 .conclusion-p3 {
+  position: relative;
   font-size: 1.4rem;
   color: black;
   font-weight: bold;
@@ -51,6 +52,7 @@
   padding: 0 20px;
   max-width: 600px;
   margin: 0 auto;
+  top: 40px;
 }
 
 .preguntas-final {
